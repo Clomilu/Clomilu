@@ -336,7 +336,7 @@ footer{
   .footer-row{flex-direction:column}
 }
 @media(max-width:700px){
-  /* ---- Ромашка превращается в вертикальный список ---- */
+  /* ---- Ромашка превращается в вертикальный столбик ---- */
   .flower-wheel{
     position:static;
     width:100%;
@@ -346,7 +346,6 @@ footer{
     flex-direction:column;
     gap:12px;
     transform:none;
-    margin:0 auto;
   }
 
   /* Центральный круг — плашка сверху */
@@ -363,7 +362,7 @@ footer{
     text-align:center;
   }
   .flower-wheel .center br{
-    display:none;   /* на телефоне «Clomilu помогает:» в одну строку */
+    display:none;   /* убираем перенос: «Clomilu помогает:» в одну строку */
   }
 
   /* Лепестки — карточки друг под другом */
@@ -372,6 +371,10 @@ footer{
     width:100%;
     height:auto;
     min-height:auto;
+    left:auto;
+    right:auto;
+    top:auto;
+    bottom:auto;
     transform:none;
     border-radius:14px;
     padding:18px 20px;
