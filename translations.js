@@ -35,7 +35,7 @@ const translations = {
       }
     },
     closing: "Clomilu est là chaque fois que vous avez besoin d’un espace structuré pour réfléchir — avant, pendant ou après une décision importante.",
-    footer: { privacy: "Confidentialité", terms: "Conditions", legal: "Mentions légales" }
+    footer: { privacy: "Confidentialité", terms: "Conditions", legal: "Mentions légales", cookies: "Cookies" }
   },
 
   en: {
@@ -74,7 +74,7 @@ const translations = {
       }
     },
     closing: "Clomilu is there whenever you need a structured space to think — before, during or after an important decision.",
-    footer: { privacy: "Privacy", terms: "Terms", legal: "Legal notice" }
+    footer: { privacy: "Privacy", terms: "Terms", legal: "Legal notice", cookies: "Cookies" }
   },
 
   es: {
@@ -113,7 +113,7 @@ const translations = {
       }
     },
     closing: "Clomilu está ahí siempre que necesites un espacio estructurado para pensar — antes, durante o después de una decisión importante.",
-    footer: { privacy: "Privacidad", terms: "Condiciones", legal: "Aviso legal" }
+    footer: { privacy: "Privacidad", terms: "Condiciones", legal: "Aviso legal", cookies: "Cookies" }
   },
 
   ru: {
@@ -152,6 +152,6 @@ const translations = {
       }
     },
     closing: "Clomilu рядом всегда, когда вам нужно структурированное пространство для размышлений — до, во время или после важного решения.",
-    footer: { privacy: "Конфиденциальность", terms: "Условия", legal: "Юридическая информация" }
+    footer: { privacy: "Конфиденциальность", terms: "Условия", legal: "Юридическая информация", cookies: "Cookies" }
   }
 };
