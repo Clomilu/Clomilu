@@ -14,7 +14,7 @@ const translations = {
       next: { title: "Identifier votre prochaine étape", text: "lorsque vous ne savez pas par où commencer." },
       dilemmas: { title: "Faire face à vos dilemmes", text: "lorsqu’il n’y a pas de réponse évidente." },
       head: { title: "Sortir le problème de votre tête", text: "et transformer une situation confuse en quelque chose sur lequel vous pouvez travailler." },
-      center: "Clomilu<br>vous aide à :"
+      center: "Clomilu <br>vous aide à :"
     },
     statement: "Plus de clarté. De meilleures décisions. Une façon d’avancer.",
     pricing: {
@@ -53,7 +53,7 @@ const translations = {
       next: { title: "Find your next step", text: "when you’re not sure where to start." },
       dilemmas: { title: "Work through dilemmas", text: "when there is no obvious answer." },
       head: { title: "Get it out of your head", text: "and turn a tangled problem into something you can work with." },
-      center: "Clomilu<br>helps you:"
+      center: "Clomilu <br>helps you:"
     },
     statement: "Clearer thinking. Better decisions. A next step.",
     pricing: {
@@ -92,7 +92,7 @@ const translations = {
       next: { title: "Encontrar el siguiente paso", text: "cuando no sabes por dónde empezar." },
       dilemmas: { title: "Abordar tus dilemas", text: "cuando no hay una respuesta evidente." },
       head: { title: "Sacar el problema de tu cabeza", text: "y convertir una situación complicada en algo con lo que puedas trabajar." },
-      center: "Clomilu<br>te ayuda a:"
+      center: "Clomilu <br>te ayuda a:"
     },
     statement: "Más claridad al pensar. Mejores decisiones. Una forma de avanzar.",
     pricing: {
@@ -131,7 +131,7 @@ const translations = {
       next: { title: "Найти следующий шаг", text: "когда непонятно, с чего начать." },
       dilemmas: { title: "Разобраться с дилеммой", text: "когда очевидного ответа нет." },
       head: { title: "Вытащить проблему из головы", text: "и превратить запутанную ситуацию в задачу, с которой можно работать." },
-      center: "Clomilu<br>помогает:"
+      center: "Clomilu <br>помогает:"
     },
     statement: "Ясность в мыслях. Взвешенность решений. Движение вперёд.",
     pricing: {
