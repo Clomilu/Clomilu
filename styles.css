@@ -313,17 +313,37 @@ footer{
 .footer-links{display:flex;gap:25px}
 
 /* ---- RESPONSIVE ---- */
+/* ---- RESPONSIVE ---- */
 @media(max-width:800px){
   .container{width:min(100% - 36px,600px)}
   nav{height:88px}
   .logo{height:36px}
-  .hero{min-height:auto}
+  .hero{min-height:560px}
   .hero-grid,.intro-grid,.pricing-grid,.econ-grid{grid-template-columns:1fr;gap:55px}
-  .hero-grid{padding:55px 0 80px;align-items:start}
+  .hero-grid{padding:55px 0 80px;align-items:start;position:relative;gap:0}
+  .hero-copy{position:relative;z-index:1}
   .hero-copy h1{font-size:44px;letter-spacing:-1.8px}
   .hero-copy .lead{font-size:17px}
-  .hero-art{height:auto;min-height:260px}
-  .flower-hero{height:260px;width:auto}
+  .hero-art{
+    position:absolute;
+    inset:0;
+    height:100%;
+    min-height:0;
+    z-index:0;
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+    pointer-events:none;
+  }
+  .flower-hero{
+    height:80%;
+    max-height:none;
+    max-width:70%;
+    width:auto;
+    opacity:.18;
+    filter:none;
+    object-fit:contain;
+  }
   .section{padding:75px 0}
   h2{font-size:32px}
   .flower-wheel{max-width:460px}
@@ -399,7 +419,6 @@ footer{
   .nav-right{gap:12px}
   .logo{height:32px}
   .hero-copy h1{font-size:39px}
-  .flower-hero{height:200px}
 }
 /* ---- LEGAL PAGES ---- */
 .legal-page{
