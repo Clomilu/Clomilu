@@ -335,6 +335,63 @@ footer{
   .closing-statement p{font-size:24px}
   .footer-row{flex-direction:column}
 }
+@media(max-width:700px){
+  /* ---- Ромашка превращается в вертикальный список ---- */
+  .flower-wheel{
+    position:static;
+    width:100%;
+    max-width:none;
+    aspect-ratio:auto;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    transform:none;
+    margin:0 auto;
+  }
+
+  /* Центральный круг — плашка сверху */
+  .flower-wheel .center{
+    position:static;
+    transform:none;
+    width:100%;
+    height:auto;
+    border-radius:14px;
+    padding:16px 20px;
+    font-size:16px;
+    line-height:1.3;
+    margin-bottom:6px;
+    text-align:center;
+  }
+  .flower-wheel .center br{
+    display:none;   /* на телефоне «Clomilu помогает:» в одну строку */
+  }
+
+  /* Лепестки — карточки друг под другом */
+  .petal{
+    position:static;
+    width:100%;
+    height:auto;
+    min-height:auto;
+    transform:none;
+    border-radius:14px;
+    padding:18px 20px;
+    font-size:15px;
+    line-height:1.45;
+    text-align:left;
+    align-items:flex-start;
+  }
+  .petal strong{
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:6px;
+    display:block;
+  }
+  .petal span{
+    font-size:14px;
+    line-height:1.5;
+    color:#3a4f45;
+  }
+}
 @media(max-width:520px){
   .nav-right{gap:12px}
   .logo{height:32px}
