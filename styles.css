@@ -182,7 +182,6 @@ nav{
   max-width:340px;        /* ← важно: контролирует и ширину */
   width:auto;
   display:block;
-  opacity:.92;
   filter:drop-shadow(0 20px 30px rgba(0,0,0,.12));
   object-fit:contain;
 }
@@ -313,7 +312,6 @@ footer{
 .footer-links{display:flex;gap:25px}
 
 /* ---- RESPONSIVE ---- */
-/* ---- RESPONSIVE ---- */
 @media(max-width:800px){
   .container{width:min(100% - 36px,600px)}
   nav{height:88px}
@@ -340,7 +338,6 @@ footer{
     max-height:none;
     max-width:70%;
     width:auto;
-    opacity:.18;
     filter:none;
     object-fit:contain;
   }
