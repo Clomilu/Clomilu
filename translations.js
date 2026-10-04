@@ -41,7 +41,7 @@ const translations = {
         p2: "Aux États-Unis, les consultants indépendants facturent couramment 150 à 300 $ ou plus de l’heure, les spécialistes expérimentés pouvant pratiquer des tarifs sensiblement plus élevés."
       }
     },
-    closing: "Clomilu est là chaque fois que vous avez besoin d’un espace structuré pour réfléchir — avant, pendant ou après une décision importante.",
+    closing: "Clomilu est là chaque fois que vous avez besoin d’un espace structuré pour réfléchir — avant ou pendant une décision importante.",
     footer: { privacy: "Confidentialité", terms: "Conditions", legal: "Mentions légales", cookies: "Cookies" },
     auth: {
       back: "← Retour",
@@ -128,7 +128,7 @@ const translations = {
         p2: "In the United States, independent business consultants commonly charge around <strong>$150–300+ per hour</strong>, with experienced specialists charging considerably more."
       }
     },
-    closing: "Clomilu is there whenever you need a structured space to think — before, during or after an important decision.",
+    closing: "Clomilu is there whenever you need a structured space to think — before or during an important decision.",
     footer: { privacy: "Privacy", terms: "Terms", legal: "Legal notice", cookies: "Cookies" },
     auth: {
       back: "← Back",
@@ -215,7 +215,7 @@ const translations = {
         p2: "En Estados Unidos, los consultores de negocio independientes suelen cobrar alrededor de <strong>150–300 $ o más por hora</strong>, y los especialistas con amplia experiencia pueden cobrar considerablemente más."
       }
     },
-    closing: "Clomilu está ahí siempre que necesites un espacio estructurado para pensar — antes, durante o después de una decisión importante.",
+    closing: "Clomilu está ahí siempre que necesites un espacio estructurado para pensar — antes o durante una decisión importante.",
     footer: { privacy: "Privacidad", terms: "Condiciones", legal: "Aviso legal", cookies: "Cookies" },
     auth: {
       back: "← Volver",
@@ -302,7 +302,7 @@ const translations = {
         p2: "В США независимые бизнес-консультанты обычно берут около <strong>150–300 $ и более в час</strong>, а специалисты с большим опытом могут стоить значительно дороже."
       }
     },
-    closing: "Clomilu рядом всегда, когда вам нужно структурированное пространство для размышлений — до, во время или после важного решения.",
+    closing: "Clomilu рядом всегда, когда вам нужно структурированное пространство для размышлений — до или во время важного решения.",
     footer: { privacy: "Конфиденциальность", terms: "Условия", legal: "Юридическая информация", cookies: "Cookies" },
     auth: {
       back: "← Назад",
