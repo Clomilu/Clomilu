@@ -48,6 +48,16 @@ const translations = {
       buttonLogin: "Se connecter",
       buttonSignup: "Créer un compte",
       forgotPassword: "Mot de passe oublié ?"
+    },
+    reset: {
+      title: "Réinitialiser le mot de passe",
+      description: "Entrez votre email, nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+      emailLabel: "Email",
+      emailPlaceholder: "votre@email.com",
+      submit: "Envoyer le lien",
+      backToLogin: "← Retour à la connexion",
+      backToLoginShort: "← Retour",
+      success: "Si un compte existe pour cet email, un lien de réinitialisation a été envoyé."
     }
   },
 
@@ -100,6 +110,16 @@ const translations = {
       buttonLogin: "Sign in",
       buttonSignup: "Create account",
       forgotPassword: "Forgot password?"
+    },
+    reset: {
+      title: "Reset your password",
+      description: "Enter your email and we will send you a link to reset your password.",
+      emailLabel: "Email",
+      emailPlaceholder: "you@email.com",
+      submit: "Send the link",
+      backToLogin: "← Back to sign in",
+      backToLoginShort: "← Back",
+      success: "If an account exists for this email, a reset link has been sent."
     }
   },
 
@@ -152,6 +172,16 @@ const translations = {
       buttonLogin: "Iniciar sesión",
       buttonSignup: "Crear cuenta",
       forgotPassword: "¿Olvidaste tu contraseña?"
+    },
+        reset: {
+      title: "Restablecer la contraseña",
+      description: "Introduce tu email y te enviaremos un enlace para restablecer tu contraseña.",
+      emailLabel: "Email",
+      emailPlaceholder: "tu@email.com",
+      submit: "Enviar el enlace",
+      backToLogin: "← Volver al inicio de sesión",
+      backToLoginShort: "← Volver",
+      success: "Si existe una cuenta para este email, se ha enviado un enlace de restablecimiento."
     }
   },
 
@@ -204,6 +234,16 @@ const translations = {
       buttonLogin: "Войти",
       buttonSignup: "Создать аккаунт",
       forgotPassword: "Забыли пароль?"
+    },
+        reset: {
+      title: "Сбросить пароль",
+      description: "Введите ваш email — мы отправим ссылку для сброса пароля.",
+      emailLabel: "Email",
+      emailPlaceholder: "you@email.com",
+      submit: "Отправить ссылку",
+      backToLogin: "← Вернуться ко входу",
+      backToLoginShort: "← Назад",
+      success: "Если аккаунт с таким email существует, ссылка для сброса отправлена."
     }
   }
 };
