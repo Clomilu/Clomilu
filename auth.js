@@ -58,6 +58,27 @@ if (signupForm) {
       window.location.href = target;
     });
   }
+    // ==== Форма сброса пароля ====
+  const resetForm = document.querySelector('[data-panel="reset"]');
+
+  if (resetForm) {
+    resetForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // TODO: заменить на реальный API-запрос на бэкенд
+      // Пока показываем сообщение об успехе
+      const message = resetForm.querySelector(".auth-message");
+      if (message) {
+        message.hidden = false;
+      }
+
+      // Опционально: очищаем поле email
+      const emailInput = resetForm.querySelector('input[type="email"]');
+      if (emailInput) {
+        emailInput.value = "";
+      }
+    });
+  }
 });
 
 // ==== Простая сессия через localStorage (для прототипа) ====
