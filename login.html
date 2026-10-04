@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Se connecter — Clomilu</title>
+<meta name="description" content="Se connecter à Clomilu.">
+<link rel="stylesheet" href="styles.css">
+<script src="translations.js" defer></script>
+<script src="main.js" defer></script>
+<script src="auth.js" defer></script>
+</head>
+<body class="auth-page">
+
+<header class="auth-header">
+  <div class="container">
+    <nav>
+      <a href="index.html" class="logo" aria-label="Clomilu">
+        <img src="logo.svg" alt="Clomilu">
+      </a>
+      <div class="nav-right">
+        <div class="language-switcher">
+          <button class="lang-current" type="button" aria-expanded="false" aria-haspopup="true">FR</button>
+          <div class="lang-menu">
+            <button type="button" data-lang="fr">FR</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="es">ES</button>
+            <button type="button" data-lang="ru">RU</button>
+          </div>
+        </div>
+        <a href="index.html" class="back" data-i18n="auth.back">← Retour</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="auth-main">
+
+  <!-- Декоративный цветок. Цвет — тёмный из палитры, файл — тот же flower-hero.svg -->
+  <img class="auth-flower" src="flower-hero.svg" alt="" aria-hidden="true">
+
+  <div class="auth-card">
+
+    <div class="auth-tabs" role="tablist">
+      <button type="button" role="tab" class="auth-tab is-active" data-tab="login" aria-selected="true"
+              data-i18n="auth.tabLogin">Se connecter</button>
+      <button type="button" role="tab" class="auth-tab" data-tab="signup" aria-selected="false"
+              data-i18n="auth.tabSignup">Créer un compte</button>
+    </div>
+
+    <!-- Форма входа -->
+    <form class="auth-panel" data-panel="login" novalidate>
+      <div class="auth-field">
+        <label for="login-email" data-i18n="auth.emailLabel">Email</label>
+        <input id="login-email" type="email" name="email" autocomplete="email" required
+               data-i18n-placeholder="auth.emailPlaceholder" placeholder="votre@email.com">
+      </div>
+      <div class="auth-field">
+        <label for="login-password" data-i18n="auth.passwordLabel">Mot de passe</label>
+        <input id="login-password" type="password" name="password" autocomplete="current-password" required
+               data-i18n-placeholder="auth.passwordPlaceholder" placeholder="Votre mot de passe">
+      </div>
+      <button type="submit" class="auth-submit" data-i18n="auth.buttonLogin">Se connecter</button>
+      <p class="auth-forgot">
+        <a href="reset.html" data-i18n="auth.forgotPassword">Mot de passe oublié ?</a>
+      </p>
+    </form>
+
+    <!-- Форма регистрации -->
+    <form class="auth-panel" data-panel="signup" hidden novalidate>
+      <div class="auth-field">
+        <label for="signup-email" data-i18n="auth.emailLabel">Email</label>
+        <input id="signup-email" type="email" name="email" autocomplete="email" required
+               data-i18n-placeholder="auth.emailPlaceholder" placeholder="votre@email.com">
+      </div>
+      <div class="auth-field">
+        <label for="signup-password" data-i18n="auth.passwordLabel">Mot de passe</label>
+        <input id="signup-password" type="password" name="password" autocomplete="new-password" required
+               data-i18n-placeholder="auth.passwordNewPlaceholder" placeholder="Choisissez un mot de passe">
+      </div>
+      <button type="submit" class="auth-submit" data-i18n="auth.buttonSignup">Créer un compte</button>
+    </form>
+
+  </div>
+</main>
+
+<footer class="auth-footer">
+  <div class="container footer-row">
+    <div>© Clomilu</div>
+    <div class="footer-links">
+      <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+      <a href="terms.html" data-i18n="footer.terms">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
