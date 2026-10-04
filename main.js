@@ -73,7 +73,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
+  document.querySelectorAll("[data-auth-cta]").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      if (localStorage.getItem("clomilu-auth") === "true") {
+        e.preventDefault();
+        window.location.href = "app.html";
+      }
+    });
+  });
+  
   // Определяем язык и запускаем
   const saved = localStorage.getItem("clomilu-language");
   const browser = navigator.language ? navigator.language.slice(0, 2).toLowerCase() : "";
