@@ -570,7 +570,7 @@ footer{
 }
 .auth-header .back{
   font-size:15px;
-  color:#dbe5df;
+  color:#DCE7DF;
   transition:color .15s ease;
 }
 .auth-header .back:hover{
@@ -608,7 +608,7 @@ footer{
   color:#102f27;
   border-radius:20px;
   padding:36px 32px 32px;
-  box-shadow:0 30px 60px rgba(0,0,0,.25);
+  box-shadow:0 30px 60px rgba(16,47,39,.35);
 }
 
 /* Табы */
@@ -617,7 +617,7 @@ footer{
   grid-template-columns:1fr 1fr;
   gap:6px;
   padding:6px;
-  background:#e6ece6;
+  background:#DCE7DF;
   border-radius:12px;
   margin-bottom:26px;
 }
@@ -717,7 +717,7 @@ footer{
   z-index:2;
   padding:24px 0;
   font-size:13px;
-  color:#a8b8ae;
+  color:#61776D;
 }
 .auth-footer .footer-row{
   display:flex;
@@ -729,7 +729,7 @@ footer{
   gap:20px;
 }
 .auth-footer a{
-  color:#a8b8ae;
+  color:#61776D;
   transition:color .15s ease;
 }
 .auth-footer a:hover{
