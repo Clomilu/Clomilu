@@ -763,3 +763,43 @@ footer{
   }
   .auth-tab{font-size:13px;padding:9px 8px}
 }
+/* Заголовок и описание на странице reset */
+.auth-title{
+  margin:0 0 8px;
+  font-size:22px;
+  line-height:1.25;
+  font-weight:500;
+  letter-spacing:-.4px;
+  color:#173F32;
+  text-align:center;
+}
+.auth-description{
+  margin:0 0 24px;
+  font-size:14px;
+  line-height:1.5;
+  color:#61776D;
+  text-align:center;
+}
+
+/* Зарезервированное место под капчу (Turnstile, reCAPTCHA) */
+.auth-captcha{
+  display:flex;
+  justify-content:center;
+  min-height:0;
+  margin:0;
+}
+
+/* Сообщение об успехе после отправки формы */
+.auth-message{
+  margin:0;
+  padding:12px 16px;
+  border-radius:10px;
+  background:#DCE7DF;
+  color:#173F32;
+  font-size:14px;
+  line-height:1.5;
+  text-align:center;
+}
+.auth-message[hidden]{
+  display:none;
+}
