@@ -58,6 +58,25 @@ const translations = {
       backToLogin: "← Retour à la connexion",
       backToLoginShort: "← Retour",
       success: "Si un compte existe pour cet email, un lien de réinitialisation a été envoyé."
+    },
+        reset: { … },
+    checkout: {
+      back: "← Retour",
+      title: "Choisissez votre formule",
+      description: "Vous pourrez modifier ou annuler votre abonnement à tout moment.",
+      one: {
+        title: "One-time Pass",
+        price: "25 €",
+        text: "Une session pour explorer une question, un dilemme ou une décision."
+      },
+      sub: {
+        title: "Subscription",
+        price: "70 €/mois",
+        text: "Un accès flexible, chaque fois que vous avez besoin d’un espace privé pour réfléchir."
+      },
+      submit: "Payer",
+      submitWithPrice: "Payer {price}",
+      securePrefix: "Paiement sécurisé par"
     }
   },
 
@@ -120,6 +139,24 @@ const translations = {
       backToLogin: "← Back to sign in",
       backToLoginShort: "← Back",
       success: "If an account exists for this email, a reset link has been sent."
+    },
+        checkout: {
+      back: "← Back",
+      title: "Choose your plan",
+      description: "You can change or cancel your subscription at any time.",
+      one: {
+        title: "One-time Pass",
+        price: "€25",
+        text: "One session to explore a question, a dilemma or a decision."
+      },
+      sub: {
+        title: "Subscription",
+        price: "€70/month",
+        text: "Flexible access whenever you need a private space to think."
+      },
+      submit: "Pay",
+      submitWithPrice: "Pay {price}",
+      securePrefix: "Secure payment by"
     }
   },
 
@@ -182,6 +219,24 @@ const translations = {
       backToLogin: "← Volver al inicio de sesión",
       backToLoginShort: "← Volver",
       success: "Si existe una cuenta para este email, se ha enviado un enlace de restablecimiento."
+    },
+        checkout: {
+      back: "← Volver",
+      title: "Elige tu plan",
+      description: "Puedes cambiar o cancelar tu suscripción en cualquier momento.",
+      one: {
+        title: "One-time Pass",
+        price: "25 €",
+        text: "Una sesión para explorar una pregunta, un dilema o una decisión."
+      },
+      sub: {
+        title: "Subscription",
+        price: "70 €/mes",
+        text: "Acceso flexible cuando necesites un espacio privado para pensar."
+      },
+      submit: "Pagar",
+      submitWithPrice: "Pagar {price}",
+      securePrefix: "Pago seguro por"
     }
   },
 
@@ -244,6 +299,24 @@ const translations = {
       backToLogin: "← Вернуться ко входу",
       backToLoginShort: "← Назад",
       success: "Если аккаунт с таким email существует, ссылка для сброса отправлена."
+    },
+        checkout: {
+      back: "← Назад",
+      title: "Выберите тариф",
+      description: "Вы можете изменить или отменить подписку в любое время.",
+      one: {
+        title: "One-time Pass",
+        price: "25 €",
+        text: "Одна сессия — чтобы разобрать один вопрос, дилемму или решение."
+      },
+      sub: {
+        title: "Subscription",
+        price: "70 €/месяц",
+        text: "Гибкий доступ, когда нужно личное пространство для размышлений."
+      },
+      submit: "Оплатить",
+      submitWithPrice: "Оплатить {price}",
+      securePrefix: "Безопасная оплата через"
     }
   }
 };
