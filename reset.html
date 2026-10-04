@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Réinitialiser le mot de passe — Clomilu</title>
+<meta name="description" content="Réinitialisez le mot de passe de votre compte Clomilu.">
+<link rel="stylesheet" href="styles.css">
+<script src="translations.js" defer></script>
+<script src="main.js" defer></script>
+<script src="auth.js" defer></script>
+</head>
+<body class="auth-page">
+
+<header class="auth-header">
+  <div class="container">
+    <nav>
+      <a href="index.html" class="logo" aria-label="Clomilu">
+        <img src="logo.svg" alt="Clomilu">
+      </a>
+      <div class="nav-right">
+        <div class="language-switcher">
+          <button class="lang-current" type="button" aria-expanded="false" aria-haspopup="true">FR</button>
+          <div class="lang-menu">
+            <button type="button" data-lang="fr">FR</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="es">ES</button>
+            <button type="button" data-lang="ru">RU</button>
+          </div>
+        </div>
+        <a href="login.html" class="back" data-i18n="reset.backToLoginShort">← Retour</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="auth-main">
+
+  <img class="auth-flower" src="flower-hero.svg" alt="" aria-hidden="true">
+
+  <div class="auth-card">
+
+    <h1 class="auth-title" data-i18n="reset.title">Réinitialiser le mot de passe</h1>
+    <p class="auth-description" data-i18n="reset.description">Entrez votre email, nous vous enverrons un lien pour réinitialiser votre mot de passe.</p>
+
+    <form class="auth-panel" data-panel="reset" novalidate>
+      <div class="auth-field">
+        <label for="reset-email" data-i18n="reset.emailLabel">Email</label>
+        <input id="reset-email" type="email" name="email" autocomplete="email" required
+               data-i18n-placeholder="reset.emailPlaceholder" placeholder="votre@email.com">
+      </div>
+
+      <!-- Зарезервированное место под капчу. Когда будет бэкенд — раскомментировать.
+      <div class="auth-captcha">
+        <div class="cf-turnstile" data-sitekey="ВСТАВИТЬ_SITEKEY" data-theme="dark"></div>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+      </div>
+      -->
+
+      <button type="submit" class="auth-submit" data-i18n="reset.submit">Envoyer le lien</button>
+
+      <p class="auth-message" hidden data-i18n="reset.success">Si un compte existe pour cet email, un lien de réinitialisation a été envoyé.</p>
+
+      <p class="auth-forgot">
+        <a href="login.html" data-i18n="reset.backToLogin">← Retour à la connexion</a>
+      </p>
+    </form>
+
+  </div>
+</main>
+
+<footer class="auth-footer">
+  <div class="container footer-row">
+    <div>© Clomilu</div>
+    <div class="footer-links">
+      <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+      <a href="terms.html" data-i18n="footer.terms">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
