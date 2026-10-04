@@ -37,6 +37,19 @@ const translations = {
     closing: "Clomilu est là chaque fois que vous avez besoin d’un espace structuré pour réfléchir — avant, pendant ou après une décision importante.",
     footer: { privacy: "Confidentialité", terms: "Conditions", legal: "Mentions légales", cookies: "Cookies" }
   },
+  auth: {
+  back: "← Retour",
+  tabLogin: "Se connecter",
+  tabSignup: "Créer un compte",
+  emailLabel: "Email",
+  emailPlaceholder: "votre@email.com",
+  passwordLabel: "Mot de passe",
+  passwordPlaceholder: "Votre mot de passe",
+  passwordNewPlaceholder: "Choisissez un mot de passe",
+  buttonLogin: "Se connecter",
+  buttonSignup: "Créer un compte",
+  forgotPassword: "Mot de passe oublié ?"
+},
 
   en: {
     metaTitle: "Clomilu — Get it out of your head. Find a way forward.",
@@ -76,6 +89,19 @@ const translations = {
     closing: "Clomilu is there whenever you need a structured space to think — before, during or after an important decision.",
     footer: { privacy: "Privacy", terms: "Terms", legal: "Legal notice", cookies: "Cookies" }
   },
+  auth: {
+  back: "← Back",
+  tabLogin: "Sign in",
+  tabSignup: "Create account",
+  emailLabel: "Email",
+  emailPlaceholder: "you@email.com",
+  passwordLabel: "Password",
+  passwordPlaceholder: "Your password",
+  passwordNewPlaceholder: "Choose a password",
+  buttonLogin: "Sign in",
+  buttonSignup: "Create account",
+  forgotPassword: "Forgot password?"
+},
 
   es: {
     metaTitle: "Clomilu — Saca el problema de tu cabeza. Encuentra cómo avanzar.",
@@ -115,6 +141,19 @@ const translations = {
     closing: "Clomilu está ahí siempre que necesites un espacio estructurado para pensar — antes, durante o después de una decisión importante.",
     footer: { privacy: "Privacidad", terms: "Condiciones", legal: "Aviso legal", cookies: "Cookies" }
   },
+  auth: {
+  back: "← Volver",
+  tabLogin: "Iniciar sesión",
+  tabSignup: "Crear cuenta",
+  emailLabel: "Email",
+  emailPlaceholder: "tu@email.com",
+  passwordLabel: "Contraseña",
+  passwordPlaceholder: "Tu contraseña",
+  passwordNewPlaceholder: "Elige una contraseña",
+  buttonLogin: "Iniciar sesión",
+  buttonSignup: "Crear cuenta",
+  forgotPassword: "¿Olvidaste tu contraseña?"
+},
 
   ru: {
     metaTitle: "Clomilu — Вытащите проблему из головы. Найдите путь вперёд.",
@@ -154,4 +193,17 @@ const translations = {
     closing: "Clomilu рядом всегда, когда вам нужно структурированное пространство для размышлений — до, во время или после важного решения.",
     footer: { privacy: "Конфиденциальность", terms: "Условия", legal: "Юридическая информация", cookies: "Cookies" }
   }
+  auth: {
+  back: "← Назад",
+  tabLogin: "Войти",
+  tabSignup: "Создать аккаунт",
+  emailLabel: "Email",
+  emailPlaceholder: "you@email.com",
+  passwordLabel: "Пароль",
+  passwordPlaceholder: "Ваш пароль",
+  passwordNewPlaceholder: "Придумайте пароль",
+  buttonLogin: "Войти",
+  buttonSignup: "Создать аккаунт",
+  forgotPassword: "Забыли пароль?"
+},
 };
