@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choisissez votre formule — Clomilu</title>
+<meta name="description" content="Choisissez votre formule Clomilu.">
+<link rel="stylesheet" href="styles.css">
+<script src="translations.js" defer></script>
+<script src="main.js" defer></script>
+<script src="auth.js" defer></script>
+</head>
+<body class="auth-page">
+
+<header class="auth-header">
+  <div class="container">
+    <nav>
+      <a href="index.html" class="logo" aria-label="Clomilu">
+        <img src="logo.svg" alt="Clomilu">
+      </a>
+      <div class="nav-right">
+        <div class="language-switcher">
+          <button class="lang-current" type="button" aria-expanded="false" aria-haspopup="true">FR</button>
+          <div class="lang-menu">
+            <button type="button" data-lang="fr">FR</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="es">ES</button>
+            <button type="button" data-lang="ru">RU</button>
+          </div>
+        </div>
+        <a href="login.html" class="back" data-i18n="checkout.back">← Retour</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="auth-main">
+
+  <img class="auth-flower" src="flower-hero.svg" alt="" aria-hidden="true">
+
+  <div class="auth-card auth-card--wide">
+
+    <h1 class="auth-title" data-i18n="checkout.title">Choisissez votre formule</h1>
+    <p class="auth-description" data-i18n="checkout.description">Vous pourrez modifier ou annuler votre abonnement à tout moment.</p>
+
+    <form class="checkout-form" data-panel="checkout" novalidate>
+
+      <div class="checkout-plans" role="radiogroup" aria-label="Formule">
+
+        <!-- One-time -->
+        <label class="checkout-plan" data-plan="one-time">
+          <input type="radio" name="plan" value="one-time">
+          <div class="checkout-plan__body">
+            <div class="checkout-plan__head">
+              <span class="checkout-plan__title" data-i18n="checkout.one.title">One-time Pass</span>
+              <span class="checkout-plan__price" data-i18n="checkout.one.price">25 €</span>
+            </div>
+            <p class="checkout-plan__text" data-i18n="checkout.one.text">Une session pour explorer une question, un dilemme ou une décision.</p>
+          </div>
+        </label>
+
+        <!-- Subscription -->
+        <label class="checkout-plan" data-plan="subscription">
+          <input type="radio" name="plan" value="subscription">
+          <div class="checkout-plan__body">
+            <div class="checkout-plan__head">
+              <span class="checkout-plan__title" data-i18n="checkout.sub.title">Subscription</span>
+              <span class="checkout-plan__price" data-i18n="checkout.sub.price">70 €/mois</span>
+            </div>
+            <p class="checkout-plan__text" data-i18n="checkout.sub.text">Un accès flexible, chaque fois que vous avez besoin d’un espace privé pour réfléchir.</p>
+          </div>
+        </label>
+
+      </div>
+
+      <!-- Зарезервированное место под форму Stripe. Когда будет бэкенд — раскомментировать.
+      <div class="checkout-stripe" id="stripe-checkout">
+        <div id="payment-element"></div>
+      </div>
+      -->
+
+      <button type="submit" class="auth-submit" id="checkout-submit" disabled
+              data-i18n="checkout.submit">Payer</button>
+
+      <p class="checkout-secure">
+        <span data-i18n="checkout.securePrefix">Paiement sécurisé par</span>
+        <strong>Stripe</strong>
+      </p>
+
+    </form>
+
+  </div>
+</main>
+
+<footer class="auth-footer">
+  <div class="container footer-row">
+    <div>© Clomilu</div>
+    <div class="footer-links">
+      <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+      <a href="terms.html" data-i18n="footer.terms">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
