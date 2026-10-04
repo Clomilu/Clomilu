@@ -49,7 +49,7 @@ const translations = {
       buttonSignup: "Créer un compte",
       forgotPassword: "Mot de passe oublié ?"
     },
-    reset: {
+        reset: {
       title: "Réinitialiser le mot de passe",
       description: "Entrez votre email, nous vous enverrons un lien pour réinitialiser votre mot de passe.",
       emailLabel: "Email",
@@ -59,7 +59,6 @@ const translations = {
       backToLoginShort: "← Retour",
       success: "Si un compte existe pour cet email, un lien de réinitialisation a été envoyé."
     },
-        reset: { … },
     checkout: {
       back: "← Retour",
       title: "Choisissez votre formule",
