@@ -927,10 +927,12 @@ footer{
 .about-product{
   padding:60px 0 90px;
 }
+.about-product .container{
+  max-width:640px;      /* узкая колонка — весь блок компактный */
+}
 .about-product h2{
-  max-width:720px;
-  margin:0 auto 32px !important;
-  text-align:center !important;
+  margin:0 0 28px;
+  text-align:center;    /* ← только заголовок по центру */
   font-size:32px;
   line-height:1.2;
   letter-spacing:-.8px;
@@ -938,19 +940,19 @@ footer{
   color:var(--forest);
 }
 .about-product p{
-  max-width:640px;
-  margin:0 auto 20px;
+  margin:0 0 20px;
   font-size:17px;
   line-height:1.65;
   color:#2b3d35;
-  text-align:center;
+  text-align:left;      /* ← абзацы по левому краю */
 }
 .about-product .about-final{
-  margin-top:40px;
+  margin-top:36px;
   font-style:italic;
   font-size:18px;
   line-height:1.55;
   color:var(--forest);
+  text-align:left;
 }
 
 @media(max-width:800px){
