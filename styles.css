@@ -677,8 +677,8 @@ footer{
   box-shadow:0 0 0 3px rgba(23,63,50,.15);
 }
 .auth-field input::placeholder{
-  color:#9aac a2;
-  color:#9aacA2;
+  color:#61776d;
+  opacity:.7;
 }
 
 .auth-submit{
