@@ -929,8 +929,8 @@ footer{
 }
 .about-product h2{
   max-width:720px;
-  margin:0 auto 32px;
-  text-align:center;
+  margin:0 auto 32px !important;
+  text-align:center !important;
   font-size:32px;
   line-height:1.2;
   letter-spacing:-.8px;
