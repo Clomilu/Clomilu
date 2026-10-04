@@ -24,27 +24,38 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "app.html";
     return;
   }
-
+  const urlParams = new URLSearchParams(window.location.search);
+  const planFromUrl = urlParams.get("plan");
+  if (planFromUrl) {
+    localStorage.setItem("clomilu-plan", planFromUrl);
+  }
+  
   // ==== 3. Обработка форм (пока заглушка) ====
   const loginForm = document.querySelector('[data-panel="login"]');
   const signupForm = document.querySelector('[data-panel="signup"]');
 
+
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      // TODO: заменить на реальный API-запрос
       setSession();
-      window.location.href = "app.html";
+      const savedPlan = localStorage.getItem("clomilu-plan");
+      if (savedPlan) {
+        localStorage.removeItem("clomilu-plan");   // использовали — очищаем
+        window.location.href = `checkout.html?plan=${savedPlan}`;
+      } else {
+        window.location.href = "app.html";
+      }
     });
   }
 
-  if (signupForm) {
+if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      // TODO: заменить на реальный API-запрос
-      // Регистрация → выбор тарифа
       setSession();
-      window.location.href = "checkout.html";
+      const savedPlan = localStorage.getItem("clomilu-plan");
+      const target = savedPlan ? `checkout.html?plan=${savedPlan}` : "checkout.html";
+      window.location.href = target;
     });
   }
 });
