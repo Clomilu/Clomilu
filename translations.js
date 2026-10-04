@@ -17,6 +17,13 @@ const translations = {
       center: "Clomilu <br>vous aide à :"
     },
     statement: "Plus de clarté. De meilleures décisions. Une façon d’avancer.",
+    about: {
+      title: "Commencez par ce que vous avez en tête.",
+      p1: "Dites à Clomilu ce qui vous trotte dans la tête — même si vous ne savez pas encore très bien quelle est la vraie question.",
+      p2: "Au fil de la conversation, la situation devient plus claire. Les éléments qui manquent prennent leur place, et Clomilu peut proposer quelques explications possibles, en vous montrant le raisonnement qui se cache derrière chacune.",
+      p3: "Vous décidez de ce qui vous parle, de ce qui ne vous parle pas, et de la direction que vous souhaitez prendre.",
+      final: "Jusqu’à ce qu’une voie plus claire se dessine — avec une première étape qui vous semble juste."
+    },
     pricing: {
       title: "Choisissez ce qui vous convient.",
       one: { title: "One-time Pass", price: "25 €", text: "Essayez Clomilu avec une question difficile, un dilemme ou une décision qui vous préoccupe.", button: "Commencer une session" },
@@ -97,6 +104,13 @@ const translations = {
       center: "Clomilu <br>helps you:"
     },
     statement: "Clearer thinking. Better decisions. A next step.",
+    about: {
+      title: "Start with what’s on your mind.",
+      p1: "Tell Clomilu what’s going on — even if you’re not quite sure what the real question is yet.",
+      p2: "As the conversation unfolds, the picture becomes clearer. Missing pieces come into focus, and Clomilu may suggest a few possible explanations, with the reasoning behind each one.",
+      p3: "You decide what resonates, what doesn’t, and where you want to go from there.",
+      final: "Until there’s a clearer way forward — and a first step that makes sense to you."
+    },
     pricing: {
       title: "Choose what works for you.",
       one: { title: "One-time session", price: "€25", text: "Try Clomilu with one difficult question, dilemma or decision.", button: "Start a session" },
@@ -177,6 +191,13 @@ const translations = {
       center: "Clomilu <br>te ayuda a:"
     },
     statement: "Más claridad al pensar. Mejores decisiones. Una forma de avanzar.",
+        about: {
+      title: "Empieza por lo que tienes en mente.",
+      p1: "Cuéntale a Clomilu lo que tienes en la cabeza — aunque todavía no tengas muy claro cuál es la verdadera pregunta.",
+      p2: "A medida que avanza la conversación, la situación se vuelve más clara. Las piezas que faltan empiezan a encajar, y Clomilu puede proponer algunas posibles explicaciones, mostrando el razonamiento detrás de cada una.",
+      p3: "Tú decides qué te resulta relevante, qué no, y hacia dónde quieres ir a partir de ahí.",
+      final: "Hasta que aparezca un camino más claro — y un primer paso que tenga sentido para ti."
+    },
     pricing: {
       title: "Elige lo que mejor se adapte a ti.",
       one: { title: "One-time Pass", price: "25 €", text: "Prueba Clomilu con una pregunta difícil, un dilema o una decisión que tengas que tomar.", button: "Iniciar una sesión" },
@@ -257,6 +278,13 @@ const translations = {
       center: "Clomilu <br>помогает:"
     },
     statement: "Ясность в мыслях. Взвешенность решений. Движение вперёд.",
+        about: {
+      title: "Начните с того, что у вас в голове.",
+      p1: "Расскажите Clomilu, что у вас происходит, — даже если вы пока не совсем понимаете, в чём на самом деле вопрос.",
+      p2: "По мере разговора ситуация становится яснее. Недостающие детали встают на свои места, а Clomilu может предложить несколько возможных объяснений, показывая, на чём основано каждое из них.",
+      p3: "Вы сами решаете, что вам откликается, а что нет, и куда двигаться дальше.",
+      final: "Пока не появится более ясный путь вперёд — и первый шаг, который имеет смысл именно для вас."
+    },
     pricing: {
       title: "Выберите подходящий вариант.",
       one: { title: "One-time Pass", price: "25 €", text: "Попробуйте Clomilu с одним сложным вопросом, дилеммой или решением, которое вам предстоит принять.", button: "Начать сессию" },
