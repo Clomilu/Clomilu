@@ -534,3 +534,232 @@ footer{
   .legal-doc p,
   .legal-doc li{font-size:15px;line-height:1.65}
 }
+/* ---- AUTH PAGES (login, signup, reset) ---- */
+.auth-page{
+  background:var(--forest);
+  color:var(--paper);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.auth-header{
+  position:relative;
+  z-index:2;
+}
+.auth-header nav{
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.auth-header .logo{
+  display:inline-flex;
+  align-items:center;
+  height:38px;
+}
+.auth-header .logo img{
+  height:100%;
+  width:auto;
+  display:block;
+}
+.auth-header .nav-right{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.auth-header .back{
+  font-size:15px;
+  color:#dbe5df;
+  transition:color .15s ease;
+}
+.auth-header .back:hover{
+  color:#f4f5ef;
+}
+
+.auth-main{
+  position:relative;
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 0 60px;
+}
+
+/* Декоративный цветок справа от центра */
+.auth-flower{
+  position:absolute;
+  right:5%;
+  top:50%;
+  transform:translateY(-50%);
+  height:80%;
+  max-height:620px;
+  width:auto;
+  pointer-events:none;
+  z-index:1;
+}
+
+/* Карточка по центру */
+.auth-card{
+  position:relative;
+  z-index:2;
+  width:min(420px,100% - 48px);
+  background:#f4f5ef;
+  color:#102f27;
+  border-radius:20px;
+  padding:36px 32px 32px;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+}
+
+/* Табы */
+.auth-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  padding:6px;
+  background:#e6ece6;
+  border-radius:12px;
+  margin-bottom:26px;
+}
+.auth-tab{
+  border:0;
+  background:transparent;
+  font:inherit;
+  font-size:14px;
+  font-weight:500;
+  color:#61776d;
+  padding:10px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.auth-tab:hover{
+  color:#173f32;
+}
+.auth-tab.is-active{
+  background:#f4f5ef;
+  color:#173f32;
+  box-shadow:0 1px 3px rgba(0,0,0,.06);
+}
+
+/* Формы */
+.auth-panel{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin:0;
+}
+.auth-panel[hidden]{display:none}
+
+.auth-field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.auth-field label{
+  font-size:14px;
+  font-weight:500;
+  color:#173f32;
+}
+.auth-field input{
+  font:inherit;
+  font-size:15px;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid #cfd9d2;
+  background:#fff;
+  color:#102f27;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.auth-field input:focus{
+  outline:none;
+  border-color:#173f32;
+  box-shadow:0 0 0 3px rgba(23,63,50,.15);
+}
+.auth-field input::placeholder{
+  color:#9aac a2;
+  color:#9aacA2;
+}
+
+.auth-submit{
+  margin-top:6px;
+  padding:14px 20px;
+  border:0;
+  border-radius:999px;
+  background:#173f32;
+  color:#f4f5ef;
+  font:inherit;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  transition:background .15s ease;
+}
+.auth-submit:hover{
+  background:#102f27;
+}
+
+.auth-forgot{
+  margin:0;
+  text-align:center;
+  font-size:14px;
+}
+.auth-forgot a{
+  color:#61776d;
+  text-decoration:underline;
+}
+.auth-forgot a:hover{
+  color:#173f32;
+}
+
+/* Футер */
+.auth-footer{
+  position:relative;
+  z-index:2;
+  padding:24px 0;
+  font-size:13px;
+  color:#a8b8ae;
+}
+.auth-footer .footer-row{
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+}
+.auth-footer .footer-links{
+  display:flex;
+  gap:20px;
+}
+.auth-footer a{
+  color:#a8b8ae;
+  transition:color .15s ease;
+}
+.auth-footer a:hover{
+  color:#f4f5ef;
+}
+
+/* ---- AUTH RESPONSIVE ---- */
+@media(max-width:800px){
+  .auth-flower{
+    right:-10%;
+    height:60%;
+    opacity:.35;
+  }
+  .auth-card{
+    padding:28px 24px 24px;
+  }
+  .auth-header nav{height:72px}
+  .auth-header .logo{height:32px}
+  .auth-header .nav-right{gap:16px}
+  .auth-footer .footer-row{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:520px){
+  .auth-flower{display:none}
+  .auth-card{
+    padding:24px 20px;
+    border-radius:16px;
+  }
+  .auth-tab{font-size:13px;padding:9px 8px}
+}
