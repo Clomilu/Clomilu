@@ -697,7 +697,30 @@ footer{
 .auth-submit:hover{
   background:#102f27;
 }
-
+.auth-submit{
+  margin-top:6px;
+  padding:14px 20px;
+  border:0;
+  border-radius:999px;
+  background:#173F32;
+  color:#F4F5EF;
+  font:inherit;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  transition:background .15s ease;
+}
+.auth-submit:not(:disabled):hover{
+  background:#102F27;
+}
+.auth-submit:disabled,
+.auth-submit[disabled]{
+  background:#CFD9D2;
+  color:#61776D;
+  cursor:not-allowed;
+  opacity:1;
+  box-shadow:none;
+}
 .auth-forgot{
   margin:0;
   text-align:center;
