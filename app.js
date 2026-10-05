@@ -5,15 +5,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // ==== Route guard: только для авторизованных ====
+  // ==== Route guard ====
   const { data: { session } } = await sb.auth.getSession();
   if (!session) {
     window.location.href = "login.html";
     return;
   }
 
-  // ==== Кнопка «Se déconnecter» ====
-  const signoutBtn = document.getElementById("app-signout");
+  // ==== Показ email на /settings ====
+  const emailEl = document.getElementById("settings-email");
+  if (emailEl && session.user) {
+    emailEl.textContent = session.user.email || "—";
+  }
+
+  // ==== SignOut — на любой странице ====
+  const signoutBtn = document.getElementById("app-signout") || document.getElementById("settings-signout");
   if (signoutBtn) {
     signoutBtn.addEventListener("click", async () => {
       await sb.auth.signOut();
@@ -35,6 +41,59 @@ document.addEventListener("DOMContentLoaded", async () => {
     overlay.hidden = true;
   }
 
+  if (menuBtn && sidebar && overlay) {
+    menuBtn.addEventListener("click", openSidebar);
+    overlay.addEventListener("click", closeSidebar);
+  }
+  if (sidebar) {
+    sidebar.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeSidebar);
+    });
+  }
+
+  // ==== Поле ввода (только на /app) ====
+  const inputForm = document.getElementById("app-input");
+  if (inputForm) {
+    const textarea = inputForm.querySelector("textarea");
+    const sendBtn = inputForm.querySelector(".app-send");
+
+    function autoResize() {
+      textarea.style.height = "auto";
+      textarea.style.height = Math.min(textarea.scrollHeight, 200) + "px";
+      sendBtn.disabled = textarea.value.trim().length === 0;
+    }
+
+    textarea.addEventListener("input", autoResize);
+    autoResize();
+
+    inputForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const text = textarea.value.trim();
+      if (!text) return;
+      // TODO: отправка сообщения
+      console.log("Send:", text);
+      textarea.value = "";
+      autoResize();
+    });
+  }
+
+  // ==== Переключатель языка на /settings ====
+  const langButtons = document.querySelectorAll(".settings-lang");
+  if (langButtons.length) {
+    const currentLang = document.documentElement.lang || "fr";
+    langButtons.forEach((btn) => {
+      if (btn.dataset.lang === currentLang) {
+        btn.classList.add("is-active");
+      }
+      btn.addEventListener("click", () => {
+        // Триггерим setLanguage — она доступна из main.js
+        // Но main.js — отдельный scope. Проще — перезагрузить через localStorage.
+        localStorage.setItem("clomilu-language", btn.dataset.lang);
+        window.location.reload();
+      });
+    });
+  }
+});
   if (menuBtn && sidebar && overlay) {
     menuBtn.addEventListener("click", openSidebar);
     overlay.addEventListener("click", closeSidebar);
