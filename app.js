@@ -128,4 +128,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     textarea.value = "";
     autoResize();
   });
-});
+
