@@ -67,6 +67,18 @@ const translations = {
       backToLoginShort: "← Retour",
       success: "Si un compte existe pour cet email, un lien de réinitialisation a été envoyé."
     },
+        updatePassword: {
+      back: "← Retour",
+      title: "Définir un nouveau mot de passe",
+      description: "Choisissez un nouveau mot de passe pour votre compte Clomilu.",
+      passwordLabel: "Nouveau mot de passe",
+      passwordPlaceholder: "Choisissez un mot de passe",
+      passwordHint: "Minimum 6 caractères.",
+      submit: "Enregistrer",
+      success: "Mot de passe mis à jour. Vous pouvez maintenant vous connecter.",
+      backToLogin: "← Retour à la connexion",
+      invalidLink: "Ce lien n'est plus valide. Veuillez demander un nouveau lien."
+    },
     checkout: {
       back: "← Retour",
       title: "Choisissez votre formule",
@@ -171,6 +183,18 @@ const translations = {
       backToLogin: "← Back to sign in",
       backToLoginShort: "← Back",
       success: "If an account exists for this email, a reset link has been sent."
+    },
+        updatePassword: {
+      back: "← Back",
+      title: "Set a new password",
+      description: "Choose a new password for your Clomilu account.",
+      passwordLabel: "New password",
+      passwordPlaceholder: "Choose a password",
+      passwordHint: "At least 6 characters.",
+      submit: "Save",
+      success: "Password updated. You can now sign in.",
+      backToLogin: "← Back to sign in",
+      invalidLink: "This link is no longer valid. Please request a new one."
     },
         checkout: {
       back: "← Back",
@@ -277,6 +301,18 @@ const translations = {
       backToLoginShort: "← Volver",
       success: "Si existe una cuenta para este email, se ha enviado un enlace de restablecimiento."
     },
+        updatePassword: {
+      back: "← Volver",
+      title: "Establecer una nueva contraseña",
+      description: "Elige una nueva contraseña para tu cuenta de Clomilu.",
+      passwordLabel: "Nueva contraseña",
+      passwordPlaceholder: "Elige una contraseña",
+      passwordHint: "Mínimo 6 caracteres.",
+      submit: "Guardar",
+      success: "Contraseña actualizada. Ya puedes iniciar sesión.",
+      backToLogin: "← Volver al inicio de sesión",
+      invalidLink: "Este enlace ya no es válido. Solicita uno nuevo."
+    },
         checkout: {
       back: "← Volver",
       title: "Elige tu plan",
@@ -381,6 +417,18 @@ const translations = {
       backToLogin: "← Вернуться ко входу",
       backToLoginShort: "← Назад",
       success: "Если аккаунт с таким email существует, ссылка для сброса отправлена."
+    },
+        updatePassword: {
+      back: "← Назад",
+      title: "Установите новый пароль",
+      description: "Придумайте новый пароль для вашего аккаунта Clomilu.",
+      passwordLabel: "Новый пароль",
+      passwordPlaceholder: "Придумайте пароль",
+      passwordHint: "Минимум 6 символов.",
+      submit: "Сохранить",
+      success: "Пароль обновлён. Теперь вы можете войти.",
+      backToLogin: "← Вернуться ко входу",
+      invalidLink: "Эта ссылка больше не действует. Запросите новую."
     },
         checkout: {
       back: "← Назад",
