@@ -55,6 +55,7 @@ const translations = {
       buttonLogin: "Se connecter",
       buttonSignup: "Créer un compte",
       forgotPassword: "Mot de passe oublié ?"
+      confirmEmailSent: "Un lien de confirmation a été envoyé à votre email. Vérifiez votre boîte de réception.",
     },
         reset: {
       title: "Réinitialiser le mot de passe",
@@ -142,6 +143,7 @@ const translations = {
       buttonLogin: "Sign in",
       buttonSignup: "Create account",
       forgotPassword: "Forgot password?"
+      confirmEmailSent: "A confirmation link has been sent to your email. Please check your inbox.",
     },
     reset: {
       title: "Reset your password",
@@ -229,6 +231,7 @@ const translations = {
       buttonLogin: "Iniciar sesión",
       buttonSignup: "Crear cuenta",
       forgotPassword: "¿Olvidaste tu contraseña?"
+      confirmEmailSent: "Se ha enviado un enlace de confirmación a tu email. Revisa tu bandeja de entrada.",
     },
         reset: {
       title: "Restablecer la contraseña",
@@ -316,6 +319,7 @@ const translations = {
       buttonLogin: "Войти",
       buttonSignup: "Создать аккаунт",
       forgotPassword: "Забыли пароль?"
+      confirmEmailSent: "Ссылка для подтверждения отправлена на ваш email. Проверьте почту.",
     },
         reset: {
       title: "Сбросить пароль",
