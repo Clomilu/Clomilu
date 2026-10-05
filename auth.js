@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       setFormLoading(resetForm, true);
 
       const { error } = await sb.auth.resetPasswordForEmail(email, {
-        redirectTo: "https://clomilu.github.io/Clomilu/login.html"
+      redirectTo: "https://clomilu.github.io/Clomilu/update-password.html"
       });
 
       setFormLoading(resetForm, false);
@@ -135,6 +135,60 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+    // ==== Форма установки нового пароля ====
+  const updatePwForm = document.querySelector('[data-panel="update-password"]');
+
+  if (updatePwForm) {
+
+    // Проверяем сессию — Supabase её ставит после клика по ссылке в письме
+    const { data: { session } } = await sb.auth.getSession();
+
+    if (!session) {
+      // Ссылка недействительна, истекла или уже использована
+      const errorMsg = getTranslation("updatePassword.invalidLink")
+        || "This link is no longer valid. Please request a new one.";
+      showFormError(updatePwForm, errorMsg);
+      updatePwForm.querySelector("button[type='submit']").disabled = true;
+      return;
+    }
+
+    updatePwForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const password = updatePwForm.querySelector('input[name="password"]').value;
+
+      showFormError(updatePwForm, "");
+
+      if (password.length < 6) {
+        const hint = getTranslation("updatePassword.passwordHint") || "At least 6 characters.";
+        showFormError(updatePwForm, hint);
+        return;
+      }
+
+      setFormLoading(updatePwForm, true);
+
+      const { error } = await sb.auth.updateUser({ password });
+
+      setFormLoading(updatePwForm, false);
+
+      if (error) {
+        showFormError(updatePwForm, translateAuthError(error.message));
+        return;
+      }
+
+      // Успех — показываем сообщение и редиректим на login
+      const message = updatePwForm.querySelector(".auth-message");
+      if (message) message.hidden = false;
+
+      const hint = updatePwForm.querySelector(".auth-hint");
+      if (hint) hint.hidden = true;
+
+      // Редирект на login через 2 секунды
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 2000);
+    });
+  }
+  
   // ==== 7. Checkout — оставляем как было ====
   // ... код checkout из предыдущей версии
   const checkoutForm = document.querySelector('[data-panel="checkout"]');
