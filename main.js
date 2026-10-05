@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Placeholder у input-ов
-    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-      const value = getValue(translations[lang], element.dataset.i18nPlaceholder);
-      if (value !== undefined) element.placeholder = value;
-    });
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+  const value = getValue(translations[lang], element.dataset.i18nAriaLabel);
+  if (value !== undefined) element.setAttribute("aria-label", value);
+});
 
     // Переключатель языка — только если он есть на странице
     if (currentButton) {
