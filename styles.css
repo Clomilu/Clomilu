@@ -681,6 +681,13 @@ footer{
   opacity:.7;
 }
 
+.auth-hint{
+  margin:6px 0 0;
+  font-size:12px;
+  line-height:1.4;
+  color:#61776D;
+}
+
 .auth-submit{
   margin-top:6px;
   padding:14px 20px;
