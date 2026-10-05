@@ -54,7 +54,7 @@ const translations = {
       passwordNewPlaceholder: "Choisissez un mot de passe",
       buttonLogin: "Se connecter",
       buttonSignup: "Créer un compte",
-      forgotPassword: "Mot de passe oublié ?"
+      forgotPassword: "Mot de passe oublié ?",
       confirmEmailSent: "Un lien de confirmation a été envoyé à votre email. Vérifiez votre boîte de réception.",
     },
         reset: {
@@ -159,7 +159,7 @@ const translations = {
       passwordNewPlaceholder: "Choose a password",
       buttonLogin: "Sign in",
       buttonSignup: "Create account",
-      forgotPassword: "Forgot password?"
+      forgotPassword: "Forgot password?",
       confirmEmailSent: "A confirmation link has been sent to your email. Please check your inbox.",
     },
     reset: {
@@ -264,7 +264,7 @@ const translations = {
       passwordNewPlaceholder: "Elige una contraseña",
       buttonLogin: "Iniciar sesión",
       buttonSignup: "Crear cuenta",
-      forgotPassword: "¿Olvidaste tu contraseña?"
+      forgotPassword: "¿Olvidaste tu contraseña?",
       confirmEmailSent: "Se ha enviado un enlace de confirmación a tu email. Revisa tu bandeja de entrada.",
     },
         reset: {
@@ -369,7 +369,7 @@ const translations = {
       passwordNewPlaceholder: "Придумайте пароль",
       buttonLogin: "Войти",
       buttonSignup: "Создать аккаунт",
-      forgotPassword: "Забыли пароль?"
+      forgotPassword: "Забыли пароль?",
       confirmEmailSent: "Ссылка для подтверждения отправлена на ваш email. Проверьте почту.",
     },
         reset: {
