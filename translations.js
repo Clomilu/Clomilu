@@ -113,6 +113,22 @@ const translations = {
         link: "Lire notre Politique de confidentialité →",
         foot: "En continuant, vous reconnaissez ces consignes."
       }
+    },
+    settings: {
+      title: "Paramètres",
+      profile: "Profil",
+      emailLabel: "Email",
+      changePassword: "Changer le mot de passe →",
+      language: "Langue",
+      subscription: "Abonnement",
+      noSubscription: "Aucun abonnement actif.",
+      viewPlans: "Voir les formules →",
+      contact: "Contact",
+      contactText: "Une question, une suggestion ?",
+      legal: "Liens utiles",
+      dangerTitle: "Zone dangereuse",
+      dangerText: "La suppression de votre compte entraînera la suppression définitive de toutes vos données.",
+      signOut: "Se déconnecter"
     }
   },
 
@@ -230,6 +246,22 @@ const translations = {
         link: "Read our Privacy Policy →",
         foot: "By continuing, you acknowledge this guidance."
       }
+    },
+        settings: {
+      title: "Settings",
+      profile: "Profile",
+      emailLabel: "Email",
+      changePassword: "Change password →",
+      language: "Language",
+      subscription: "Subscription",
+      noSubscription: "No active subscription.",
+      viewPlans: "View plans →",
+      contact: "Contact",
+      contactText: "A question or a suggestion?",
+      legal: "Useful links",
+      dangerTitle: "Danger zone",
+      dangerText: "Deleting your account will permanently remove all your data.",
+      signOut: "Sign out"
     }
   },
 
@@ -347,6 +379,22 @@ const translations = {
         link: "Leer nuestra Política de privacidad →",
         foot: "Al continuar, aceptas estas indicaciones."
       }
+    },
+        settings: {
+      title: "Ajustes",
+      profile: "Perfil",
+      emailLabel: "Email",
+      changePassword: "Cambiar contraseña →",
+      language: "Idioma",
+      subscription: "Suscripción",
+      noSubscription: "Ninguna suscripción activa.",
+      viewPlans: "Ver planes →",
+      contact: "Contacto",
+      contactText: "¿Una pregunta o sugerencia?",
+      legal: "Enlaces útiles",
+      dangerTitle: "Zona peligrosa",
+      dangerText: "Eliminar tu cuenta supondrá la eliminación definitiva de todos tus datos.",
+      signOut: "Cerrar sesión"
     }
   },
 
@@ -465,5 +513,21 @@ const translations = {
         link: "Прочитать Политику конфиденциальности →",
         foot: "Продолжая, вы подтверждаете, что ознакомились с этой рекомендацией."
       }
+    },
+      settings: {
+      title: "Настройки",
+      profile: "Профиль",
+      emailLabel: "Email",
+      changePassword: "Изменить пароль →",
+      language: "Язык",
+      subscription: "Подписка",
+      noSubscription: "Активной подписки нет.",
+      viewPlans: "Посмотреть тарифы →",
+      contact: "Связаться",
+      contactText: "Есть вопрос или предложение?",
+      legal: "Полезные ссылки",
+      dangerTitle: "Опасная зона",
+      dangerText: "Удаление аккаунта приведёт к безвозвратному удалению всех ваших данных.",
+      signOut: "Выйти"
     }
 };
