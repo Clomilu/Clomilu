@@ -1286,3 +1286,185 @@ footer{
   .app-input{width:calc(100% - 24px);margin-bottom:12px;padding:8px 10px}
   .app-send{width:34px;height:34px}
 }
+
+/* ---- SETTINGS (внутри /app) ---- */
+.app-main--settings{
+  overflow-y:auto;
+  padding:0;
+}
+
+.settings-wrap{
+  max-width:640px;
+  width:100%;
+  margin:0 auto;
+  padding:48px 24px 80px;
+}
+
+.settings-title{
+  margin:0 0 40px;
+  font-size:28px;
+  line-height:1.2;
+  font-weight:500;
+  letter-spacing:-.6px;
+  color:var(--forest);
+}
+
+.settings-section{
+  margin-bottom:36px;
+  padding-bottom:32px;
+  border-bottom:1px solid var(--line);
+}
+.settings-section:last-child{
+  border-bottom:0;
+  margin-bottom:0;
+  padding-bottom:0;
+}
+
+.settings-section-title{
+  margin:0 0 16px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+  font-weight:500;
+  color:var(--muted);
+}
+
+.settings-block{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.settings-label{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.settings-email{
+  margin:0;
+  padding:12px 16px;
+  background:var(--soft);
+  color:var(--ink);
+  border-radius:10px;
+  font-size:15px;
+  font-weight:500;
+  word-break:break-all;
+}
+
+.settings-text{
+  margin:0;
+  font-size:15px;
+  line-height:1.55;
+  color:var(--ink);
+}
+
+.settings-link{
+  font-size:14px;
+  color:var(--forest);
+  text-decoration:underline;
+  align-self:flex-start;
+}
+.settings-link:hover{opacity:.8}
+
+.settings-placeholder{
+  margin:0;
+  font-size:14px;
+  font-style:italic;
+  color:var(--muted);
+}
+
+/* Языковые переключатели */
+.settings-lang-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.settings-lang{
+  padding:8px 16px;
+  border:1px solid var(--line);
+  background:transparent;
+  border-radius:999px;
+  font:inherit;
+  font-size:14px;
+  color:var(--ink);
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.settings-lang:hover{
+  background:var(--soft);
+  border-color:var(--soft);
+}
+.settings-lang.is-active{
+  background:var(--forest);
+  border-color:var(--forest);
+  color:var(--paper);
+}
+
+/* Кнопка выхода */
+.settings-signout{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 18px;
+  border:1px solid var(--line);
+  background:transparent;
+  border-radius:10px;
+  font:inherit;
+  font-size:14px;
+  color:var(--ink);
+  cursor:pointer;
+  align-self:flex-start;
+  transition:background .15s ease;
+}
+.settings-signout:hover{
+  background:var(--soft);
+}
+.settings-signout svg{color:var(--forest)}
+
+/* Юридические ссылки */
+.settings-legal{
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--muted);
+}
+.settings-legal a{
+  color:var(--forest);
+  text-decoration:underline;
+}
+.settings-legal a:hover{opacity:.8}
+
+/* Zone dangereuse */
+.settings-section--danger .settings-section-title{
+  color:#b00020;
+}
+.settings-section--danger .settings-block{
+  padding:16px 18px;
+  background:#fbeeee;
+  border-radius:12px;
+  border-left:3px solid #b00020;
+}
+
+/* Sidebar — активный пункт */
+.sidebar-item.is-active{
+  background:var(--soft);
+  color:var(--forest);
+  font-weight:500;
+}
+.sidebar-item.is-active svg{
+  color:var(--forest);
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .settings-wrap{
+    padding:32px 20px 60px;
+  }
+  .settings-title{
+    font-size:24px;
+    margin-bottom:28px;
+  }
+}
