@@ -84,6 +84,23 @@ const translations = {
       submit: "Payer",
       submitWithPrice: "Payer {price}",
       securePrefix: "Paiement sécurisé par"
+    },
+    app: {
+      menu: "Menu",
+      newChat: "Nouvelle conversation",
+      history: "Historique",
+      noChats: "Aucune conversation pour l'instant.",
+      settings: "Paramètres",
+      signOut: "Se déconnecter",
+      placeholder: "Décrivez votre situation…",
+      send: "Envoyer",
+      notice: {
+        title: "Avant de commencer",
+        p1: "Pour protéger votre vie privée, veuillez ne pas mentionner de noms, coordonnées, numéros d'enregistrement ou autres identifiants — ils ne sont pas nécessaires à votre demande.",
+        p2: "Clomilu vous aide à réfléchir à la <strong>situation</strong>, pas aux personnes qui y figurent. Les détails identifiants sont rarement nécessaires.",
+        link: "Lire notre Politique de confidentialité →",
+        foot: "En continuant, vous reconnaissez ces consignes."
+      }
     }
   },
 
@@ -172,6 +189,23 @@ const translations = {
       submit: "Pay",
       submitWithPrice: "Pay {price}",
       securePrefix: "Secure payment by"
+    },
+        app: {
+      menu: "Menu",
+      newChat: "New conversation",
+      history: "History",
+      noChats: "No conversations yet.",
+      settings: "Settings",
+      signOut: "Sign out",
+      placeholder: "Describe your situation…",
+      send: "Send",
+      notice: {
+        title: "Before you start",
+        p1: "To protect your privacy, please don't include names, contact details, registration numbers, or other identifiers — they aren't necessary for your request.",
+        p2: "Clomilu helps you think through the <strong>situation</strong>, not the people in it. Identifying details are rarely needed.",
+        link: "Read our Privacy Policy →",
+        foot: "By continuing, you acknowledge this guidance."
+      }
     }
   },
 
@@ -260,6 +294,23 @@ const translations = {
       submit: "Pagar",
       submitWithPrice: "Pagar {price}",
       securePrefix: "Pago seguro por"
+    },
+        app: {
+      menu: "Menú",
+      newChat: "Nueva conversación",
+      history: "Historial",
+      noChats: "Aún no hay conversaciones.",
+      settings: "Ajustes",
+      signOut: "Cerrar sesión",
+      placeholder: "Describe tu situación…",
+      send: "Enviar",
+      notice: {
+        title: "Antes de empezar",
+        p1: "Para proteger tu privacidad, no incluyas nombres, datos de contacto, números de registro u otros identificadores — no son necesarios para tu consulta.",
+        p2: "Clomilu te ayuda a reflexionar sobre la <strong>situación</strong>, no sobre las personas involucradas. Los detalles identificativos rara vez son necesarios.",
+        link: "Leer nuestra Política de privacidad →",
+        foot: "Al continuar, aceptas estas indicaciones."
+      }
     }
   },
 
@@ -349,5 +400,22 @@ const translations = {
       submitWithPrice: "Оплатить {price}",
       securePrefix: "Безопасная оплата через"
     }
-  }
+  },
+    app: {
+      menu: "Меню",
+      newChat: "Новая беседа",
+      history: "История",
+      noChats: "Пока нет ни одной беседы.",
+      settings: "Настройки",
+      signOut: "Выйти",
+      placeholder: "Опишите вашу ситуацию…",
+      send: "Отправить",
+      notice: {
+        title: "Прежде чем начать",
+        p1: "Чтобы защитить вашу приватность, пожалуйста, не указывайте имена, контактные данные, регистрационные номера и другие идентификаторы — они не являются необходимыми для вашего запроса.",
+        p2: "Clomilu помогает разобраться в <strong>ситуации</strong>, а не в людях, которые в ней участвуют. Идентифицирующие детали нужны редко.",
+        link: "Прочитать Политику конфиденциальности →",
+        foot: "Продолжая, вы подтверждаете, что ознакомились с этой рекомендацией."
+      }
+    }
 };
