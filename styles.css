@@ -1155,26 +1155,29 @@ footer{
 
 /* Уведомление о приватности — первое сообщение */
 .msg-notice .msg-body{
-  color:#CFD9D2;
+  background:#DCE7DF;
+  color:#61776D;
+  padding:20px 24px;
+  border-radius:14px;
 }
 .notice-title{
   font-size:14px;
   font-weight:600;
-  color:#CFD9D2;
-  margin:0 0 12px !important;
+  color:#173F32;
+  margin:0 0 14px !important;
   letter-spacing:.2px;
 }
 .notice-link{
-  color:#CFD9D2;
+  color:#173F32;
   text-decoration:underline;
   font-size:14px;
 }
-.notice-link:hover{opacity:.85}
+.notice-link:hover{opacity:.8}
 .notice-foot{
   font-style:italic;
   font-size:13px;
-  margin-top:14px !important;
-  color:#CFD9D2;
+  margin-top:16px !important;
+  color:#61776D;
 }
 
 /* --- Поле ввода --- */
