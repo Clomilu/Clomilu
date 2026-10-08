@@ -44,7 +44,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // ==== SignOut — на любой странице ====
-  const signoutBtn = document.getElementById("app-signout") || document.getElementById("settings-signout");
+  const signoutBtn =
+    document.getElementById("app-signout") ||
+    document.getElementById("settings-signout");
   if (signoutBtn) {
     signoutBtn.addEventListener("click", async () => {
       await sb.auth.signOut();
@@ -95,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       e.preventDefault();
       const text = textarea.value.trim();
       if (!text) return;
-      // TODO: отправка сообщения
+      // TODO: отправка сообщения через Supabase
       console.log("Send:", text);
       textarea.value = "";
       autoResize();
