@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-    // ==== ВРЕМЕННЫЙ ТЕСТ — удалить после проверки ====
+  // ==== ВРЕМЕННЫЙ ТЕСТ — удалить после проверки ====
   try {
     const testChat = await sb
       .from("chats")
@@ -111,46 +111,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         btn.classList.add("is-active");
       }
       btn.addEventListener("click", () => {
-        // Триггерим setLanguage — она доступна из main.js
-        // Но main.js — отдельный scope. Проще — перезагрузить через localStorage.
         localStorage.setItem("clomilu-language", btn.dataset.lang);
         window.location.reload();
       });
     });
   }
 });
-  if (menuBtn && sidebar && overlay) {
-    menuBtn.addEventListener("click", openSidebar);
-    overlay.addEventListener("click", closeSidebar);
-  }
-
-  // Закрытие sidebar при клике на ссылку внутри (на мобильном)
-  sidebar.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeSidebar);
-  });
-
-  // ==== Поле ввода: авторазмер + активная кнопка ====
-  const inputForm = document.getElementById("app-input");
-  const textarea = inputForm.querySelector("textarea");
-  const sendBtn = inputForm.querySelector(".app-send");
-
-  function autoResize() {
-    textarea.style.height = "auto";
-    textarea.style.height = Math.min(textarea.scrollHeight, 200) + "px";
-    sendBtn.disabled = textarea.value.trim().length === 0;
-  }
-
-  textarea.addEventListener("input", autoResize);
-  autoResize();
-
-  // ==== Отправка (пока заглушка) ====
-  inputForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const text = textarea.value.trim();
-    if (!text) return;
-    // TODO: подключить реальную отправку сообщения через Supabase
-    console.log("Send:", text);
-    textarea.value = "";
-    autoResize();
-  });
-
