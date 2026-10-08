@@ -12,13 +12,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // ==== Текущий активный чат ====
+  let activeChatId = null;
+
+  // ==== Шаблон уведомления о приватности (только UI) ====
+  const NOTICE_TEXT = `**Avant de commencer**
+
+Pour protéger votre vie privée, veuillez ne pas mentionner de noms, coordonnées, numéros d'enregistrement ou autres identifiants — ils ne sont pas nécessaires à votre demande.
+
+Clomilu vous aide à réfléchir à la **situation**, pas aux personnes qui y figurent. Les détails identifiants sont rarement nécessaires.
+
+En continuant, vous reconnaissez ces consignes.`;
+
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
   if (emailEl && session.user) {
     emailEl.textContent = session.user.email || "—";
   }
 
-  // ==== SignOut — на любой странице ====
+  // ==== SignOut ====
   const signoutBtn =
     document.getElementById("app-signout") ||
     document.getElementById("settings-signout");
@@ -36,12 +48,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   async function reloadChats() {
-    // Очищаем контейнер от старого списка
+    if (!chatsContainer) return;
+
+    // Очищаем контейнер
     chatsContainer
       .querySelectorAll(".sidebar-chat-list, .sidebar-empty")
       .forEach((el) => el.remove());
 
-    // Читаем чаты текущего пользователя
     const { data: chats, error } = await sb
       .from("chats")
       .select("id, title, status, created_at, updated_at, completed_at")
@@ -52,7 +65,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Если чатов нет — показываем заглушку
     if (!chats || chats.length === 0) {
       const empty = document.createElement("p");
       empty.className = "sidebar-empty";
@@ -62,7 +74,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Создаём список
     const list = document.createElement("div");
     list.className = "sidebar-chat-list";
 
@@ -72,6 +83,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       item.className = "sidebar-chat-item";
       item.dataset.chatId = chat.id;
       if (chat.status === "completed") item.classList.add("is-completed");
+      if (chat.id === activeChatId) item.classList.add("is-active");
       item.textContent = chat.title || "Sans titre";
 
       item.addEventListener("click", (e) => {
@@ -85,10 +97,52 @@ document.addEventListener("DOMContentLoaded", async () => {
     chatsContainer.appendChild(list);
   }
 
-  // ==== Открытие чата ====
+  // ==== Рендер одного сообщения ====
+  function renderMessage(role, content) {
+    const article = document.createElement("article");
+    article.className = role === "user" ? "msg msg-user" : "msg msg-clomilu";
+
+    const body = document.createElement("div");
+    body.className = "msg-body";
+
+    let html = content
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\n\n/g, "</p><p>")
+      .replace(/\n/g, "<br>");
+
+    body.innerHTML = "<p>" + html + "</p>";
+    article.appendChild(body);
+    return article;
+  }
+
+  // ==== Рендер уведомления ====
+  function renderNotice() {
+    const article = document.createElement("article");
+    article.className = "msg msg-clomilu msg-notice";
+
+    const body = document.createElement("div");
+    body.className = "msg-body";
+
+    let html = NOTICE_TEXT
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\n\n/g, "</p><p>")
+      .replace(/\n/g, "<br>");
+
+    body.innerHTML = "<p>" + html + "</p>";
+    article.appendChild(body);
+    return article;
+  }
+
+  // ==== Открыть чат ====
   async function openChat(chatId) {
     const conversation = document.getElementById("app-conversation");
     if (!conversation) return;
+
+    activeChatId = chatId;
 
     const { data: messages, error } = await sb
       .from("messages")
@@ -101,39 +155,54 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Очищаем контейнер
     conversation.innerHTML = "";
 
-    // Рендерим каждое сообщение
-    messages.forEach((msg) => {
-      const article = document.createElement("article");
-      article.className =
-        msg.role === "user" ? "msg msg-user" : "msg msg-clomilu";
+    // Уведомление — всегда первым
+    conversation.appendChild(renderNotice());
 
-      const body = document.createElement("div");
-      body.className = "msg-body";
-
-      let html = msg.content
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-        .replace(/\n\n/g, "</p><p>")
-        .replace(/\n/g, "<br>");
-
-      body.innerHTML = "<p>" + html + "</p>";
-      article.appendChild(body);
-      conversation.appendChild(article);
+    // Сообщения из БД
+    (messages || []).forEach((msg) => {
+      conversation.appendChild(renderMessage(msg.role, msg.content));
     });
+
+    // Обновить активный класс в sidebar
+    if (chatsContainer) {
+      chatsContainer.querySelectorAll(".sidebar-chat-item").forEach((el) => {
+        el.classList.toggle("is-active", el.dataset.chatId === chatId);
+      });
+    }
   }
 
-  // ==== Создание нового чата ====
+  // ==== Новый чат — просто сброс состояния ====
+  function startNewChat() {
+    activeChatId = null;
+
+    const conversation = document.getElementById("app-conversation");
+    if (conversation) {
+      conversation.innerHTML = "";
+      conversation.appendChild(renderNotice());
+    }
+
+    // Снять выделение в sidebar
+    if (chatsContainer) {
+      chatsContainer.querySelectorAll(".sidebar-chat-item").forEach((el) => {
+        el.classList.remove("is-active");
+      });
+    }
+
+    // Фокус в поле ввода
+    const textarea = document.querySelector("#app-input textarea");
+    if (textarea) textarea.focus();
+  }
+
   const newChatBtns = document.querySelectorAll(".sidebar-new, .app-new-btn");
   newChatBtns.forEach((btn) => {
-    btn.addEventListener("click", createChat);
+    btn.addEventListener("click", startNewChat);
   });
 
-  async function createChat() {
-    // 1. Создаём чат в БД
+  // ==== Создание чата с первым сообщением ====
+  async function createChatWithMessage(text) {
+    // 1. Создать чат
     const { data: newChat, error } = await sb
       .from("chats")
       .insert({
@@ -146,29 +215,97 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (error) {
       console.error("Ошибка создания чата:", error);
-      return;
+      return null;
     }
 
-    // 2. Записываем уведомление о приватности как первое сообщение
-    const noticeText = `**Avant de commencer**\n\nPour protéger votre vie privée, veuillez ne pas mentionner de noms, coordonnées, numéros d'enregistrement ou autres identifiants — ils ne sont pas nécessaires à votre demande.\n\nClomilu vous aide à réfléchir à la **situation**, pas aux personnes qui y figurent. Les détails identifiants sont rarement nécessaires.\n\nEn continuant, vous reconnaissez ces consignes.`;
-
+    // 2. Записать сообщение пользователя
     const { error: msgError } = await sb
       .from("messages")
       .insert({
         chat_id: newChat.id,
-        role: "clomilu",
-        content: noticeText
+        role: "user",
+        content: text
       });
 
     if (msgError) {
-      console.error("Ошибка записи уведомления:", msgError);
+      console.error("Ошибка записи сообщения:", msgError);
+      return null;
     }
 
-    // 3. Обновляем список чатов в sidebar
-    await reloadChats();
+    // 3. Обновить title чата из первого сообщения
+    let title = text.slice(0, 40);
+    if (text.length > 40) {
+      const lastSpace = title.lastIndexOf(" ");
+      if (lastSpace > 20) title = title.slice(0, lastSpace);
+      title += "…";
+    }
 
-    // 4. Открываем новый чат
-    openChat(newChat.id);
+    const { error: titleError } = await sb
+      .from("chats")
+      .update({ title })
+      .eq("id", newChat.id);
+
+    if (titleError) {
+      console.error("Ошибка обновления title:", titleError);
+    }
+
+    activeChatId = newChat.id;
+    return newChat.id;
+  }
+
+  // ==== Отправка сообщения ====
+  async function sendMessage(text) {
+    if (activeChatId === null) {
+      // Создаём чат + пишем первое сообщение
+      const newId = await createChatWithMessage(text);
+      if (!newId) return false;
+    } else {
+      // Пишем в активный чат
+      const { error } = await sb
+        .from("messages")
+        .insert({
+          chat_id: activeChatId,
+          role: "user",
+          content: text
+        });
+
+      if (error) {
+        console.error("Ошибка записи сообщения:", error);
+        return false;
+      }
+    }
+
+    // Перерисовать sidebar и область чата
+    await reloadChats();
+    await openChat(activeChatId);
+    return true;
+  }
+
+  // ==== Поле ввода ====
+  const inputForm = document.getElementById("app-input");
+  if (inputForm) {
+    const textarea = inputForm.querySelector("textarea");
+    const sendBtn = inputForm.querySelector(".app-send");
+
+    function autoResize() {
+      textarea.style.height = "auto";
+      textarea.style.height = Math.min(textarea.scrollHeight, 200) + "px";
+      sendBtn.disabled = textarea.value.trim().length === 0;
+    }
+
+    textarea.addEventListener("input", autoResize);
+    autoResize();
+
+    inputForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const text = textarea.value.trim();
+      if (!text) return;
+
+      textarea.value = "";
+      autoResize();
+
+      await sendMessage(text);
+    });
   }
 
   // ==== Мобильный sidebar ====
@@ -195,32 +332,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // ==== Поле ввода (только на /app) ====
-  const inputForm = document.getElementById("app-input");
-  if (inputForm) {
-    const textarea = inputForm.querySelector("textarea");
-    const sendBtn = inputForm.querySelector(".app-send");
-
-    function autoResize() {
-      textarea.style.height = "auto";
-      textarea.style.height =
-        Math.min(textarea.scrollHeight, 200) + "px";
-      sendBtn.disabled = textarea.value.trim().length === 0;
-    }
-
-    textarea.addEventListener("input", autoResize);
-    autoResize();
-
-    inputForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const text = textarea.value.trim();
-      if (!text) return;
-      console.log("Send:", text);
-      textarea.value = "";
-      autoResize();
-    });
-  }
-
   // ==== Переключатель языка на /settings ====
   const langButtons = document.querySelectorAll(".settings-lang");
   if (langButtons.length) {
@@ -235,4 +346,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
   }
+
+  // ==== Инициализация: состояние A ====
+  startNewChat();
 });
