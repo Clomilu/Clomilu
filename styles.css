@@ -1062,6 +1062,9 @@ footer{
 .sidebar-chats{
   flex:1;
   overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
 }
 .sidebar-section-title{
   font-size:11px;
