@@ -12,31 +12,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // ==== ВРЕМЕННЫЙ ТЕСТ — удалить после проверки ====
-  try {
-    const testChat = await sb
-      .from("chats")
-      .insert({
-        user_id: session.user.id,
-        title: "Тестовый чат",
-        status: "active"
-      })
-      .select()
-      .single();
-
-    console.log("TEST: создан чат:", testChat);
-
-    const allChats = await sb
-      .from("chats")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    console.log("TEST: все чаты пользователя:", allChats.data);
-  } catch (e) {
-    console.error("TEST: ошибка:", e);
-  }
-  // ==== КОНЕЦ ТЕСТА ====
-
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
   if (emailEl && session.user) {
