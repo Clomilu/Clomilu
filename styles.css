@@ -1071,7 +1071,7 @@ footer{
   text-transform:uppercase;
   letter-spacing:.5px;
   color:var(--muted);
-  margin:6px 6px 10px;
+  margin:0 6px 6px;
 }
 .sidebar-empty{
   font-size:13px;
