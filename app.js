@@ -29,6 +29,63 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+    // ==== Загрузка списка чатов ====
+  const chatsContainer = document.querySelector(".sidebar-chats");
+  if (chatsContainer) {
+    await loadChats();
+  }
+
+  async function loadChats() {
+    // Читаем чаты текущего пользователя
+    const { data: chats, error } = await sb
+      .from("chats")
+      .select("id, title, status, created_at, updated_at, completed_at")
+      .order("updated_at", { ascending: false });
+
+    if (error) {
+      console.error("Ошибка загрузки чатов:", error);
+      return;
+    }
+
+    // Если чатов нет — оставляем заглушку
+    if (!chats || chats.length === 0) {
+      return;
+    }
+
+    // Находим заглушку и удаляем
+    const emptyMsg = chatsContainer.querySelector(".sidebar-empty");
+    if (emptyMsg) emptyMsg.remove();
+
+    // Создаём список
+    const list = document.createElement("div");
+    list.className = "sidebar-chat-list";
+
+    chats.forEach((chat) => {
+      const item = document.createElement("a");
+      item.href = "#";
+      item.className = "sidebar-chat-item";
+      item.dataset.chatId = chat.id;
+
+      // Метка: активный или завершённый
+      if (chat.status === "completed") {
+        item.classList.add("is-completed");
+      }
+
+      // Название чата или «Без названия»
+      item.textContent = chat.title || "Sans titre";
+
+      // Клик — откроем чат (пока ничего, добавим позже)
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("Открыть чат:", chat.id);
+      });
+
+      list.appendChild(item);
+    });
+
+    chatsContainer.appendChild(list);
+  }
+  
   // ==== Мобильный sidebar ====
   const menuBtn = document.querySelector(".app-menu-btn");
   const sidebar = document.getElementById("app-sidebar");
