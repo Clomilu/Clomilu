@@ -29,13 +29,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-    // ==== Загрузка списка чатов ====
+      // ==== Загрузка списка чатов ====
   const chatsContainer = document.querySelector(".sidebar-chats");
   if (chatsContainer) {
-    await loadChats();
+    await reloadChats();
   }
 
-  async function loadChats() {
+  async function reloadChats() {
+    // Очищаем контейнер от старого списка
+    chatsContainer.querySelectorAll(".sidebar-chat-list, .sidebar-empty").forEach((el) => el.remove());
+
     // Читаем чаты текущего пользователя
     const { data: chats, error } = await sb
       .from("chats")
@@ -47,14 +50,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // Если чатов нет — оставляем заглушку
+    // Если чатов нет — показываем заглушку
     if (!chats || chats.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "sidebar-empty";
+      empty.setAttribute("data-i18n", "app.noChats");
+      empty.textContent = "Aucune conversation pour l'instant.";
+      chatsContainer.appendChild(empty);
       return;
     }
-
-    // Находим заглушку и удаляем
-    const emptyMsg = chatsContainer.querySelector(".sidebar-empty");
-    if (emptyMsg) emptyMsg.remove();
 
     // Создаём список
     const list = document.createElement("div");
@@ -65,19 +69,64 @@ document.addEventListener("DOMContentLoaded", async () => {
       item.href = "#";
       item.className = "sidebar-chat-item";
       item.dataset.chatId = chat.id;
-
-      // Метка: активный или завершённый
-      if (chat.status === "completed") {
-        item.classList.add("is-completed");
-      }
-
-      // Название чата или «Без названия»
+      if (chat.status === "completed") item.classList.add("is-completed");
       item.textContent = chat.title || "Sans titre";
 
-      // Клик — откроем чат (пока ничего, добавим позже)
       item.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log("Открыть чат:", chat.id);
+        openChat(chat.id);
+      });
+
+      list.appendChild(item);
+    });
+
+    chatsContainer.appendChild(list);
+  }  // ==== Загрузка списка чатов ====
+  const chatsContainer = document.querySelector(".sidebar-chats");
+  if (chatsContainer) {
+    await reloadChats();
+  }
+
+  async function reloadChats() {
+    // Очищаем контейнер от старого списка
+    chatsContainer.querySelectorAll(".sidebar-chat-list, .sidebar-empty").forEach((el) => el.remove());
+
+    // Читаем чаты текущего пользователя
+    const { data: chats, error } = await sb
+      .from("chats")
+      .select("id, title, status, created_at, updated_at, completed_at")
+      .order("updated_at", { ascending: false });
+
+    if (error) {
+      console.error("Ошибка загрузки чатов:", error);
+      return;
+    }
+
+    // Если чатов нет — показываем заглушку
+    if (!chats || chats.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "sidebar-empty";
+      empty.setAttribute("data-i18n", "app.noChats");
+      empty.textContent = "Aucune conversation pour l'instant.";
+      chatsContainer.appendChild(empty);
+      return;
+    }
+
+    // Создаём список
+    const list = document.createElement("div");
+    list.className = "sidebar-chat-list";
+
+    chats.forEach((chat) => {
+      const item = document.createElement("a");
+      item.href = "#";
+      item.className = "sidebar-chat-item";
+      item.dataset.chatId = chat.id;
+      if (chat.status === "completed") item.classList.add("is-completed");
+      item.textContent = chat.title || "Sans titre";
+
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        openChat(chat.id);
       });
 
       list.appendChild(item);
@@ -149,5 +198,95 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.location.reload();
       });
     });
+  }
+
+    // ==== Открытие чата (пока — минимально) ====
+  async function openChat(chatId) {
+    const conversation = document.getElementById("app-conversation");
+    if (!conversation) return;
+
+    // Пока — просто очистим и оставим уведомление о приватности
+    // (В будущем: загрузим сообщения из БД)
+
+    const { data: messages, error } = await sb
+      .from("messages")
+      .select("role, content, created_at")
+      .eq("chat_id", chatId)
+      .order("created_at", { ascending: true });
+
+    if (error) {
+      console.error("Ошибка загрузки сообщений:", error);
+      return;
+    }
+
+    // Очищаем контейнер
+    conversation.innerHTML = "";
+
+    // Рендерим каждое сообщение
+    messages.forEach((msg) => {
+      const article = document.createElement("article");
+      article.className = msg.role === "user" ? "msg msg-user" : "msg msg-clomilu";
+
+      const body = document.createElement("div");
+      body.className = "msg-body";
+
+      // Простейший рендер markdown-подобного текста (**жирный**)
+      let html = msg.content
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\n\n/g, "</p><p>")
+        .replace(/\n/g, "<br>");
+
+      body.innerHTML = "<p>" + html + "</p>";
+      article.appendChild(body);
+      conversation.appendChild(article);
+    });
+  }
+
+    // ==== Создание нового чата ====
+  const newChatBtns = document.querySelectorAll(".sidebar-new, .app-new-btn");
+  newChatBtns.forEach((btn) => {
+    btn.addEventListener("click", createChat);
+  });
+
+  async function createChat() {
+    // 1. Создаём чат в БД
+    const { data: newChat, error } = await sb
+      .from("chats")
+      .insert({
+        user_id: session.user.id,
+        title: null,          // название появится позже — из первого сообщения
+        status: "active"
+      })
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Ошибка создания чата:", error);
+      return;
+    }
+
+    // 2. Записываем уведомление о приватности как первое сообщение
+    const noticeText = `**Avant de commencer**\n\nPour protéger votre vie privée, veuillez ne pas mentionner de noms, coordonnées, numéros d'enregistrement ou autres identifiants — ils ne sont pas nécessaires à votre demande.\n\nClomilu vous aide à réfléchir à la **situation**, pas aux personnes qui y figurent. Les détails identifiants sont rarement nécessaires.\n\nEn continuant, vous reconnaissez ces consignes.`;
+
+    const { error: msgError } = await sb
+      .from("messages")
+      .insert({
+        chat_id: newChat.id,
+        role: "clomilu",
+        content: noticeText
+      });
+
+    if (msgError) {
+      console.error("Ошибка записи уведомления:", msgError);
+      // не останавливаемся — чат уже создан
+    }
+
+    // 3. Обновляем список чатов в sidebar
+    await reloadChats();
+
+    // 4. Открываем новый чат в основной области
+    openChat(newChat.id);
   }
 });
