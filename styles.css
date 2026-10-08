@@ -1105,6 +1105,12 @@ footer{
   white-space:nowrap;
 }
 
+.sidebar-chat-item.is-active{
+  background:var(--soft);
+  color:var(--forest);
+  font-weight:500;
+}
+
 .sidebar-chat-item:hover{
   background:var(--soft);
 }
