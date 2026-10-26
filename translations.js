@@ -18,10 +18,10 @@ const translations = {
     statement: "Plus de clarté. De meilleures décisions. Une façon d’avancer.",
     about: {
       title: "Commencez par ce que vous avez en tête.",
-      p1: "Dites à Clomilu ce qui vous trotte dans la tête — même si vous ne savez pas encore très bien quelle est la vraie question.",
-      p2: "Au fil de la conversation, la situation devient plus claire. Les éléments qui manquent prennent leur place, et Clomilu peut proposer quelques explications possibles, en vous montrant le raisonnement qui se cache derrière chacune.",
-      p3: "Vous décidez de ce qui vous parle, de ce qui ne vous parle pas, et de la direction que vous souhaitez prendre.",
-      final: "Jusqu’à ce qu’une voie plus claire se dessine — avec une première étape qui vous semble juste."
+      p1: "Dites à Clomilu ce qui se passe — même si vous ne comprenez pas encore très bien quelle est la vraie question.",
+      p2: "Au fil de la conversation, la situation s'éclaircit. Les pièces manquantes trouvent leur place.",
+      p3: "Clomilu proposera des explications possibles, en montrant la logique de chacune. Vous déciderez vous-même de ce qui vous parle.",
+      final: "Un premier pas apparaîtra, celui qui a du sens pour vous."
     },
     pricing: {
       title: "Choisissez ce qui vous convient.",
@@ -147,10 +147,10 @@ const translations = {
     statement: "Clearer thinking. Better decisions. A next step.",
     about: {
       title: "Start with what’s on your mind.",
-      p1: "Tell Clomilu what’s going on — even if you’re not quite sure what the real question is yet.",
-      p2: "As the conversation unfolds, the picture becomes clearer. Missing pieces come into focus, and Clomilu may suggest a few possible explanations, with the reasoning behind each one.",
-      p3: "You decide what resonates, what doesn’t, and where you want to go from there.",
-      final: "Until there’s a clearer way forward — and a first step that makes sense to you."
+      p1: "Tell Clomilu what’s going on — even if you don’t quite understand what the real question is yet.",
+      p2: "As the conversation unfolds, the situation becomes clearer. Missing pieces fall into place.",
+      p3: "Clomilu will offer possible explanations, showing the logic behind each one. You will decide what to choose.",
+      final: "A first step will appear that makes sense to you."
     },
     pricing: {
       title: "Choose what works for you.",
@@ -276,10 +276,10 @@ const translations = {
     statement: "Más claridad al pensar. Mejores decisiones. Una forma de avanzar.",
         about: {
       title: "Empieza por lo que tienes en mente.",
-      p1: "Cuéntale a Clomilu lo que tienes en la cabeza — aunque todavía no tengas muy claro cuál es la verdadera pregunta.",
-      p2: "A medida que avanza la conversación, la situación se vuelve más clara. Las piezas que faltan empiezan a encajar, y Clomilu puede proponer algunas posibles explicaciones, mostrando el razonamiento detrás de cada una.",
-      p3: "Tú decides qué te resulta relevante, qué no, y hacia dónde quieres ir a partir de ahí.",
-      final: "Hasta que aparezca un camino más claro — y un primer paso que tenga sentido para ti."
+      p1: "Cuéntale a Clomilu lo que está pasando — incluso si todavía no entiendes bien cuál es la verdadera pregunta.",
+      p2: "A lo largo de la conversación, la situación se aclara. Las piezas que faltan encajan en su lugar.",
+      p3: "Clomilu ofrecerá posibles explicaciones, mostrando la lógica de cada una. Tú mismo decidirás qué elegir.",
+      final: "Aparecerá un primer paso que tenga sentido para ti."
     },
     pricing: {
       title: "Elige lo que mejor se adapte a ti.",
@@ -405,10 +405,10 @@ const translations = {
     statement: "Ясность в мыслях. Взвешенность решений. Движение вперёд.",
         about: {
       title: "Начните с того, что у вас в голове.",
-      p1: "Расскажите Clomilu, что у вас происходит, — даже если вы пока не совсем понимаете, в чём на самом деле вопрос.",
-      p2: "По мере разговора ситуация становится яснее. Недостающие детали встают на свои места, а Clomilu может предложить несколько возможных объяснений, показывая, на чём основано каждое из них.",
-      p3: "Вы сами решаете, что вам откликается, а что нет, и куда двигаться дальше.",
-      final: "Пока не появится более ясный путь вперёд — и первый шаг, который имеет смысл именно для вас."
+      p1: "Расскажите Clomilu, что происходит, — даже если пока не понимаете, в чём именно вопрос.",
+      p2: "В ходе разговора ситуация прояснится. Недостающие детали встанут на свои места.",
+      p3: "Clomilu предложит возможные объяснения, показывая логику каждого из них. Вы сами решите, что выбрать.",
+      final: "Появится первый шаг, который имеет смысл именно для вас."
     },
     pricing: {
       title: "Выберите подходящий вариант.",
