@@ -5,15 +5,14 @@ const translations = {
     nav: { cta: "Commencer" },
     hero: {
       title: "Sortez-le de votre tête. Trouvez une voie à suivre.",
-      lead: "Clomilu est un espace de réflexion privé pour les dirigeants et managers, disponible chaque fois que vous avez besoin de sortir d’une impasse et de trouver comment avancer.",
-      body: "Il réunit l’expérience pratique de dirigeants, de managers professionnels et de consultants en entreprise pour vous aider à réfléchir à des situations difficiles, à remettre en question vos hypothèses et à identifier votre prochaine étape.",
-      small: "Utilisez-le lorsque vous êtes bloqué, face à un dilemme ou avez simplement besoin d’un second point de vue objectif."
+      lead: "Clomilu aide les propriétaires d'entreprise et les managers à faire face à des situations complexes. C'est un espace personnel de réflexion, accessible à tout moment lorsque vous avez besoin de clarté.",
+      body: "Basé sur l'expérience pratique de chefs d'entreprise et de consultants, Clomilu vous aide à structurer vos idées, à remettre en question vos hypothèses et à trouver la prochaine étape."
     },
     helps: {
-      clear: { title: "Voir clairement la situation", text: "avec une approche objective et structurée." },
-      next: { title: "Identifier votre prochaine étape", text: "lorsque vous ne savez pas par où commencer." },
-      dilemmas: { title: "Faire face à vos dilemmes", text: "lorsqu’il n’y a pas de réponse évidente." },
-      head: { title: "Sortir le problème de votre tête", text: "et transformer une situation confuse en quelque chose sur lequel vous pouvez travailler." },
+      clear: { title: "Voir la situation plus clairement.", text: "Une approche structurée aide à séparer les faits des émotions et à voir l'ensemble du tableau." },
+      next: { title: "Trouver la prochaine étape.", text: "Comprendre par où commencer quand il n'y a pas de réponse évidente." },
+      dilemmas: { title: "Tester vos hypothèses.", text: "Regarder la situation avec objectivité et remarquer ce qui avait pu vous échapper." },
+      head: { title: "Mettre de l'ordre dans vos idées.", text: "Transformer une situation confuse en une tâche concrète avec laquelle vous pouvez avancer." },
       center: "Clomilu <br>vous aide à :"
     },
     statement: "Plus de clarté. De meilleures décisions. Une façon d’avancer.",
@@ -26,19 +25,16 @@ const translations = {
     },
     pricing: {
       title: "Choisissez ce qui vous convient.",
-      one: { title: "One-time Pass", price: "25 €", text: "Essayez Clomilu avec une question difficile, un dilemme ou une décision qui vous préoccupe.", button: "Commencer une session" },
-      sub: { title: "Subscription", price: "70 €/mois", text: "Un accès flexible, chaque fois que vous avez besoin d’un espace privé pour réfléchir à une décision difficile.", button: "Commencer" }
+      one: { title: "One-time Pass", price: "25 €", text: "Une session.<br>Essayez Clomilu pour analyser une situation et trouver votre prochaine étape.", button: "Commencer une session" },
+      sub: { title: "Subscription", price: "70 €/mois", text: "Accès régulier.<br>Un espace personnel de réflexion lorsque vous devez prendre des décisions importantes. Sessions illimitées.", button: "Commencer" }
     },
     economics: {
       time: {
         title: "Votre temps, votre argent et votre attention ne sont pas illimités.",
-        p1: "Une question difficile liée à votre activité peut demander des heures de réflexion — et nécessiter également l’avis d’un consultant ou d’un conseiller.",
-        p2: "Clomilu vous offre un espace privé pour structurer le problème, remettre en question vos hypothèses et explorer vos options avant de décider si une expertise extérieure peut être utile — et de quel type d’aide vous pourriez avoir besoin."
+        p1: "Réfléchir à une question importante prend des heures. Dans ces moments-là, on a souvent besoin d'un interlocuteur pour nous aider à structurer nos pensées. C'est précisément pour cela que Clomilu a été créé : il aide à décomposer la situation et à tester ses hypothèses — avant de décider si l'on a besoin d'une expertise externe."
       },
       advice: {
-        title: "Le conseil professionnel coûte cher — et est souvent facturé à l’heure.",
-        p1: "En Europe, les consultants en entreprise facturent généralement entre 100 et 250 € de l’heure, selon leur expérience, leur spécialisation et leur marché.",
-        p2: "Aux États-Unis, les consultants indépendants facturent couramment 150 à 300 $ ou plus de l’heure, les spécialistes expérimentés pouvant pratiquer des tarifs sensiblement plus élevés."
+        p1: "Le conseil professionnel est une ressource précieuse, mais coûteuse (en Europe, comptez 100 à 250 € de l'heure ; aux États-Unis, à partir de 150 $). Clomilu est un espace de réflexion accessible, toujours à portée de main. Il vous aide à arriver chez un consultant avec les bonnes questions — ou à gérer la situation par vous-même, si elle le permet."
       }
     },
     closing: "Clomilu est là chaque fois que vous avez besoin d’un espace structuré pour réfléchir — avant ou pendant une décision importante.",
@@ -138,15 +134,14 @@ const translations = {
     nav: { cta: "Get started" },
     hero: {
       title: "Get it out of your head. Find a way forward.",
-      lead: "Clomilu is a private thinking partner for business owners and managers, available whenever you need to get out of a thinking dead end and find a way forward.",
-      body: "It brings together the practical experience of business owners, professional managers and business consultants to help you think through difficult situations, challenge your assumptions and find your next step.",
-      small: "Use it when you’re stuck, facing a dilemma, or simply need an objective second perspective."
+      lead: "Clomilu helps business owners and managers navigate complex situations. It is a private space for reflection, available whenever you need clarity.",
+      body: "Built on the practical experience of business people and consultants, Clomilu helps you structure your thoughts, challenge your assumptions, and find the next step."
     },
     helps: {
-      clear: { title: "See the situation clearly", text: "with an objective, structured view." },
-      next: { title: "Find your next step", text: "when you’re not sure where to start." },
-      dilemmas: { title: "Work through dilemmas", text: "when there is no obvious answer." },
-      head: { title: "Get it out of your head", text: "and turn a tangled problem into something you can work with." },
+      clear: { title: "See the situation more clearly.", text: "A structured approach helps separate facts from emotions and see the full picture." },
+      next: { title: "Find the next step.", text: "Understand where to start when there is no obvious answer." },
+      dilemmas: { title: "Test your assumptions.", text: "Look at the situation objectively and notice what might have slipped your attention." },
+      head: { title: "Organize your thoughts.", text: "Turn a tangled situation into a concrete task you can work with." },
       center: "Clomilu <br>helps you:"
     },
     statement: "Clearer thinking. Better decisions. A next step.",
@@ -159,19 +154,16 @@ const translations = {
     },
     pricing: {
       title: "Choose what works for you.",
-      one: { title: "One-time session", price: "€25", text: "Try Clomilu with one difficult question, dilemma or decision.", button: "Start a session" },
-      sub: { title: "Subscription", price: "€70/month", text: "Flexible access whenever you need a private space to think through a difficult decision.", button: "Get started" }
+      one: { title: "One-time session", price: "€25", text: "One session.<br>Try Clomilu to work through a single situation and find your next step.", button: "Start a session" },
+      sub: { title: "Subscription", price: "€70/month", text: "Regular access.<br>A private space for reflection when you need to make important decisions. Unlimited sessions.", button: "Get started" }
     },
     economics: {
       time: {
         title: "Your time, money and attention are limited.",
-        p1: "A difficult business question can take hours to think through — and may also require input from a consultant or advisor.",
-        p2: "Clomilu gives you a private space to structure the problem, challenge your assumptions and explore your options before deciding whether outside expertise may be helpful — and what kind of help you may need."
+        p1: "Thinking through an important issue takes hours. In such moments, we often need someone to help us structure our thoughts. That is exactly what Clomilu is for: it helps you break the situation down and test your assumptions — before you decide whether you need outside expertise."
       },
       advice: {
-        title: "Professional advice is expensive — and often measured in hours.",
-        p1: "In Europe, business consultants typically charge around <strong>€100–250 per hour</strong>, depending on experience, specialization and market.",
-        p2: "In the United States, independent business consultants commonly charge around <strong>$150–300+ per hour</strong>, with experienced specialists charging considerably more."
+        p1: "Professional consulting is valuable and expensive (in Europe, it’s €100–250 per hour; in the US, $150 and up). Clomilu is an accessible space for reflection that is always at hand. It helps you come to a consultant with the right questions — or handle it yourself, if the situation allows."
       }
     },
     closing: "Clomilu is there whenever you need a structured space to think — before or during an important decision.",
@@ -271,15 +263,14 @@ const translations = {
     nav: { cta: "Empezar" },
     hero: {
       title: "Saca el problema de tu cabeza. Encuentra cómo avanzar.",
-      lead: "Clomilu es un espacio privado para pensar, creado para propietarios de negocios y directivos, disponible cuando lo necesites para salir de un bloqueo y encontrar cómo avanzar.",
-      body: "Reúne la experiencia práctica de propietarios de negocios, directivos y consultores de empresa para ayudarte a analizar situaciones difíciles, cuestionar tus suposiciones y encontrar el siguiente paso.",
-      small: "Úsalo cuando estés bloqueado, te enfrentes a un dilema o simplemente necesites una segunda perspectiva objetiva."
+      lead: "Clomilu ayuda a los dueños de negocios y a los directivos a navegar situaciones complejas. Es un espacio personal de reflexión, disponible en cualquier momento en que necesites claridad.",
+      body: "Basado en la experiencia práctica de empresarios y consultores, Clomilu te ayuda a estructurar tus ideas, cuestionar tus suposiciones y encontrar el siguiente paso."
     },
     helps: {
-      clear: { title: "Ver la situación con claridad", text: "con una perspectiva objetiva y estructurada." },
-      next: { title: "Encontrar el siguiente paso", text: "cuando no sabes por dónde empezar." },
-      dilemmas: { title: "Abordar tus dilemas", text: "cuando no hay una respuesta evidente." },
-      head: { title: "Sacar el problema de tu cabeza", text: "y convertir una situación complicada en algo con lo que puedas trabajar." },
+      clear: { title: "Ver la situación con mayor claridad.", text: "Un enfoque estructurado te ayuda a separar los hechos de las emociones y ver el panorama completo." },
+      next: { title: "Encontrar el siguiente paso.", text: "Entender por dónde empezar cuando no hay una respuesta obvia." },
+      dilemmas: { title: "Poner a prueba tus suposiciones.", text: "Mirar la situación de forma objetiva y notar lo que podría haber pasado desapercibido." },
+      head: { title: "Ordenar tus ideas.", text: "Convertir una situación enredada en una tarea concreta con la que puedas trabajar." },
       center: "Clomilu <br>te ayuda a:"
     },
     statement: "Más claridad al pensar. Mejores decisiones. Una forma de avanzar.",
@@ -292,19 +283,16 @@ const translations = {
     },
     pricing: {
       title: "Elige lo que mejor se adapte a ti.",
-      one: { title: "One-time Pass", price: "25 €", text: "Prueba Clomilu con una pregunta difícil, un dilema o una decisión que tengas que tomar.", button: "Iniciar una sesión" },
-      sub: { title: "Subscription", price: "70 €/mes", text: "Acceso flexible cuando necesites un espacio privado para pensar y analizar una decisión difícil.", button: "Empezar" }
+      one: { title: "One-time Pass", price: "25 €", text: "Una sesión.<br>Prueba Clomilu para analizar una situación y encontrar tu siguiente paso.", button: "Iniciar una sesión" },
+      sub: { title: "Subscription", price: "70 €/mes", text: "Acceso regular.<br>Un espacio personal de reflexión para cuando necesites tomar decisiones importantes. Sesiones ilimitadas.", button: "Empezar" }
     },
     economics: {
       time: {
         title: "Tu tiempo, tu dinero y tu atención no son ilimitados.",
-        p1: "Una cuestión de negocio difícil puede requerir horas de reflexión y, además, puede requerir la opinión de un consultor o asesor.",
-        p2: "Clomilu te ofrece un espacio privado para estructurar el problema, cuestionar tus suposiciones y explorar tus opciones antes de decidir si necesitas ayuda externa y qué tipo de ayuda podría ser la más adecuada."
+        p1: "Pensar en un asunto importante lleva horas. En esos momentos, a menudo necesitamos a alguien que nos ayude a estructurar nuestras ideas. Clomilu está creado exactamente para eso: te ayuda a desglosar la situación y poner a prueba tus suposiciones, antes de que decidas si necesitas ayuda externa."
       },
       advice: {
-        title: "El asesoramiento profesional es caro y, a menudo, se cobra por horas.",
-        p1: "En Europa, los consultores de negocio suelen cobrar alrededor de <strong>100–250 € por hora</strong>, dependiendo de su experiencia, especialización y mercado.",
-        p2: "En Estados Unidos, los consultores de negocio independientes suelen cobrar alrededor de <strong>150–300 $ o más por hora</strong>, y los especialistas con amplia experiencia pueden cobrar considerablemente más."
+        p1: "La consultoría profesional es un recurso valioso, pero costoso (en Europa cuesta entre 100 y 250 € la hora; en EE. UU., desde 150 $). Clomilu es un espacio de reflexión accesible que siempre tienes a mano. Te ayuda a acudir a un consultor con las preguntas correctas o a resolverlo por tu cuenta, si la situación lo permite."
       }
     },
     closing: "Clomilu está ahí siempre que necesites un espacio estructurado para pensar — antes o durante una decisión importante.",
@@ -404,15 +392,14 @@ const translations = {
     nav: { cta: "Начать" },
     hero: {
       title: "Вытащите проблему из головы. Найдите путь вперёд.",
-      lead: "Clomilu — это личное пространство для размышлений для владельцев бизнеса и руководителей, доступное в любой момент, когда нужно выйти из мыслительного тупика и найти путь вперёд.",
-      body: "Clomilu объединяет практический опыт владельцев бизнеса, профессиональных руководителей и бизнес-консультантов, чтобы помочь вам разобраться в сложной ситуации, поставить под сомнение собственные предположения и найти следующий шаг.",
-      small: "Используйте его, когда вы зашли в тупик, столкнулись с дилеммой или просто хотите получить непредвзятый взгляд со стороны."
+      lead: "Clomilu помогает владельцам бизнеса и руководителям разобраться в сложных ситуациях. Это личное пространство для размышлений, доступное в любой момент, когда нужна ясность.",
+      body: "В основе Clomilu — практический опыт бизнесменов и консультантов. Он помогает структурировать мысли, проверить свои предположения и найти следующий шаг."
     },
     helps: {
-      clear: { title: "Ясно увидеть ситуацию", text: "благодаря непредвзятому и структурированному подходу." },
-      next: { title: "Найти следующий шаг", text: "когда непонятно, с чего начать." },
-      dilemmas: { title: "Разобраться с дилеммой", text: "когда очевидного ответа нет." },
-      head: { title: "Вытащить проблему из головы", text: "и превратить запутанную ситуацию в задачу, с которой можно работать." },
+      clear: { title: "Увидеть ситуацию яснее.", text: "Структурированный подход помогает отделить факты от эмоций и увидеть полную картину." },
+      next: { title: "Найти следующий шаг.", text: "Понять, с чего начать, когда очевидного ответа нет." },
+      dilemmas: { title: "Проверить свои предположения.", text: "Посмотреть на ситуацию непредвзято и заметить то, что ускользало от внимания." },
+      head: { title: "Привести мысли в порядок.", text: "Превратить запутанную ситуацию в конкретную задачу, с которой можно работать." },
       center: "Clomilu <br>помогает:"
     },
     statement: "Ясность в мыслях. Взвешенность решений. Движение вперёд.",
@@ -425,19 +412,16 @@ const translations = {
     },
     pricing: {
       title: "Выберите подходящий вариант.",
-      one: { title: "One-time Pass", price: "25 €", text: "Попробуйте Clomilu с одним сложным вопросом, дилеммой или решением, которое вам предстоит принять.", button: "Начать сессию" },
-      sub: { title: "Subscription", price: "70 €/месяц", text: "Гибкий доступ к личному пространству для размышлений, когда вам нужно разобраться в сложном решении.", button: "Начать" }
+      one: { title: "One-time Pass", price: "25 €", text: "Одна сессия.<br>Попробуйте Clomilu, чтобы разобрать одну ситуацию и найти следующий шаг.", button: "Начать сессию" },
+      sub: { title: "Subscription", price: "70 €/месяц", text: "Регулярный доступ.<br>Личное пространство для размышлений, когда нужно принять важные решения. Без ограничений по количеству сессий.", button: "Начать" }
     },
     economics: {
       time: {
         title: "Ваше время, деньги и внимание не безграничны.",
-        p1: "На обдумывание сложного вопроса в бизнесе могут уйти часы — и при этом вам может понадобиться мнение консультанта или советника.",
-        p2: "Clomilu дает вам личное пространство, чтобы структурировать проблему, проверить свои предположения и изучить возможные варианты, прежде чем решать, нужна ли вам внешняя экспертиза и какая именно помощь может понадобиться."
+        p1: "На обдумывание важного вопроса уходят часы. В такие моменты часто нужен собеседник, который поможет структурировать мысли. Для этого и создан Clomilu: он помогает разложить ситуацию по полочкам и проверить предположения — до того, как вы решите, нужна ли вам помощь внешнего эксперта."
       },
       advice: {
-        title: "Профессиональные консультации стоят дорого — и часто оплачиваются по часам.",
-        p1: "В Европе бизнес-консультанты обычно берут около <strong>100–250 € в час</strong>, в зависимости от опыта, специализации и рынка.",
-        p2: "В США независимые бизнес-консультанты обычно берут около <strong>150–300 $ и более в час</strong>, а специалисты с большим опытом могут стоить значительно дороже."
+        p1: "Профессиональные консультации — это ценный ресурс, который стоит недешево (в Европе — 100–250 € в час, в США — от 150 $ и выше). Clomilu — это доступное пространство для размышлений, которое всегда под рукой. Оно помогает прийти к консультанту с уже готовыми вопросами или справиться самостоятельно, если ситуация позволяет."
       }
     },
     closing: "Clomilu рядом всегда, когда вам нужно структурированное пространство для размышлений — до или во время важного решения.",
