@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentButton = document.querySelector(".lang-current");
   const menu = document.querySelector(".lang-menu");
   const languageButtons = document.querySelectorAll(".lang-menu button");
-  const supported = ["fr", "en", "ru", "es"];
+  const supported = ["fr", "en", "es", "ru"];
 
   function getValue(obj, path) {
     return path.split(".").reduce((value, key) => value && value[key], obj);
