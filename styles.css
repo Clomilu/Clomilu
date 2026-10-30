@@ -1189,24 +1189,28 @@ footer{
 .msg-user{
   justify-content:flex-end;
 }
-.msg-user .msg-body{
-  background:#CFD9D2;
-  color:var(--forest-deep);
-  padding:14px 18px;
-  border-radius:14px;
-  max-width:80%;
-  font-size:15px;
-  line-height:1.55;
+/* Сообщение пользователя — прозрачный фон (как основной), выравнивание вправо */
+.msg-user .msg-body {
+  background: transparent;
+  color: var(--ink); 
+  padding: 14px 0;     
+  border-radius: 0;   
+  max-width: 80%;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
-/* Сообщение Clomilu — фон #F4F5EF */
-.msg-clomilu{
-  justify-content:flex-start;
+/* Сообщение Clomilu — зеленый фон #CFD9D2, выравнивание влево */
+.msg-clomilu {
+  justify-content: flex-start;
 }
-.msg-clomilu .msg-body{
-  background:#F4F5EF;
-  color:var(--ink);
-  max-width:100%;
+.msg-clomilu .msg-body {
+  background: #CFD9D2;  
+  color: var(--forest-deep);
+  padding: 14px 18px;
+  border-radius: 14px;
+  max-width: 80%;     
+  line-height: 1.55;
 }
 
 /* Уведомление о приватности — первое сообщение */
