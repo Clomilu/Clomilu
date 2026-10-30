@@ -45,6 +45,46 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
+    // ==== Удаление аккаунта ====
+  const deleteAccountBtn = document.getElementById("delete-account-btn");
+  if (deleteAccountBtn) {
+    deleteAccountBtn.addEventListener("click", async () => {
+      // Получаем текущий язык
+      const currentLang = localStorage.getItem("clomilu-language") || document.documentElement.lang || "fr";
+      const dict = translations[currentLang]?.settings || translations["fr"].settings;
+
+      // Окно подтверждения
+      const isConfirmed = confirm(dict.dangerConfirm);
+      if (!isConfirmed) return;
+
+      deleteAccountBtn.disabled = true;
+      deleteAccountBtn.textContent = dict.dangerDeleting;
+
+      try {
+        const response = await fetch("https://elenazernova-jaunty-lake-8315.fly.dev/api/delete-account", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ user_id: session.user.id })
+        });
+
+        if (response.ok) {
+          await sb.auth.signOut();
+          window.location.href = "index.html";
+        } else {
+          alert(dict.dangerError);
+          deleteAccountBtn.disabled = false;
+          deleteAccountBtn.textContent = dict.dangerButton;
+        }
+      } catch (err) {
+        console.error(err);
+        alert(dict.dangerNetworkError);
+        deleteAccountBtn.disabled = false;
+        deleteAccountBtn.textContent = dict.dangerButton;
+      }
+    });
+  }
+  // ==== Конец блока удаления ====
+
   // ==== 4. Форма входа ====
   const loginForm = document.querySelector('[data-panel="login"]');
   if (loginForm) {
