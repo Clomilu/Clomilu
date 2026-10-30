@@ -305,6 +305,12 @@ En continuant, vous reconnaissez ces consignes.`;
 
   // ==== Отправка сообщения ====
   async function sendMessage(text) {
+    // 0. ПРОВЕРКА НА ЗАВЕРШЕННЫЙ ЧАТ
+    const textareaCheck = document.querySelector("#app-input textarea");
+    if (textareaCheck && textareaCheck.disabled) {
+      alert("Этот диалог завершен. Пожалуйста, начните новый.");
+      return;
+    }
     // 1. СНАЧАЛА показываем сообщение пользователя на экране (мгновенно)
     const conversation = document.getElementById("app-conversation");
     if (conversation) {
