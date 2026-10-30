@@ -98,8 +98,12 @@ En continuant, vous reconnaissez ces consignes.`;
       item.textContent = chat.title || "Sans titre";
 
       item.addEventListener("click", (e) => {
-        e.preventDefault();
-        openChat(chat.id);
+        // Если мы уже на странице app.html, просто открываем чат без перезагрузки
+        if (window.location.pathname.includes("app.html") || window.location.pathname === "/") {
+           e.preventDefault();
+           openChat(chat.id);
+        }
+        // Если мы в настройках, браузер сам перейдет по ссылке app.html?chat=...
       });
 
       list.appendChild(item);
