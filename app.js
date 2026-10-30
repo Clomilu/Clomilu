@@ -439,34 +439,33 @@ En continuant, vous reconnaissez ces consignes.`;
   // ==== Инициализация: состояние A ====
   startNewChat();
 
-    // ==== Переключатель языка на /settings ====
-  const langButtons = document.querySelectorAll(".settings-lang");
-  if (langButtons.length > 0) {
+     // ==== Переключатель языка на /settings ====
+  const settingsLangButtons = document.querySelectorAll(".settings-lang");
+  if (settingsLangButtons.length > 0) {
     const currentLang = localStorage.getItem("clomilu-language") || document.documentElement.lang || "fr";
     
-    langButtons.forEach((btn) => {
-      // 1. Подсвечиваем активный язык
+    settingsLangButtons.forEach((btn) => {
+      // Подсветка активного
       if (btn.dataset.lang === currentLang) {
         btn.classList.add("is-active");
       } else {
         btn.classList.remove("is-active");
       }
 
-      // 2. Обработчик клика
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault(); // Останавливаем другие скрипты
+        e.stopPropagation(); // Не даем main.js перехватить клик
+
         const newLang = btn.dataset.lang;
         localStorage.setItem("clomilu-language", newLang);
         
-        // Если на странице есть функция setLanguage (из main.js) — используем её для мгновенного перевода
+        // Принудительно переводим DOM перед перезагрузкой (чтобы визуально не было моргания)
         if (typeof setLanguage === "function") {
           setLanguage(newLang);
-          // Мгновенно обновляем подсветку
-          langButtons.forEach(b => b.classList.remove("is-active"));
-          btn.classList.add("is-active");
-        } else {
-          // Если функции нет — перезагружаем страницу (сработает для настроек)
-          window.location.reload();
         }
+        
+        // Перезагружаем страницу, чтобы применить переводы ко всему
+        window.location.reload();
       });
     });
   }
