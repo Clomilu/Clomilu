@@ -318,6 +318,13 @@ En continuant, vous reconnaissez ces consignes.`;
     textarea.addEventListener("input", autoResize);
     autoResize();
 
+    textarea.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault(); // Останавливаем перенос строки
+        inputForm.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
+      }
+    });
+
     inputForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const text = textarea.value.trim();
