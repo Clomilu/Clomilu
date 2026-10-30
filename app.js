@@ -114,6 +114,10 @@ En continuant, vous reconnaissez ces consignes.`;
 
     body.innerHTML = "<p>" + html + "</p>";
     article.appendChild(body);
+    setTimeout(() => {
+      const conversation = document.getElementById("app-conversation");
+      if (conversation) conversation.scrollTop = conversation.scrollHeight;
+    }, 50);
     return article;
   }
 
@@ -164,6 +168,9 @@ En continuant, vous reconnaissez ces consignes.`;
     (messages || []).forEach((msg) => {
       conversation.appendChild(renderMessage(msg.role, msg.content));
     });
+    setTimeout(() => {
+      conversation.scrollTop = conversation.scrollHeight;
+    }, 100);
 
     // Обновить активный класс в sidebar
     if (chatsContainer) {
