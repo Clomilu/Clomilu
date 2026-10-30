@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentButton.setAttribute("aria-expanded", menu.classList.contains("open") ? "true" : "false");
     });
 
-    languageButtons.forEach((button) => {
+    //languageButtons.forEach((button) => {
       button.addEventListener("click", () => setLanguage(button.dataset.lang));
     });
 
