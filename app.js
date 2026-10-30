@@ -12,6 +12,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // Проверяем, есть ли в URL параметр ?chat=...
+  const urlParams = new URLSearchParams(window.location.search);
+  const chatIdFromUrl = urlParams.get('chat');
+  
+  if (chatIdFromUrl) {
+    // Открываем этот чат
+    setTimeout(() => {
+      openChat(chatIdFromUrl);
+    }, 500); // Небольшая пауза, чтобы sidebar успел загрузиться
+  }
+
   // ==== Текущий активный чат ====
   let activeChatId = null;
 
