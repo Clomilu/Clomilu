@@ -3,7 +3,7 @@
 // Доступ ограничен Row Level Security (RLS) на стороне сервера.
 
 const SUPABASE_URL = "https://fbysfmodfzxdemfobmol.supabase.co";
-const SUPABASE_KEY = "sb_publishable_fuo-4imzV9dQRw8DRfTEqw_oX92-B1U";
+const SUPABASE_KEY = "sb_publishable_JKRBDpNANudCysaVgWZflA_xSmD609J";
 
 // Глобальный клиент
 let supabaseClient = null;
