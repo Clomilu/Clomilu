@@ -438,4 +438,36 @@ En continuant, vous reconnaissez ces consignes.`;
 
   // ==== Инициализация: состояние A ====
   startNewChat();
+
+    // ==== Переключатель языка на /settings ====
+  const langButtons = document.querySelectorAll(".settings-lang");
+  if (langButtons.length > 0) {
+    const currentLang = localStorage.getItem("clomilu-language") || document.documentElement.lang || "fr";
+    
+    langButtons.forEach((btn) => {
+      // 1. Подсвечиваем активный язык
+      if (btn.dataset.lang === currentLang) {
+        btn.classList.add("is-active");
+      } else {
+        btn.classList.remove("is-active");
+      }
+
+      // 2. Обработчик клика
+      btn.addEventListener("click", () => {
+        const newLang = btn.dataset.lang;
+        localStorage.setItem("clomilu-language", newLang);
+        
+        // Если на странице есть функция setLanguage (из main.js) — используем её для мгновенного перевода
+        if (typeof setLanguage === "function") {
+          setLanguage(newLang);
+          // Мгновенно обновляем подсветку
+          langButtons.forEach(b => b.classList.remove("is-active"));
+          btn.classList.add("is-active");
+        } else {
+          // Если функции нет — перезагружаем страницу (сработает для настроек)
+          window.location.reload();
+        }
+      });
+    });
+  }
 });
