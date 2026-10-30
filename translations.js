@@ -128,7 +128,7 @@ const translations = {
       dangerConfirm: "Êtes-vous sûr de vouloir supprimer votre compte ?\n\nTout l'historique de vos échanges et recommandations sera définitivement supprimé. Vous ne pourrez plus y revenir.",
       dangerDeleting: "Suppression en cours...",
       dangerError: "Erreur lors de la suppression. Veuillez réessayer plus tard.",
-      dangerNetworkError: "Impossible de contacter le serveur."
+      dangerNetworkError: "Impossible de contacter le serveur.",
       signOut: "Se déconnecter"
     }
   },
@@ -262,7 +262,7 @@ const translations = {
       dangerConfirm: "Are you sure you want to delete your account?\n\nThe entire history of your interactions and recommendations will be permanently deleted. You will not be able to return to it.",
       dangerDeleting: "Deleting...",
       dangerError: "Error during deletion. Please try again later.",
-      dangerNetworkError: "Could not reach the server."
+      dangerNetworkError: "Could not reach the server.",
       signOut: "Sign out"
     }
   },
@@ -396,7 +396,7 @@ const translations = {
       dangerConfirm: "¿Estás seguro de que quieres eliminar tu cuenta?\n\nTodo el historial de tus interacciones y recomendaciones se eliminará de forma permanente. No podrás volver a acceder a él.",
       dangerDeleting: "Eliminando...",
       dangerError: "Error durante la eliminación. Inténtalo de nuevo más tarde.",
-      dangerNetworkError: "No se pudo contactar con el servidor."
+      dangerNetworkError: "No se pudo contactar con el servidor.",
       signOut: "Cerrar sesión"
     }
   },
@@ -531,7 +531,7 @@ const translations = {
       dangerConfirm: "Вы уверены, что хотите удалить аккаунт?\n\nВся история ваших диалогов и рекомендаций будет безвозвратно удалена. Вы больше не сможете к ним вернуться.",
       dangerDeleting: "Удаление...",
       dangerError: "Ошибка при удалении. Попробуйте позже.",
-      dangerNetworkError: "Не удалось связаться с сервером."
+      dangerNetworkError: "Не удалось связаться с сервером.",
       signOut: "Выйти"
     }
 };
