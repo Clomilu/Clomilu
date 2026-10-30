@@ -148,6 +148,23 @@ En continuant, vous reconnaissez ces consignes.`;
 
     activeChatId = chatId;
 
+// Проверяем статус чата
+    const { data: chatData } = await sb.from("chats").select("status").eq("id", chatId).single();
+    const isCompleted = chatData?.status === "completed";
+
+// Блокируем или разблокируем поле ввода
+    const inputForm = document.getElementById("app-input");
+    const textarea = inputForm.querySelector("textarea");
+    if (isCompleted) {
+      textarea.disabled = true;
+      textarea.placeholder = "Диалог завершен. Начните новый.";
+      inputForm.querySelector(".app-send").disabled = true;
+    } else {
+      textarea.disabled = false;
+      textarea.placeholder = "Décrivez votre situation…"; // или ваш дефолтный текст
+      inputForm.querySelector(".app-send").disabled = textarea.value.trim().length === 0;
+    }
+
     const { data: messages, error } = await sb
       .from("messages")
       .select("role, content, created_at")
