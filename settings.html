@@ -44,7 +44,7 @@
       <a href="index.html" class="sidebar-logo" aria-label="Clomilu">
         <img src="logo_173f32.svg" alt="Clomilu">
       </a>
-      <button type="button" class="sidebar-new" data-i18n="app.newChat">Nouvelle conversation</button>
+      <a href="app.html" class="sidebar-new" data-i18n="app.newChat">Nouvelle conversation</a>
     </div>
 
     <nav class="sidebar-chats" aria-label="Historique">
@@ -162,6 +162,48 @@
     </div>
   </main>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    // Инициализируем Supabase (если он не инициализирован)
+    const sb = typeof initSupabase === 'function' ? initSupabase() : null;
+    if (!sb) return;
 
+    // Проверяем авторизацию
+    const { data: { session } } = await sb.auth.getSession();
+    if (!session) return;
+
+    // Загружаем историю
+    const chatsContainer = document.querySelector(".sidebar-chats");
+    if (!chatsContainer) return;
+
+    const { data: chats, error } = await sb
+      .from("chats")
+      .select("id, title, status")
+      .order("updated_at", { ascending: false });
+
+    if (error || !chats || chats.length === 0) return;
+
+    // Убираем надпись "Нет чатов", если она есть
+    const emptyMsg = chatsContainer.querySelector(".sidebar-empty");
+    if (emptyMsg) emptyMsg.remove();
+
+    // Создаем список
+    const list = document.createElement("div");
+    list.className = "sidebar-chat-list";
+
+    chats.forEach((chat) => {
+      const item = document.createElement("a");
+      // ВАЖНО: ссылка ведет в приложение с ID чата в хэше
+      item.href = "app.html?chat=" + chat.id; 
+      item.className = "sidebar-chat-item";
+      if (chat.status === "completed") item.classList.add("is-completed");
+      item.textContent = chat.title || "Sans titre";
+
+      list.appendChild(item);
+    });
+
+    chatsContainer.appendChild(list);
+  });
+</script>
 </body>
 </html>
