@@ -316,10 +316,17 @@ En continuant, vous reconnaissez ces consignes.`;
     const textarea = inputForm.querySelector("textarea");
     const sendBtn = inputForm.querySelector(".app-send");
 
-    function autoResize() {
+        function autoResize() {
       textarea.style.height = "auto";
       textarea.style.height = Math.min(textarea.scrollHeight, 200) + "px";
       sendBtn.disabled = textarea.value.trim().length === 0;
+
+      // 👇 ДОБАВЛЕНА СТРОКА ДЛЯ АВТОСКРОЛЛА 👇
+      const conversation = document.getElementById("app-conversation");
+      if (conversation) {
+        conversation.scrollTop = conversation.scrollHeight;
+      }
+      // 👆 КОНЕЦ ДОБАВЛЕННОЙ СТРОКИ 👆
     }
 
     textarea.addEventListener("input", autoResize);
