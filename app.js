@@ -275,6 +275,26 @@ En continuant, vous reconnaissez ces consignes.`;
       }
     }
 
+        // --- ОТПРАВЛЯЕМ ЗАПРОС НА СЕРВЕР FLY.IO ---
+    try {
+      const response = await fetch("https://elenazernova-jaunty-lake-8315.fly.dev/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: activeChatId,
+          user_message: text
+        })
+      });
+      
+      if (!response.ok) {
+        console.error("Ошибка сервера:", await response.text());
+      }
+    } catch (error) {
+      console.error("Не удалось связаться с сервером:", error);
+    }
+
     // Перерисовать sidebar и область чата
     await reloadChats();
     await openChat(activeChatId);
