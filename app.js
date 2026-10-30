@@ -195,6 +195,14 @@ En continuant, vous reconnaissez ces consignes.`;
         el.classList.toggle("is-active", el.dataset.chatId === chatId);
       });
     }
+    if (isCompleted) {
+      const endNotice = document.createElement("div");
+      endNotice.style.textAlign = "center";
+      endNotice.style.color = "#888";
+      endNotice.style.marginTop = "20px";
+      endNotice.innerText = "— Диалог завершен —";
+      conversation.appendChild(endNotice);
+    }
   }
 
   // ==== Новый чат — просто сброс состояния ====
