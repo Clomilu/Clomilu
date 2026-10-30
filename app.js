@@ -90,7 +90,7 @@ En continuant, vous reconnaissez ces consignes.`;
 
     chats.forEach((chat) => {
       const item = document.createElement("a");
-      item.href = "#";
+      item.href = "app.html?chat=" + chat.id;
       item.className = "sidebar-chat-item";
       item.dataset.chatId = chat.id;
       if (chat.status === "completed") item.classList.add("is-completed");
