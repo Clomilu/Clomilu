@@ -436,21 +436,6 @@ En continuant, vous reconnaissez ces consignes.`;
     });
   }
 
-  // ==== Переключатель языка на /settings ====
-  const langButtons = document.querySelectorAll(".settings-lang");
-  if (langButtons.length) {
-    const currentLang = document.documentElement.lang || "fr";
-    langButtons.forEach((btn) => {
-      if (btn.dataset.lang === currentLang) {
-        btn.classList.add("is-active");
-      }
-      btn.addEventListener("click", () => {
-        localStorage.setItem("clomilu-language", btn.dataset.lang);
-        window.location.reload();
-      });
-    });
-  }
-
   // ==== Инициализация: состояние A ====
   startNewChat();
 });
