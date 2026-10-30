@@ -439,7 +439,7 @@ En continuant, vous reconnaissez ces consignes.`;
   // ==== Инициализация: состояние A ====
   startNewChat();
 
-     // ==== Переключатель языка на /settings ====
+  // ==== Переключатель языка на /settings ====
   const settingsLangButtons = document.querySelectorAll(".settings-lang");
   if (settingsLangButtons.length > 0) {
     const currentLang = localStorage.getItem("clomilu-language") || document.documentElement.lang || "fr";
@@ -453,19 +453,19 @@ En continuant, vous reconnaissez ces consignes.`;
       }
 
       btn.addEventListener("click", (e) => {
-        e.preventDefault(); // Останавливаем другие скрипты
-        e.stopPropagation(); // Не даем main.js перехватить клик
+        e.preventDefault();
+        e.stopPropagation();
 
         const newLang = btn.dataset.lang;
         localStorage.setItem("clomilu-language", newLang);
         
-        // Принудительно переводим DOM перед перезагрузкой (чтобы визуально не было моргания)
+        // Никаких перезагрузок! Просто вызываем функцию из main.js
         if (typeof setLanguage === "function") {
           setLanguage(newLang);
+          // Обновляем подсветку кнопок
+          settingsLangButtons.forEach(b => b.classList.remove("is-active"));
+          btn.classList.add("is-active");
         }
-        
-        // Перезагружаем страницу, чтобы применить переводы ко всему
-        window.location.reload();
       });
     });
   }
