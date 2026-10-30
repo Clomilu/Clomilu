@@ -304,9 +304,21 @@ En continuant, vous reconnaissez ces consignes.`;
       console.error("Не удалось связаться с сервером:", error);
     }
 
-    // Перерисовать sidebar и область чата
-    await reloadChats();
-    await openChat(activeChatId);
+    // Загружаем только новые сообщения (без перерисовки sidebar)
+    const { data: newMessages, error: fetchErr } = await sb
+      .from("messages")
+      .select("role, content")
+      .eq("chat_id", activeChatId)
+      .order("created_at", { ascending: false })
+      .limit(1);
+
+    if (!fetchErr && newMessages && newMessages.length > 0) {
+      const lastMsg = newMessages[0];
+      if (lastMsg.role === "assistant") {
+        conversation.appendChild(renderMessage("assistant", lastMsg.content));
+        conversation.scrollTop = conversation.scrollHeight;
+      }
+    }
     return true;
   }
 
