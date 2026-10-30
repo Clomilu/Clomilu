@@ -1521,3 +1521,14 @@ footer{
     margin-bottom:28px;
   }
 }
+
+/* Кнопка удаления аккаунта (в стиле settings-signout, но красная) */
+.settings-signout.danger {
+  color: #a12a2a; /* Темно-красный текст */
+  border-color: #e0b4b4; /* Светло-красная рамка */
+}
+
+.settings-signout.danger:hover {
+  background-color: #fdf2f2; /* Легкий розовый фон при наведении */
+  border-color: #a12a2a;
+}
