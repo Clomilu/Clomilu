@@ -513,7 +513,7 @@ const translations = {
         foot: "Продолжая, вы подтверждаете, что ознакомились с этой рекомендацией."
       }
     },
-          settings: {
+        settings: {
           title: "Настройки",
           profile: "Профиль",
           emailLabel: "Email",
@@ -532,6 +532,6 @@ const translations = {
           dangerDeleting: "Удаление...",
           dangerError: "Ошибка при удалении. Попробуйте позже.",
           dangerNetworkError: "Не удалось связаться с сервером.",
-        signOut: "Выйти"
+          signOut: "Выйти"
     }
 };
