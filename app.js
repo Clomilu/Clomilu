@@ -255,26 +255,28 @@ En continuant, vous reconnaissez ces consignes.`;
 
   // ==== Отправка сообщения ====
   async function sendMessage(text) {
+    // 1. СНАЧАЛА показываем сообщение пользователя на экране (мгновенно)
+    const conversation = document.getElementById("app-conversation");
+    if (conversation) {
+      // Добавляем сообщение в интерфейс
+      conversation.appendChild(renderMessage("user", text));
+      // Прокручиваем вниз
+      conversation.scrollTop = conversation.scrollHeight;
+    }
+    // 2. ТЕПЕРЬ сохраняем в базу и на сервер
     if (activeChatId === null) {
-      // Создаём чат + пишем первое сообщение
       const newId = await createChatWithMessage(text);
       if (!newId) return false;
     } else {
-      // Пишем в активный чат
       const { error } = await sb
         .from("messages")
-        .insert({
-          chat_id: activeChatId,
-          role: "user",
-          content: text
-        });
+        .insert({ chat_id: activeChatId, role: "user", content: text });
 
       if (error) {
         console.error("Ошибка записи сообщения:", error);
         return false;
       }
     }
-
         // --- ОТПРАВЛЯЕМ ЗАПРОС НА СЕРВЕР FLY.IO ---
     try {
       const response = await fetch("https://elenazernova-jaunty-lake-8315.fly.dev/api/chat", {
