@@ -442,30 +442,14 @@ En continuant, vous reconnaissez ces consignes.`;
   // ==== Переключатель языка на /settings ====
   const settingsLangButtons = document.querySelectorAll(".settings-lang");
   if (settingsLangButtons.length > 0) {
-    const currentLang = localStorage.getItem("clomilu-language") || document.documentElement.lang || "fr";
-    
     settingsLangButtons.forEach((btn) => {
-      // Подсветка активного
-      if (btn.dataset.lang === currentLang) {
-        btn.classList.add("is-active");
-      } else {
-        btn.classList.remove("is-active");
-      }
-
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        e.stopPropagation();
-
         const newLang = btn.dataset.lang;
-        localStorage.setItem("clomilu-language", newLang);
         
-        // Никаких перезагрузок! Просто вызываем функцию из main.js
-        if (typeof setLanguage === "function") {
-          setLanguage(newLang);
-          // Обновляем подсветку кнопок
-          settingsLangButtons.forEach(b => b.classList.remove("is-active"));
-          btn.classList.add("is-active");
-        }
+        // Сохраняем язык и перезагружаем
+        localStorage.setItem("clomilu-language", newLang);
+        window.location.reload();
       });
     });
   }
