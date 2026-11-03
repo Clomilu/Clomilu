@@ -531,7 +531,7 @@ const translations = {
           dangerDeleting: "Удаление...",
           dangerError: "Ошибка при удалении. Попробуйте позже.",
           dangerNetworkError: "Не удалось связаться с сервером.",
-          signOut: "Выйти"
-    }
-  }
-};
+                signOut: "Выйти"
+    } // закрыли settings
+  } // закрыли ru
+}; // закрыли translations
