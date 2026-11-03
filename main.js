@@ -53,13 +53,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem("clomilu-language", lang);
   }
+    // Переключение языка в настройках приложения
+  document.querySelectorAll(".settings-lang").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      setLanguage(button.dataset.lang);
+    });
+  });
 
-  // Обработчики языкового переключателя (если он есть на странице)
+    // Обработчики языкового переключателя
   if (currentButton && menu) {
     currentButton.addEventListener("click", (event) => {
       event.stopPropagation();
       menu.classList.toggle("open");
       currentButton.setAttribute("aria-expanded", menu.classList.contains("open") ? "true" : "false");
+    });
+
+    // Выбор языка
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        setLanguage(button.dataset.lang);
+      });
     });
 
     document.addEventListener("click", (event) => {
