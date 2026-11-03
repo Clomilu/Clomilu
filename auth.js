@@ -32,14 +32,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     localStorage.setItem("clomilu-plan", planFromUrl);
   }
 
-  // ==== 3. Route guard: если есть сессия ====
+   // ==== 3. Route guard: если есть сессия ====
   const { data: { session } } = await sb.auth.getSession();
 
   if (session && document.body.classList.contains("auth-page")) {
     // На /login, /reset — авторизован, идём в /app
     // НО на /checkout — оставляем, чтобы выбрать тариф
+    // И на /update-password — оставляем, чтобы сменить пароль из настроек
     const isCheckout = document.querySelector('[data-panel="checkout"]');
-    if (!isCheckout) {
+    const isUpdatePassword = document.querySelector('[data-panel="update-password"]');
+    
+    if (!isCheckout && !isUpdatePassword) {
       window.location.href = "app.html";
       return;
     }
