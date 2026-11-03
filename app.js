@@ -462,6 +462,46 @@ ${notice.foot}
 
   // ==== Инициализация: состояние A ====
   startNewChat();
+  // ==== Удаление аккаунта ====
+  const deleteAccountBtn = document.getElementById("delete-account-btn");
+  if (deleteAccountBtn) {
+    deleteAccountBtn.addEventListener("click", async () => {
+      // Берем переводы для текущего языка
+      const lang = localStorage.getItem("clomilu-language") || "fr";
+      const dict = translations[lang]?.settings || translations["fr"].settings;
 
+      // Подтверждение
+      const isConfirmed = confirm(dict.dangerConfirm);
+      if (!isConfirmed) return;
+
+      deleteAccountBtn.disabled = true;
+      const originalText = deleteAccountBtn.innerHTML;
+      deleteAccountBtn.innerHTML = `<span>${dict.dangerDeleting}</span>`;
+
+      try {
+        // Отправляем запрос на сервер Fly.io для удаления
+        const response = await fetch("https://elenazernova-jaunty-lake-8315.fly.dev/api/delete-account", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ user_id: session.user.id })
+        });
+
+        if (response.ok) {
+          // Если удалено — выходим и редиректим
+          await sb.auth.signOut();
+          window.location.href = "index.html";
+        } else {
+          alert(dict.dangerError);
+          deleteAccountBtn.disabled = false;
+          deleteAccountBtn.innerHTML = originalText;
+        }
+      } catch (err) {
+        console.error(err);
+        alert(dict.dangerNetworkError);
+        deleteAccountBtn.disabled = false;
+        deleteAccountBtn.innerHTML = originalText;
+      }
+    });
+  }
     
 });
