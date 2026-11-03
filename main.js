@@ -60,11 +60,17 @@ document.addEventListener("DOMContentLoaded", () => {
     detail: { lang }
     }));
   }
-    // Переключение языка в настройках приложения
+      // Переключение языка в настройках приложения
   document.querySelectorAll(".settings-lang").forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
-      setLanguage(button.dataset.lang);
+      const newLang = button.dataset.lang;
+      
+      // 1. Применяем перевод на текущей странице
+      setLanguage(newLang);
+      
+      // 2. СОХРАНЯЕМ ВЫБОР В ПАМЯТЬ
+      localStorage.setItem("clomilu-language", newLang);
     });
   });
 
