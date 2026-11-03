@@ -183,13 +183,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   if (updatePwForm) {
 
-    // Проверяем сессию — Supabase её ставит после клика по ссылке в письме
+    // Проверяем сессию — она есть и при сбросе по ссылке, и при смене из настроек
     const { data: { session } } = await sb.auth.getSession();
 
     if (!session) {
-      // Ссылка недействительна, истекла или уже использована
-      const errorMsg = getTranslation("updatePassword.invalidLink")
-        || "This link is no longer valid. Please request a new one.";
+      // Если сессии нет — выкидываем на логин
+      const errorMsg = getTranslation("updatePassword.invalidLink") || "This link is no longer valid. Please request a new one.";
       showFormError(updatePwForm, errorMsg);
       updatePwForm.querySelector("button[type='submit']").disabled = true;
       return;
