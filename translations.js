@@ -494,8 +494,7 @@ const translations = {
       submit: "Оплатить",
       submitWithPrice: "Оплатить {price}",
       securePrefix: "Безопасная оплата через"
-    }
-  },
+    },
     app: {
       menu: "Меню",
       newChat: "Новая беседа",
@@ -534,4 +533,5 @@ const translations = {
           dangerNetworkError: "Не удалось связаться с сервером.",
           signOut: "Выйти"
     }
+  }
 };
