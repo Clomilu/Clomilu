@@ -38,6 +38,8 @@ ${notice.p1}
 
 ${notice.p2.replace(/<strong>|<\/strong>/g, "**")}
 
+<a href="privacy.html" style="color: inherit; text-decoration: underline;">${notice.link.replace(" →", "")}</a>
+
 ${notice.foot}
 `;
 }
@@ -173,7 +175,6 @@ ${notice.foot}
 
     let html = getNoticeText()
       .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/\n\n/g, "</p><p>")
       .replace(/\n/g, "<br>");
