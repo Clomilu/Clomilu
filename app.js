@@ -40,6 +40,18 @@ En continuant, vous reconnaissez ces consignes.`;
   if (emailEl && session.user) {
     emailEl.textContent = session.user.email || "—";
   }
+    // ==== Подсветка активного языка (только визуал) ====
+  const settingsLangButtons = document.querySelectorAll(".settings-lang");
+  if (settingsLangButtons.length > 0) {
+    const currentLang = localStorage.getItem("clomilu-language") || document.documentElement.lang || "fr";
+    settingsLangButtons.forEach((btn) => {
+      if (btn.dataset.lang === currentLang) {
+        btn.classList.add("is-active");
+      } else {
+        btn.classList.remove("is-active");
+      }
+    });
+  }
 
   // ==== SignOut ====
   const signoutBtn =
