@@ -503,5 +503,33 @@ ${notice.foot}
       }
     });
   }
-    
+    // ==== Обновление пароля (на странице update-password.html) ====
+  const updatePasswordForm = document.getElementById("update-password-form"); // Проверьте ID формы
+  if (updatePasswordForm) {
+    updatePasswordForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const newPassword = document.getElementById("new-password").value; // Проверьте ID поля
+      const confirmPassword = document.getElementById("confirm-password").value; // Проверьте ID поля
+      
+      // Получаем переводы для текущего языка
+      const lang = localStorage.getItem("clomilu-language") || "fr";
+      const dict = translations[lang]?.updatePassword || translations["fr"].updatePassword;
+
+      if (newPassword !== confirmPassword) {
+        alert(dict.passwordMismatch || "Пароли не совпадают");
+        return;
+      }
+
+      // Вызываем Supabase
+      const { error } = await sb.auth.updateUser({ password: newPassword });
+
+      if (error) {
+        alert(dict.error || error.message);
+      } else {
+        alert(dict.success); // "Пароль обновлен"
+        window.location.href = "settings.html"; // Или в app.html
+      }
+    });
+  } 
 });
