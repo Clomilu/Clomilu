@@ -27,13 +27,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   let activeChatId = null;
 
   // ==== Шаблон уведомления о приватности (только UI) ====
-  const NOTICE_TEXT = `**Avant de commencer**
+  function getNoticeText() {
+  const lang = localStorage.getItem("clomilu-language") || "fr";
+  const notice = translations[lang]?.app?.notice || translations.fr.app.notice;
 
-Pour protéger votre vie privée, veuillez ne pas mentionner de noms, coordonnées, numéros d'enregistrement ou autres identifiants — ils ne sont pas nécessaires à votre demande.
+  return `
+**${notice.title}**
 
-Clomilu vous aide à réfléchir à la **situation**, pas aux personnes qui y figurent. Les détails identifiants sont rarement nécessaires.
+${notice.p1}
 
-En continuant, vous reconnaissez ces consignes.`;
+${notice.p2.replace(/<strong>|<\/strong>/g, "**")}
+
+${notice.foot}
+`;
+}
 
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
@@ -159,7 +166,7 @@ En continuant, vous reconnaissez ces consignes.`;
     const body = document.createElement("div");
     body.className = "msg-body";
 
-    let html = NOTICE_TEXT
+    let html = getNoticeText()
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
