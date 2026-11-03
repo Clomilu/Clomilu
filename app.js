@@ -439,21 +439,5 @@ En continuant, vous reconnaissez ces consignes.`;
   // ==== Инициализация: состояние A ====
   startNewChat();
 
-    // ==== Переключатель языка на /settings ====
-  const settingsLangButtons = document.querySelectorAll(".settings-lang");
-  if (settingsLangButtons.length > 0) {
-    settingsLangButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        // Блокируем конфликт с main.js
-        e.preventDefault();
-        e.stopPropagation();
-
-        const newLang = btn.dataset.lang;
-        
-        // Сохраняем язык и перезагружаем страницу
-        localStorage.setItem("clomilu-language", newLang);
-        window.location.reload();
-      });
-    });
-  }
+    
 });
