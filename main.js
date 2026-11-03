@@ -36,6 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const value = getValue(translations[lang], element.dataset.i18nAriaLabel);
   if (value !== undefined) element.setAttribute("aria-label", value);
 });
+    // Placeholder для textarea и input
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      const value = getValue(translations[lang], element.dataset.i18nPlaceholder);
+      if (value !== undefined) element.setAttribute("placeholder", value);
+    });
 
     // Переключатель языка — только если он есть на странице
     if (currentButton) {
