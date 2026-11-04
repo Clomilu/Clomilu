@@ -1532,3 +1532,22 @@ footer{
   background-color: #fdf2f2; /* Легкий розовый фон при наведении */
   border-color: #a12a2a;
 }
+
+/* Постоянная сноска о хранении данных */
+.app-storage-notice {
+  text-align: center;
+  font-size: 12px;
+  color: #8a8f8c; /* Мягкий серо-зеленый цвет, не слишком контрастный */
+  padding: 0 20px 10px 20px; /* Отступы по бокам и снизу */
+  max-width: 760px; /* Чтобы не растягивалось на весь экран */
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+.app-storage-notice a {
+  color: #8a8f8c;
+  text-decoration: underline;
+}
+.app-storage-notice a:hover {
+  color: var(--forest); /* При наведении становится основным цветом */
+}
