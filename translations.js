@@ -102,6 +102,7 @@ const translations = {
       signOut: "Se déconnecter",
       placeholder: "Décrivez votre situation…",
       send: "Envoyer",
+      storageNotice: "L'historique des échanges est conservé pendant 12 mois à compter de la dernière activité.",
       notice: {
         title: "Avant de commencer",
         p1: "Pour protéger votre vie privée, veuillez ne pas mentionner de noms, coordonnées, numéros d'enregistrement ou autres identifiants — ils ne sont pas nécessaires à votre demande.",
@@ -236,6 +237,7 @@ const translations = {
       signOut: "Sign out",
       placeholder: "Describe your situation…",
       send: "Send",
+      storageNotice: "Chat history is retained for 12 months from the last activity.",
       notice: {
         title: "Before you start",
         p1: "To protect your privacy, please don't include names, contact details, registration numbers, or other identifiers — they aren't necessary for your request.",
@@ -370,6 +372,7 @@ const translations = {
       signOut: "Cerrar sesión",
       placeholder: "Describe tu situación…",
       send: "Enviar",
+      storageNotice: "El historial de chats se conserva durante 12 meses desde la última actividad.",
       notice: {
         title: "Antes de empezar",
         p1: "Para proteger tu privacidad, no incluyas nombres, datos de contacto, números de registro u otros identificadores — no son necesarios para tu consulta.",
@@ -504,6 +507,7 @@ const translations = {
       signOut: "Выйти",
       placeholder: "Опишите вашу ситуацию…",
       send: "Отправить",
+      storageNotice: "История диалогов хранится 12 месяцев с момента последней активности.",
       notice: {
         title: "Прежде чем начать",
         p1: "Чтобы защитить вашу приватность, пожалуйста, не указывайте имена, контактные данные, регистрационные номера и другие идентификаторы — они не являются необходимыми для вашего запроса.",
