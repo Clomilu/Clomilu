@@ -404,7 +404,7 @@ const translations = {
     }
   },
   
-    de: {
+  de: {
     metaTitle: "Clomilu — Ein persönlicher Raum zum Nachdenken.",
     metaDescription: "Clomilu ist ein privater Raum zum Nachdenken für Geschäftsinhaber und Führungskräfte.",
     nav: { cta: "Starten" },
@@ -424,9 +424,9 @@ const translations = {
     about: {
       title: "Beginnen Sie mit dem, was Sie beschäftigt.",
       p1: "Erzählen Sie Clomilu, was los ist — auch wenn Sie noch nicht genau wissen, was die eigentliche Frage ist.",
-      p2: "Im Laufe des Gesprächs wird die Situation klarer. Fehlende Teile fügen sich zusammen, und Clomilu kann mögliche Erklärungen vorschlagen und die Logik dahinter aufzeigen.",
-      p3: "Sie entscheiden, was für Sie Sinn macht und wohin Sie als Nächstes gehen möchten.",
-      final: "Bis ein klarerer Weg sichtbar wird — und ein erster Schritt, der für Sie Sinn macht."
+      p2: "Im Laufe des Gesprächs wird die Situation klarer. Fehlende Teile fügen sich zusammen.",
+      p3: "Clomilu schlägt mögliche Erklärungen vor und zeigt die Logik dahinter auf. Sie entscheiden, was für Sie Sinn macht.",
+      final: "Bis ein erster Schritt sichtbar wird, der für Sie Sinn macht."
     },
     pricing: {
       title: "Wählen Sie, was zu Ihnen passt.",
@@ -435,6 +435,7 @@ const translations = {
     },
     economics: {
       time: {
+        title: "Ihre Zeit, Ihr Geld und Ihre Aufmerksamkeit sind begrenzt.",
         p1: "Das Nachdenken über ein wichtiges Thema dauert Stunden. In solchen Momenten brauchen wir oft jemanden, der uns hilft, unsere Gedanken zu strukturieren. Genau dafür ist Clomilu da: Es hilft Ihnen, die Situation aufzuschlüsseln und Ihre Annahmen zu testen — bevor Sie entscheiden, ob Sie externe Expertise benötigen."
       },
       advice: {
@@ -443,17 +444,63 @@ const translations = {
     },
     closing: "Clomilu ist immer da, wenn Sie einen strukturierten Raum zum Nachdenken brauchen — vor oder während einer wichtigen Entscheidung.",
     footer: { privacy: "Datenschutz", terms: "AGB", legal: "Impressum", cookies: "Cookies" },
+    auth: {
+      back: "← Zurück",
+      tabLogin: "Anmelden",
+      tabSignup: "Konto erstellen",
+      emailLabel: "E-Mail",
+      emailPlaceholder: "ihre@email.com",
+      passwordLabel: "Passwort",
+      passwordPlaceholder: "Ihr Passwort",
+      passwordNewPlaceholder: "Wählen Sie ein Passwort",
+      buttonLogin: "Anmelden",
+      buttonSignup: "Konto erstellen",
+      forgotPassword: "Passwort vergessen?",
+      confirmEmailSent: "Ein Bestätigungslink wurde an Ihre E-Mail gesendet. Bitte überprüfen Sie Ihren Posteingang.",
+    },
+    reset: {
+      title: "Passwort zurücksetzen",
+      description: "Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts.",
+      emailLabel: "E-Mail",
+      emailPlaceholder: "ihre@email.com",
+      submit: "Link senden",
+      backToLogin: "← Zurück zur Anmeldung",
+      backToLoginShort: "← Zurück",
+      success: "Wenn ein Konto für diese E-Mail existiert, wurde ein Link zum Zurücksetzen gesendet."
+    },
+    updatePassword: {
+      back: "← Zurück",
+      title: "Neues Passwort festlegen",
+      description: "Wählen Sie ein neues Passwort für Ihr Clomilu-Konto.",
+      passwordLabel: "Neues Passwort",
+      passwordPlaceholder: "Wählen Sie ein Passwort",
+      passwordHint: "Mindestens 6 Zeichen.",
+      submit: "Speichern",
+      success: "Passwort aktualisiert. Sie können sich jetzt anmelden.",
+      backToLogin: "← Zurück zur Anmeldung",
+      invalidLink: "Dieser Link ist nicht mehr gültig. Bitte fordern Sie einen neuen an."
+    },
+    checkout: {
+      back: "← Zurück",
+      title: "Wählen Sie Ihren Plan",
+      description: "Sie können Ihr Abonnement jederzeit ändern oder kündigen.",
+      one: { title: "One-time Pass", price: "25 €", text: "Eine Sitzung, um eine Frage, ein Dilemma oder eine Entscheidung zu untersuchen." },
+      sub: { title: "Subscription", price: "70 €/Monat", text: "Flexibler Zugang, wenn Sie einen privaten Raum zum Nachdenken brauchen." },
+      submit: "Bezahlen",
+      submitWithPrice: "{price} bezahlen",
+      securePrefix: "Sichere Zahlung über"
+    },
     app: {
       menu: "Menü", newChat: "Neues Gespräch", history: "Verlauf", noChats: "Noch keine Gespräche.", settings: "Einstellungen", signOut: "Abmelden",
       placeholder: "Beschreiben Sie Ihre Situation…", send: "Senden",
+      storageNotice: "Der Chat-Verlauf wird 12 Monate ab der letzten Aktivität aufbewahrt.",
       notice: {
         title: "Bevor Sie beginnen",
         p1: "Um Ihre Privatsphäre zu schützen, geben Sie bitte keine Namen, Kontaktdaten, Registrierungsnummern oder andere Identifikatoren an — sie sind für Ihre Anfrage nicht erforderlich.",
         p2: "Clomilu hilft Ihnen, über die <strong>Situation</strong> nachzudenken, nicht über die Personen darin. Identifizierende Details sind selten erforderlich.",
         link: "Lesen Sie unsere Datenschutzrichtlinie →",
         foot: "Indem Sie fortfahren, erkennen Sie diese Hinweise an."
-      },
-      storageNotice: "Der Chat-Verlauf wird 12 Monate ab der letzten Aktivität aufbewahrt."
+      }
     },
     settings: {
       title: "Einstellungen", profile: "Profil", emailLabel: "E-Mail", changePassword: "Passwort ändern →", language: "Sprache", subscription: "Abonnement", noSubscription: "Kein aktives Abonnement.", viewPlans: "Tarife ansehen →", contact: "Kontakt", contactText: "Eine Frage oder ein Vorschlag?", legal: "Nützliche Links",
@@ -483,9 +530,9 @@ const translations = {
     about: {
       title: "Inizia da ciò che hai in mente.",
       p1: "Racconta a Clomilu cosa sta succedendo — anche se non hai ancora ben chiaro quale sia la vera domanda.",
-      p2: "Con il progredire della conversazione, la situazione diventa più chiara. I pezzi mancanti trovano il loro posto e Clomilu può suggerire possibili spiegazioni, mostrando la logica dietro ciascuna.",
-      p3: "Sei tu a decidere cosa ti risuona, cosa no e dove vuoi andare da lì.",
-      final: "Fino a quando non emerge un percorso più chiaro — e un primo passo che abbia senso per te."
+      p2: "Con il progredire della conversazione, la situazione diventa più chiara. I pezzi mancanti trovano il loro posto.",
+      p3: "Clomilu suggerirà possibili spiegazioni, mostrando la logica di ciascuna. Deciderai tu stesso cosa ti risuona.",
+      final: "Apparirà un primo passo che ha senso per te."
     },
     pricing: {
       title: "Scegli ciò che funziona per te.",
@@ -494,6 +541,7 @@ const translations = {
     },
     economics: {
       time: {
+        title: "Il tuo tempo, i tuoi soldi e la tua attenzione non sono illimitati.",
         p1: "Riflettere su una questione importante richiede ore. In quei momenti, spesso abbiamo bisogno di qualcuno che ci aiuti a strutturare i pensieri. È esattamente a questo che serve Clomilu: ti aiuta a scomporre la situazione e a testare le tue ipotesi — prima di decidere se hai bisogno di competenze esterne."
       },
       advice: {
@@ -502,17 +550,63 @@ const translations = {
     },
     closing: "Clomilu è lì ogni volta che hai bisogno di uno spazio strutturato per pensare — prima o durante una decisione importante.",
     footer: { privacy: "Privacy", terms: "Termini", legal: "Note legali", cookies: "Cookie" },
+    auth: {
+      back: "← Indietro",
+      tabLogin: "Accedi",
+      tabSignup: "Crea account",
+      emailLabel: "Email",
+      emailPlaceholder: "tua@email.com",
+      passwordLabel: "Password",
+      passwordPlaceholder: "La tua password",
+      passwordNewPlaceholder: "Scegli una password",
+      buttonLogin: "Accedi",
+      buttonSignup: "Crea account",
+      forgotPassword: "Password dimenticata?",
+      confirmEmailSent: "Un link di conferma è stato inviato alla tua email. Controlla la tua casella di posta.",
+    },
+    reset: {
+      title: "Reimposta la password",
+      description: "Inserisci la tua email e ti invieremo un link per reimpostare la password.",
+      emailLabel: "Email",
+      emailPlaceholder: "tua@email.com",
+      submit: "Invia il link",
+      backToLogin: "← Torna all'accesso",
+      backToLoginShort: "← Indietro",
+      success: "Se esiste un account per questa email, è stato inviato un link di reimpostazione."
+    },
+    updatePassword: {
+      back: "← Indietro",
+      title: "Imposta una nuova password",
+      description: "Scegli una nuova password per il tuo account Clomilu.",
+      passwordLabel: "Nuova password",
+      passwordPlaceholder: "Scegli una password",
+      passwordHint: "Minimo 6 caratteri.",
+      submit: "Salva",
+      success: "Password aggiornata. Ora puoi accedere.",
+      backToLogin: "← Torna all'accesso",
+      invalidLink: "Questo link non è più valido. Richiedine uno nuovo."
+    },
+    checkout: {
+      back: "← Indietro",
+      title: "Scegli il tuo piano",
+      description: "Puoi modificare o annullare il tuo abbonamento in qualsiasi momento.",
+      one: { title: "One-time Pass", price: "25 €", text: "Una sessione per esplorare una domanda, un dilemma o una decisione." },
+      sub: { title: "Subscription", price: "70 €/mese", text: "Accesso flessibile ogni volta che hai bisogno di uno spazio privato per riflettere." },
+      submit: "Paga",
+      submitWithPrice: "Paga {price}",
+      securePrefix: "Pagamento sicuro tramite"
+    },
     app: {
       menu: "Menu", newChat: "Nuova conversazione", history: "Cronologia", noChats: "Ancora nessuna conversazione.", settings: "Impostazioni", signOut: "Esci",
       placeholder: "Descrivi la tua situazione…", send: "Invia",
+      storageNotice: "La cronologia delle chat viene conservata per 12 mesi dall'ultima attività.",
       notice: {
         title: "Prima di iniziare",
         p1: "Per proteggere la tua privacy, ti preghiamo di non menzionare nomi, recapiti, numeri di registrazione o altri identificatori — non sono necessari per la tua richiesta.",
         p2: "Clomilu ti aiuta a riflettere sulla <strong>situazione</strong>, non sulle persone che vi prendono parte. I dettagli identificativi sono raramente necessari.",
         link: "Leggi la nostra Informativa sulla privacy →",
         foot: "Continuando, riconosci queste indicazioni."
-      },
-      storageNotice: "La cronologia delle chat viene conservata per 12 mesi dall'ultima attività."
+      }
     },
     settings: {
       title: "Impostazioni", profile: "Profilo", emailLabel: "Email", changePassword: "Cambia password →", language: "Lingua", subscription: "Abbonamento", noSubscription: "Nessun abbonamento attivo.", viewPlans: "Visualizza i piani →", contact: "Contatti", contactText: "Una domanda o un suggerimento?", legal: "Link utili",
@@ -542,9 +636,9 @@ const translations = {
     about: {
       title: "Börja med det som finns i ditt huvud.",
       p1: "Berätta för Clomilu vad som händer — även om du inte är helt säker på vad den verkliga frågan är ännu.",
-      p2: "När samtalet fortskrider blir situationen tydligare. Saknade bitar faller på plats, och Clomilu kan föreslå möjliga förklaringar och visa logiken bakom varje.",
-      p3: "Du bestämmer vad som känns rätt, vad som inte gör det, och vart du vill gå därifrån.",
-      final: "Tills en tydligare väg framåt visar sig — och ett första steg som känns rätt för dig."
+      p2: "När samtalet fortskrider blir situationen tydligare. Saknade bitar faller på plats.",
+      p3: "Clomilu föreslår möjliga förklaringar och visar logiken bakom varje. Du bestämmer själv vad som känns rätt.",
+      final: "Ett första steg som känns rätt för dig kommer att visa sig."
     },
     pricing: {
       title: "Välj det som passar dig.",
@@ -553,6 +647,7 @@ const translations = {
     },
     economics: {
       time: {
+        title: "Din tid, dina pengar och din uppmärksamhet är begränsade.",
         p1: "Att tänka igenom en viktig fråga tar timmar. I sådana stunder behöver vi ofta någon som hjälper oss att strukturera våra tankar. Det är precis vad Clomilu är till för: det hjälper dig att bryta ner situationen och testa dina antaganden — innan du bestämmer om du behöver extern expertis."
       },
       advice: {
@@ -561,17 +656,63 @@ const translations = {
     },
     closing: "Clomilu finns där när du behöver ett strukturerat utrymme att tänka — före eller under ett viktigt beslut.",
     footer: { privacy: "Integritet", terms: "Villkor", legal: "Juridisk information", cookies: "Cookies" },
+    auth: {
+      back: "← Tillbaka",
+      tabLogin: "Logga in",
+      tabSignup: "Skapa konto",
+      emailLabel: "E-post",
+      emailPlaceholder: "din@email.com",
+      passwordLabel: "Lösenord",
+      passwordPlaceholder: "Ditt lösenord",
+      passwordNewPlaceholder: "Välj ett lösenord",
+      buttonLogin: "Logga in",
+      buttonSignup: "Skapa konto",
+      forgotPassword: "Glömt lösenordet?",
+      confirmEmailSent: "En bekräftelselänk har skickats till din e-post. Kontrollera din inkorg.",
+    },
+    reset: {
+      title: "Återställ lösenord",
+      description: "Ange din e-postadress så skickar vi en länk för att återställa ditt lösenord.",
+      emailLabel: "E-post",
+      emailPlaceholder: "din@email.com",
+      submit: "Skicka länken",
+      backToLogin: "← Tillbaka till inloggning",
+      backToLoginShort: "← Tillbaka",
+      success: "Om ett konto finns för denna e-post har en återställningslänk skickats."
+    },
+    updatePassword: {
+      back: "← Tillbaka",
+      title: "Ange ett nytt lösenord",
+      description: "Välj ett nytt lösenord för ditt Clomilu-konto.",
+      passwordLabel: "Nytt lösenord",
+      passwordPlaceholder: "Välj ett lösenord",
+      passwordHint: "Minst 6 tecken.",
+      submit: "Spara",
+      success: "Lösenordet har uppdaterats. Du kan nu logga in.",
+      backToLogin: "← Tillbaka till inloggning",
+      invalidLink: "Denna länk är inte längre giltig. Vänligen begär en ny."
+    },
+    checkout: {
+      back: "← Tillbaka",
+      title: "Välj din plan",
+      description: "Du kan ändra eller avbryta din prenumeration när som helst.",
+      one: { title: "One-time Pass", price: "25 €", text: "En session för att utforska en fråga, ett dilemma eller ett beslut." },
+      sub: { title: "Subscription", price: "70 €/månad", text: "Flexibel åtkomst när du behöver ett privat utrymme för eftertanke." },
+      submit: "Betala",
+      submitWithPrice: "Betala {price}",
+      securePrefix: "Säker betalning via"
+    },
     app: {
       menu: "Meny", newChat: "Ny konversation", history: "Historik", noChats: "Inga konversationer ännu.", settings: "Inställningar", signOut: "Logga ut",
       placeholder: "Beskriv din situation…", send: "Skicka",
+      storageNotice: "Chatthistoriken sparas i 12 månader från den senaste aktiviteten.",
       notice: {
         title: "Innan du börjar",
         p1: "För att skydda din integritet, vänligen nämn inte namn, kontaktuppgifter, registreringsnummer eller andra identifierare — de är inte nödvändiga för din förfrågan.",
         p2: "Clomilu hjälper dig att tänka igenom <strong>situationen</strong>, inte personerna i den. Identifierande detaljer behövs sällan.",
         link: "Läs vår integritetspolicy →",
         foot: "Genom att fortsätta bekräftar du dessa riktlinjer."
-      },
-      storageNotice: "Chatthistoriken sparas i 12 månader från den senaste aktiviteten."
+      }
     },
     settings: {
       title: "Inställningar", profile: "Profil", emailLabel: "E-post", changePassword: "Byt lösenord →", language: "Språk", subscription: "Prenumeration", noSubscription: "Ingen aktiv prenumeration.", viewPlans: "Visa planer →", contact: "Kontakt", contactText: "En fråga eller ett förslag?", legal: "Användbara länkar",
