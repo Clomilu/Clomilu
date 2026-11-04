@@ -403,6 +403,183 @@ const translations = {
       signOut: "Cerrar sesión"
     }
   },
+  
+    de: {
+    metaTitle: "Clomilu — Ein persönlicher Raum zum Nachdenken.",
+    metaDescription: "Clomilu ist ein privater Raum zum Nachdenken für Geschäftsinhaber und Führungskräfte.",
+    nav: { cta: "Starten" },
+    hero: {
+      title: "Ein persönlicher Raum zum Nachdenken.",
+      lead: "Clomilu hilft Geschäftsinhabern und Führungskräften, komplexe Situationen zu bewältigen. Es ist ein persönlicher Raum zum Nachdenken, der Ihnen jederzeit zur Verfügung steht, wenn Sie Klarheit brauchen.",
+      body: "Basierend auf der praktischen Erfahrung von Geschäftsleuten und Beratern hilft Ihnen Clomilu, Ihre Gedanken zu strukturieren, Ihre Annahmen zu hinterfragen und den nächsten Schritt zu finden."
+    },
+    helps: {
+      clear: { title: "Die Situation klarer sehen.", text: "Ein strukturierter Ansatz hilft, Fakten von Emotionen zu trennen und das Gesamtbild zu sehen." },
+      next: { title: "Den nächsten Schritt finden.", text: "Verstehen, wo man anfangen soll, wenn es keine offensichtliche Antwort gibt." },
+      dilemmas: { title: "Ihre Annahmen testen.", text: "Die Situation objektiv betrachten und bemerken, was Ihnen entgangen sein könnte." },
+      head: { title: "Gedanken ordnen.", text: "Eine verworrene Situation in eine konkrete Aufgabe verwandeln, mit der Sie arbeiten können." },
+      center: "Clomilu <br>hilft Ihnen:"
+    },
+    statement: "Klareres Denken. Bessere Entscheidungen. Ein nächster Schritt.",
+    about: {
+      title: "Beginnen Sie mit dem, was Sie beschäftigt.",
+      p1: "Erzählen Sie Clomilu, was los ist — auch wenn Sie noch nicht genau wissen, was die eigentliche Frage ist.",
+      p2: "Im Laufe des Gesprächs wird die Situation klarer. Fehlende Teile fügen sich zusammen, und Clomilu kann mögliche Erklärungen vorschlagen und die Logik dahinter aufzeigen.",
+      p3: "Sie entscheiden, was für Sie Sinn macht und wohin Sie als Nächstes gehen möchten.",
+      final: "Bis ein klarerer Weg sichtbar wird — und ein erster Schritt, der für Sie Sinn macht."
+    },
+    pricing: {
+      title: "Wählen Sie, was zu Ihnen passt.",
+      one: { title: "One-time Pass", price: "25 €", text: "Eine Sitzung.<br>Probieren Sie Clomilu aus, um eine Situation zu analysieren und Ihren nächsten Schritt zu finden.", button: "Sitzung starten" },
+      sub: { title: "Subscription", price: "70 €/Monat", text: "Regelmäßiger Zugang.<br>Ein persönlicher Raum zum Nachdenken, wenn Sie wichtige Entscheidungen treffen müssen. Unbegrenzte Sitzungen.", button: "Abonnieren" }
+    },
+    economics: {
+      time: {
+        p1: "Das Nachdenken über ein wichtiges Thema dauert Stunden. In solchen Momenten brauchen wir oft jemanden, der uns hilft, unsere Gedanken zu strukturieren. Genau dafür ist Clomilu da: Es hilft Ihnen, die Situation aufzuschlüsseln und Ihre Annahmen zu testen — bevor Sie entscheiden, ob Sie externe Expertise benötigen."
+      },
+      advice: {
+        p1: "Professionelle Beratung ist wertvoll und teuer (in Europa etwa 100–250 € pro Stunde; in den USA ab 150 $). Clomilu ist ein zugänglicher Raum zum Nachdenken, der immer zur Hand ist. Es hilft Ihnen, mit den richtigen Fragen zu einem Berater zu gehen — oder es selbst zu bewältigen, wenn die Situation es zulässt."
+      }
+    },
+    closing: "Clomilu ist immer da, wenn Sie einen strukturierten Raum zum Nachdenken brauchen — vor oder während einer wichtigen Entscheidung.",
+    footer: { privacy: "Datenschutz", terms: "AGB", legal: "Impressum", cookies: "Cookies" },
+    app: {
+      menu: "Menü", newChat: "Neues Gespräch", history: "Verlauf", noChats: "Noch keine Gespräche.", settings: "Einstellungen", signOut: "Abmelden",
+      placeholder: "Beschreiben Sie Ihre Situation…", send: "Senden",
+      notice: {
+        title: "Bevor Sie beginnen",
+        p1: "Um Ihre Privatsphäre zu schützen, geben Sie bitte keine Namen, Kontaktdaten, Registrierungsnummern oder andere Identifikatoren an — sie sind für Ihre Anfrage nicht erforderlich.",
+        p2: "Clomilu hilft Ihnen, über die <strong>Situation</strong> nachzudenken, nicht über die Personen darin. Identifizierende Details sind selten erforderlich.",
+        link: "Lesen Sie unsere Datenschutzrichtlinie →",
+        foot: "Indem Sie fortfahren, erkennen Sie diese Hinweise an."
+      },
+      storageNotice: "Der Chat-Verlauf wird 12 Monate ab der letzten Aktivität aufbewahrt."
+    },
+    settings: {
+      title: "Einstellungen", profile: "Profil", emailLabel: "E-Mail", changePassword: "Passwort ändern →", language: "Sprache", subscription: "Abonnement", noSubscription: "Kein aktives Abonnement.", viewPlans: "Tarife ansehen →", contact: "Kontakt", contactText: "Eine Frage oder ein Vorschlag?", legal: "Nützliche Links",
+      dangerTitle: "Gefahrenzone", dangerText: "Das Löschen Ihres Kontos führt zur dauerhaften Löschung aller Ihrer Daten.",
+      dangerButton: "Konto löschen", dangerConfirm: "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?\n\nDer gesamte Verlauf Ihrer Interaktionen und Empfehlungen wird dauerhaft gelöscht. Sie können nicht darauf zurückgreifen.",
+      dangerDeleting: "Löschen...", dangerError: "Fehler beim Löschen. Bitte versuchen Sie es später noch einmal.", dangerNetworkError: "Server konnte nicht erreicht werden.", signOut: "Abmelden"
+    }
+  },
+
+  it: {
+    metaTitle: "Clomilu — Uno spazio personale per riflettere.",
+    metaDescription: "Clomilu è uno spazio privato per riflettere, pensato per imprenditori e manager.",
+    nav: { cta: "Inizia" },
+    hero: {
+      title: "Uno spazio personale per riflettere.",
+      lead: "Clomilu aiuta imprenditori e manager a gestire situazioni complesse. È uno spazio personale per riflettere, disponibile ogni volta che hai bisogno di chiarezza.",
+      body: "Basato sull'esperienza pratica di imprenditori e consulenti, Clomilu ti aiuta a strutturare i tuoi pensieri, mettere in discussione le tue ipotesi e trovare il passo successivo."
+    },
+    helps: {
+      clear: { title: "Vedere la situazione più chiaramente.", text: "Un approccio strutturato aiuta a separare i fatti dalle emozioni e a vedere il quadro completo." },
+      next: { title: "Trovare il passo successivo.", text: "Capire da dove iniziare quando non c'è una risposta ovvia." },
+      dilemmas: { title: "Mettere alla prova le tue ipotesi.", text: "Guardare la situazione in modo obiettivo e notare ciò che potrebbe esserti sfuggito." },
+      head: { title: "Mettere ordine nei pensieri.", text: "Trasformare una situazione confusa in un compito concreto con cui puoi lavorare." },
+      center: "Clomilu <br>ti aiuta a:"
+    },
+    statement: "Pensieri più chiari. Decisioni migliori. Un passo successivo.",
+    about: {
+      title: "Inizia da ciò che hai in mente.",
+      p1: "Racconta a Clomilu cosa sta succedendo — anche se non hai ancora ben chiaro quale sia la vera domanda.",
+      p2: "Con il progredire della conversazione, la situazione diventa più chiara. I pezzi mancanti trovano il loro posto e Clomilu può suggerire possibili spiegazioni, mostrando la logica dietro ciascuna.",
+      p3: "Sei tu a decidere cosa ti risuona, cosa no e dove vuoi andare da lì.",
+      final: "Fino a quando non emerge un percorso più chiaro — e un primo passo che abbia senso per te."
+    },
+    pricing: {
+      title: "Scegli ciò che funziona per te.",
+      one: { title: "One-time Pass", price: "25 €", text: "Una sessione.<br>Prova Clomilu per analizzare una situazione e trovare il tuo passo successivo.", button: "Inizia una sessione" },
+      sub: { title: "Subscription", price: "70 €/mese", text: "Accesso regolare.<br>Uno spazio personale per riflettere quando devi prendere decisioni importanti. Sessioni illimitate.", button: "Abbonati" }
+    },
+    economics: {
+      time: {
+        p1: "Riflettere su una questione importante richiede ore. In quei momenti, spesso abbiamo bisogno di qualcuno che ci aiuti a strutturare i pensieri. È esattamente a questo che serve Clomilu: ti aiuta a scomporre la situazione e a testare le tue ipotesi — prima di decidere se hai bisogno di competenze esterne."
+      },
+      advice: {
+        p1: "La consulenza professionale è preziosa e costosa (in Europa circa 100–250 € all'ora; negli Stati Uniti da 150 $ in su). Clomilu è uno spazio accessibile per riflettere che è sempre a portata di mano. Ti aiuta ad arrivare da un consulente con le domande giuste — o a gestire la situazione da solo, se la situazione lo consente."
+      }
+    },
+    closing: "Clomilu è lì ogni volta che hai bisogno di uno spazio strutturato per pensare — prima o durante una decisione importante.",
+    footer: { privacy: "Privacy", terms: "Termini", legal: "Note legali", cookies: "Cookie" },
+    app: {
+      menu: "Menu", newChat: "Nuova conversazione", history: "Cronologia", noChats: "Ancora nessuna conversazione.", settings: "Impostazioni", signOut: "Esci",
+      placeholder: "Descrivi la tua situazione…", send: "Invia",
+      notice: {
+        title: "Prima di iniziare",
+        p1: "Per proteggere la tua privacy, ti preghiamo di non menzionare nomi, recapiti, numeri di registrazione o altri identificatori — non sono necessari per la tua richiesta.",
+        p2: "Clomilu ti aiuta a riflettere sulla <strong>situazione</strong>, non sulle persone che vi prendono parte. I dettagli identificativi sono raramente necessari.",
+        link: "Leggi la nostra Informativa sulla privacy →",
+        foot: "Continuando, riconosci queste indicazioni."
+      },
+      storageNotice: "La cronologia delle chat viene conservata per 12 mesi dall'ultima attività."
+    },
+    settings: {
+      title: "Impostazioni", profile: "Profilo", emailLabel: "Email", changePassword: "Cambia password →", language: "Lingua", subscription: "Abbonamento", noSubscription: "Nessun abbonamento attivo.", viewPlans: "Visualizza i piani →", contact: "Contatti", contactText: "Una domanda o un suggerimento?", legal: "Link utili",
+      dangerTitle: "Zona pericolosa", dangerText: "L'eliminazione del tuo account comporterà la rimozione definitiva di tutti i tuoi dati.",
+      dangerButton: "Elimina il mio account", dangerConfirm: "Sei sicuro di voler eliminare il tuo account?\n\nL'intera cronologia delle tue interazioni e raccomandazioni sarà eliminata in modo permanente. Non potrai più accedervi.",
+      dangerDeleting: "Eliminazione...", dangerError: "Errore durante l'eliminazione. Riprova più tardi.", dangerNetworkError: "Impossibile contattare il server.", signOut: "Esci"
+    }
+  },
+
+  sv: {
+    metaTitle: "Clomilu — Ett personligt utrymme för eftertanke.",
+    metaDescription: "Clomilu är ett privat utrymme för eftertanke för företagare och chefer.",
+    nav: { cta: "Börja" },
+    hero: {
+      title: "Ett personligt utrymme för eftertanke.",
+      lead: "Clomilu hjälper företagare och chefer att navigera i komplexa situationer. Det är ett personligt utrymme för eftertanke, tillgängligt när du behöver klarhet.",
+      body: "Baserat på praktisk erfarenhet från företagare och konsulter hjälper Clomilu dig att strukturera dina tankar, utmana dina antaganden och hitta nästa steg."
+    },
+    helps: {
+      clear: { title: "Se situationen tydligare.", text: "Ett strukturerat tillvägagångssätt hjälper till att skilja fakta från känslor och se helhetsbilden." },
+      next: { title: "Hitta nästa steg.", text: "Förstå var du ska börja när det inte finns något självklart svar." },
+      dilemmas: { title: "Testa dina antaganden.", text: "Titta på situationen objektivt och notera vad som kan ha undgått dig." },
+      head: { title: "Organisera dina tankar.", text: "Förvandla en trasslig situation till en konkret uppgift som du kan arbeta med." },
+      center: "Clomilu <br>hjälper dig:"
+    },
+    statement: "Tydligare tänkande. Bättre beslut. Ett nästa steg.",
+    about: {
+      title: "Börja med det som finns i ditt huvud.",
+      p1: "Berätta för Clomilu vad som händer — även om du inte är helt säker på vad den verkliga frågan är ännu.",
+      p2: "När samtalet fortskrider blir situationen tydligare. Saknade bitar faller på plats, och Clomilu kan föreslå möjliga förklaringar och visa logiken bakom varje.",
+      p3: "Du bestämmer vad som känns rätt, vad som inte gör det, och vart du vill gå därifrån.",
+      final: "Tills en tydligare väg framåt visar sig — och ett första steg som känns rätt för dig."
+    },
+    pricing: {
+      title: "Välj det som passar dig.",
+      one: { title: "One-time Pass", price: "25 €", text: "En session.<br>Prova Clomilu för att analysera en situation och hitta ditt nästa steg.", button: "Starta en session" },
+      sub: { title: "Subscription", price: "70 €/månad", text: "Regelbunden åtkomst.<br>Ett personligt utrymme för eftertanke när du behöver fatta viktiga beslut. Obegränsade sessioner.", button: "Prenumerera" }
+    },
+    economics: {
+      time: {
+        p1: "Att tänka igenom en viktig fråga tar timmar. I sådana stunder behöver vi ofta någon som hjälper oss att strukturera våra tankar. Det är precis vad Clomilu är till för: det hjälper dig att bryta ner situationen och testa dina antaganden — innan du bestämmer om du behöver extern expertis."
+      },
+      advice: {
+        p1: "Professionell rådgivning är värdefull och dyr (i Europa cirka 100–250 € per timme; i USA från 150 $ och uppåt). Clomilu är ett tillgängligt utrymme för eftertanke som alltid finns till hands. Det hjälper dig att komma till en konsult med rätt frågor — eller hantera det själv, om situationen tillåter."
+      }
+    },
+    closing: "Clomilu finns där när du behöver ett strukturerat utrymme att tänka — före eller under ett viktigt beslut.",
+    footer: { privacy: "Integritet", terms: "Villkor", legal: "Juridisk information", cookies: "Cookies" },
+    app: {
+      menu: "Meny", newChat: "Ny konversation", history: "Historik", noChats: "Inga konversationer ännu.", settings: "Inställningar", signOut: "Logga ut",
+      placeholder: "Beskriv din situation…", send: "Skicka",
+      notice: {
+        title: "Innan du börjar",
+        p1: "För att skydda din integritet, vänligen nämn inte namn, kontaktuppgifter, registreringsnummer eller andra identifierare — de är inte nödvändiga för din förfrågan.",
+        p2: "Clomilu hjälper dig att tänka igenom <strong>situationen</strong>, inte personerna i den. Identifierande detaljer behövs sällan.",
+        link: "Läs vår integritetspolicy →",
+        foot: "Genom att fortsätta bekräftar du dessa riktlinjer."
+      },
+      storageNotice: "Chatthistoriken sparas i 12 månader från den senaste aktiviteten."
+    },
+    settings: {
+      title: "Inställningar", profile: "Profil", emailLabel: "E-post", changePassword: "Byt lösenord →", language: "Språk", subscription: "Prenumeration", noSubscription: "Ingen aktiv prenumeration.", viewPlans: "Visa planer →", contact: "Kontakt", contactText: "En fråga eller ett förslag?", legal: "Användbara länkar",
+      dangerTitle: "Farozon", dangerText: "Om du raderar ditt konto kommer all din data att raderas permanent.",
+      dangerButton: "Radera mitt konto", dangerConfirm: "Är du säker på att du vill radera ditt konto?\n\nHela historiken över dina interaktioner och rekommendationer kommer att raderas permanent. Du kommer inte att kunna återgå till den.",
+      dangerDeleting: "Raderar...", dangerError: "Fel vid radering. Försök igen senare.", dangerNetworkError: "Kunde inte nå servern.", signOut: "Logga ut"
+    }
+  },
 
   ru: {
     metaTitle: "Clomilu — Вытащите проблему из головы. Найдите путь вперёд.",
