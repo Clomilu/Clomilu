@@ -46,9 +46,12 @@ ${notice.foot}
 
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
-  if (emailEl && session.user) {
-    emailEl.textContent = session.user.email || "—";
+  if (emailEl && session.user && session.user.email) {
+    emailEl.textContent = session.user.email;
+  } else if (emailEl) {
+    emailEl.textContent = "Email hidden"; // Или оставьте прочерк
   }
+  
   // ==== Подсветка активного языка (только визуал) ====
   const settingsLangButtons = document.querySelectorAll(".settings-lang");
 
