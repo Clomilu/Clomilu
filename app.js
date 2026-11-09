@@ -370,7 +370,7 @@ ${notice.foot}
         },
         body: JSON.stringify({
           chat_id: activeChatId,
-          user_message: text
+          user_message: text,
           user_id: session.user.id
         })
       });
