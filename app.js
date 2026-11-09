@@ -416,7 +416,20 @@ ${notice.foot}
     }
 
     textarea.addEventListener("input", autoResize);
+    
+    // Сохраняем черновик в память при вводе
+    textarea.addEventListener("input", () => {
+      localStorage.setItem("clomilu-draft", textarea.value);
+    });
+    
+    // Восстанавливаем черновик при загрузке страницы
+    const savedDraft = localStorage.getItem("clomilu-draft");
+    if (savedDraft) {
+      textarea.value = savedDraft;
+    }
+    
     autoResize();
+
 
     textarea.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !e.shiftKey) {
@@ -431,6 +444,10 @@ ${notice.foot}
       if (!text) return;
 
       textarea.value = "";
+      
+      // Очищаем черновик после успешной отправки
+      localStorage.removeItem("clomilu-draft");
+      
       autoResize();
 
       await sendMessage(text);
