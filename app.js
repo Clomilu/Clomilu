@@ -184,6 +184,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("Ошибка загрузки сообщений:", error);
       return;
     }
+  }
 
     // Очищаем все, КРОМЕ статического уведомления
     conversation.querySelectorAll(".msg:not(.msg-notice)").forEach(el => {
