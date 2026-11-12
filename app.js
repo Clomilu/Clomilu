@@ -217,10 +217,10 @@ ${notice.foot}
       return;
     }
 
-    conversation.innerHTML = "";
-
-    // Уведомление — всегда первым
-    conversation.appendChild(renderNotice());
+    // Очищаем все, КРОМЕ статического уведомления
+    conversation.querySelectorAll(".msg").forEach(el => {
+      if (el.id !== "static-notice") el.remove();
+    });
 
     // Сообщения из БД
     (messages || []).forEach((msg) => {
@@ -252,8 +252,10 @@ ${notice.foot}
 
     const conversation = document.getElementById("app-conversation");
     if (conversation) {
-      conversation.innerHTML = "";
-      conversation.appendChild(renderNotice());
+      // Очищаем все, КРОМЕ статического уведомления
+      conversation.querySelectorAll(".msg").forEach(el => {
+        if (el.id !== "static-notice") el.remove();
+      });
     }
 
     // Снять выделение в sidebar
