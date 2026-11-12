@@ -26,24 +26,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ==== Текущий активный чат ====
   let activeChatId = null;
 
-  // ==== Шаблон уведомления о приватности (только UI) ====
-  function getNoticeText() {
-  const lang = localStorage.getItem("clomilu-language") || "fr";
-  const notice = translations[lang]?.app?.notice || translations.fr.app.notice;
-
-  return `
-**${notice.title}**
-
-${notice.p1}
-
-${notice.p2.replace(/<strong>|<\/strong>/g, "**")}
-
-<a href="privacy.html" style="color: inherit; text-decoration: underline;">${notice.link.replace(" →", "")}</a>
-
-${notice.foot}
-`;
-}
-
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
   if (emailEl && session.user && session.user.email) {
@@ -165,20 +147,6 @@ ${notice.foot}
       const conversation = document.getElementById("app-conversation");
       if (conversation) conversation.scrollTop = conversation.scrollHeight;
     }, 50);
-    return article;
-  }
-
-    // ==== Рендер уведомления (из статического HTML) ====
-  function renderNotice() {
-    const staticNotice = document.getElementById("static-notice");
-    if (staticNotice) {
-      // Клонируем статический элемент из HTML
-      return staticNotice.cloneNode(true);
-    }
-    // Если вдруг статического нет (на всякий случай)
-    const article = document.createElement("article");
-    article.className = "msg msg-clomilu msg-notice";
-    article.innerHTML = "<p>Avant de commencer...</p>";
     return article;
   }
 
