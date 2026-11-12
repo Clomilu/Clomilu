@@ -218,8 +218,8 @@ ${notice.foot}
     }
 
     // Очищаем все, КРОМЕ статического уведомления
-    conversation.querySelectorAll(".msg").forEach(el => {
-      if (el.id !== "static-notice") el.remove();
+    conversation.querySelectorAll(".msg:not(.msg-notice)").forEach(el => {
+      el.remove();
     });
 
     // Сообщения из БД
@@ -253,10 +253,12 @@ ${notice.foot}
     const conversation = document.getElementById("app-conversation");
     if (conversation) {
       // Очищаем все, КРОМЕ статического уведомления
-      conversation.querySelectorAll(".msg").forEach(el => {
-        if (el.id !== "static-notice") el.remove();
-      });
-    }
+      const conversation = document.getElementById("app-conversation");
+      if (conversation) {
+        conversation.querySelectorAll(".msg:not(.msg-notice)").forEach(el => {
+          el.remove();
+        });
+      }
 
     // Снять выделение в sidebar
     if (chatsContainer) {
