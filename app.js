@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // ==== Текущий активный чат ====
+  let activeChatId = null;
+
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
   if (emailEl && session.user && session.user.email) {
@@ -409,16 +412,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ==== Инициализация ====
   startNewChat();
-
-  // ==== Открываем чат из URL (если перешли из настроек) ====
-  const urlParams = new URLSearchParams(window.location.search);
-  const chatIdFromUrl = urlParams.get('chat');
-  
-  if (chatIdFromUrl) {
-    setTimeout(() => {
-      openChat(chatIdFromUrl);
-    }, 500);
-  }
 
   // ==== Удаление аккаунта ====
   const deleteAccountBtn = document.getElementById("delete-account-btn");
