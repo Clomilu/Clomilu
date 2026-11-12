@@ -12,28 +12,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // Проверяем, есть ли в URL параметр ?chat=...
-  const urlParams = new URLSearchParams(window.location.search);
-  const chatIdFromUrl = urlParams.get('chat');
-  
-  if (chatIdFromUrl) {
-    // Открываем этот чат
-    setTimeout(() => {
-      openChat(chatIdFromUrl);
-    }, 500); // Небольшая пауза, чтобы sidebar успел загрузиться
-  }
-
-  // ==== Текущий активный чат ====
-  let activeChatId = null;
-
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
   if (emailEl && session.user && session.user.email) {
     emailEl.textContent = session.user.email;
   } else if (emailEl) {
-    emailEl.textContent = "Email hidden"; // Или оставьте прочерк
+    emailEl.textContent = "—";
   }
-  
+
   // ==== Подсветка активного языка (только визуал) ====
   const settingsLangButtons = document.querySelectorAll(".settings-lang");
 
@@ -72,7 +58,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function reloadChats() {
     if (!chatsContainer) return;
 
-    // Очищаем контейнер
     chatsContainer
       .querySelectorAll(".sidebar-chat-list, .sidebar-empty")
       .forEach((el) => el.remove());
@@ -109,11 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       item.textContent = chat.title || "Sans titre";
 
       item.addEventListener("click", (e) => {
-        // Проверяем, есть ли на странице контейнер для чата.
-        // Если он есть (мы в app.html) — перехватываем клик и открываем чат без перезагрузки.
-        // Если его нет (мы в settings.html) — отпускаем клик, и браузер сам перейдет по ссылке.
         const conversationEl = document.getElementById("app-conversation");
-        
         if (conversationEl) {
           e.preventDefault();
           openChat(chat.id);
@@ -157,11 +138,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     activeChatId = chatId;
 
-// Проверяем статус чата
+    // Проверяем статус чата
     const { data: chatData } = await sb.from("chats").select("status").eq("id", chatId).single();
     const isCompleted = chatData?.status === "completed";
 
-// Блокируем или разблокируем поле ввода
+    // Блокируем или разблокируем поле ввода
     const inputForm = document.getElementById("app-input");
     const textarea = inputForm.querySelector("textarea");
     if (isCompleted) {
@@ -170,7 +151,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       inputForm.querySelector(".app-send").disabled = true;
     } else {
       textarea.disabled = false;
-      textarea.placeholder = "Décrivez votre situation…"; // или ваш дефолтный текст
+      textarea.placeholder = "Décrivez votre situation…";
       inputForm.querySelector(".app-send").disabled = textarea.value.trim().length === 0;
     }
 
@@ -194,6 +175,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     (messages || []).forEach((msg) => {
       conversation.appendChild(renderMessage(msg.role, msg.content));
     });
+    
     setTimeout(() => {
       conversation.scrollTop = conversation.scrollHeight;
     }, 100);
@@ -204,6 +186,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         el.classList.toggle("is-active", el.dataset.chatId === chatId);
       });
     }
+    
     if (isCompleted) {
       const endNotice = document.createElement("div");
       endNotice.style.textAlign = "center";
@@ -221,21 +204,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const conversation = document.getElementById("app-conversation");
     if (conversation) {
       // Очищаем все, КРОМЕ статического уведомления
-      const conversation = document.getElementById("app-conversation");
-      if (conversation) {
-        conversation.querySelectorAll(".msg:not(.msg-notice)").forEach(el => {
-          el.remove();
-        });
-      }
+      conversation.querySelectorAll(".msg:not(.msg-notice)").forEach(el => {
+        el.remove();
+      });
+    }
 
-    // Снять выделение в sidebar
     if (chatsContainer) {
       chatsContainer.querySelectorAll(".sidebar-chat-item").forEach((el) => {
         el.classList.remove("is-active");
       });
     }
 
-    // Фокус в поле ввода
     const textarea = document.querySelector("#app-input textarea");
     if (textarea) textarea.focus();
   }
@@ -247,7 +226,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ==== Создание чата с первым сообщением ====
   async function createChatWithMessage(text) {
-    // 1. Создать чат
     const { data: newChat, error } = await sb
       .from("chats")
       .insert({
@@ -263,7 +241,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       return null;
     }
 
-    // 2. Записать сообщение пользователя
     const { error: msgError } = await sb
       .from("messages")
       .insert({
@@ -277,7 +254,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       return null;
     }
 
-    // 3. Обновить title чата из первого сообщения
     let title = text.slice(0, 40);
     if (text.length > 40) {
       const lastSpace = title.lastIndexOf(" ");
@@ -285,14 +261,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       title += "…";
     }
 
-    const { error: titleError } = await sb
+    await sb
       .from("chats")
       .update({ title })
       .eq("id", newChat.id);
-
-    if (titleError) {
-      console.error("Ошибка обновления title:", titleError);
-    }
 
     activeChatId = newChat.id;
     return newChat.id;
@@ -300,21 +272,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ==== Отправка сообщения ====
   async function sendMessage(text) {
-    // 0. ПРОВЕРКА НА ЗАВЕРШЕННЫЙ ЧАТ
     const textareaCheck = document.querySelector("#app-input textarea");
     if (textareaCheck && textareaCheck.disabled) {
       alert("Этот диалог завершен. Пожалуйста, начните новый.");
       return;
     }
-    // 1. СНАЧАЛА показываем сообщение пользователя на экране (мгновенно)
+
     const conversation = document.getElementById("app-conversation");
     if (conversation) {
-      // Добавляем сообщение в интерфейс
       conversation.appendChild(renderMessage("user", text));
-      // Прокручиваем вниз
       conversation.scrollTop = conversation.scrollHeight;
     }
-    // 2. ТЕПЕРЬ сохраняем в базу и на сервер
+
     if (activeChatId === null) {
       const newId = await createChatWithMessage(text);
       if (!newId) return false;
@@ -328,13 +297,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         return false;
       }
     }
-        // --- ОТПРАВЛЯЕМ ЗАПРОС НА СЕРВЕР FLY.IO ---
+
     try {
       const response = await fetch("https://elenazernova-jaunty-lake-8315.fly.dev/api/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           chat_id: activeChatId,
           user_message: text,
@@ -349,7 +316,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("Не удалось связаться с сервером:", error);
     }
 
-    // Загружаем только новые сообщения (без перерисовки sidebar)
     const { data: newMessages, error: fetchErr } = await sb
       .from("messages")
       .select("role, content")
@@ -373,27 +339,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     const textarea = inputForm.querySelector("textarea");
     const sendBtn = inputForm.querySelector(".app-send");
 
-        function autoResize() {
+    function autoResize() {
       textarea.style.height = "auto";
       textarea.style.height = Math.min(textarea.scrollHeight, 200) + "px";
       sendBtn.disabled = textarea.value.trim().length === 0;
 
-      // 👇 ДОБАВЛЕНА СТРОКА ДЛЯ АВТОСКРОЛЛА 👇
       const conversation = document.getElementById("app-conversation");
       if (conversation) {
         conversation.scrollTop = conversation.scrollHeight;
       }
-      // 👆 КОНЕЦ ДОБАВЛЕННОЙ СТРОКИ 👆
     }
 
     textarea.addEventListener("input", autoResize);
     
-    // Сохраняем черновик в память при вводе
     textarea.addEventListener("input", () => {
       localStorage.setItem("clomilu-draft", textarea.value);
     });
     
-    // Восстанавливаем черновик при загрузке страницы
     const savedDraft = localStorage.getItem("clomilu-draft");
     if (savedDraft) {
       textarea.value = savedDraft;
@@ -401,10 +363,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     autoResize();
 
-
     textarea.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault(); // Останавливаем перенос строки
+        e.preventDefault();
         inputForm.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
       }
     });
@@ -415,10 +376,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (!text) return;
 
       textarea.value = "";
-      
-      // Очищаем черновик после успешной отправки
       localStorage.removeItem("clomilu-draft");
-      
       autoResize();
 
       await sendMessage(text);
@@ -449,17 +407,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // ==== Инициализация: состояние A ====
+  // ==== Инициализация ====
   startNewChat();
+
+  // ==== Открываем чат из URL (если перешли из настроек) ====
+  const urlParams = new URLSearchParams(window.location.search);
+  const chatIdFromUrl = urlParams.get('chat');
+  
+  if (chatIdFromUrl) {
+    setTimeout(() => {
+      openChat(chatIdFromUrl);
+    }, 500);
+  }
+
   // ==== Удаление аккаунта ====
   const deleteAccountBtn = document.getElementById("delete-account-btn");
   if (deleteAccountBtn) {
     deleteAccountBtn.addEventListener("click", async () => {
-      // Берем переводы для текущего языка
       const lang = localStorage.getItem("clomilu-language") || "fr";
       const dict = translations[lang]?.settings || translations["fr"].settings;
 
-      // Подтверждение
       const isConfirmed = confirm(dict.dangerConfirm);
       if (!isConfirmed) return;
 
@@ -468,7 +435,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       deleteAccountBtn.innerHTML = `<span>${dict.dangerDeleting}</span>`;
 
       try {
-        // Отправляем запрос на сервер Fly.io для удаления
         const response = await fetch("https://elenazernova-jaunty-lake-8315.fly.dev/api/delete-account", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -476,7 +442,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
         if (response.ok) {
-          // Если удалено — выходим и редиректим
           await sb.auth.signOut();
           window.location.href = "index.html";
         } else {
@@ -492,16 +457,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   }
-    // ==== Обновление пароля (на странице update-password.html) ====
-  const updatePasswordForm = document.getElementById("update-password-form"); // Проверьте ID формы
+
+  // ==== Обновление пароля (на странице update-password.html) ====
+  const updatePasswordForm = document.getElementById("update-password-form");
   if (updatePasswordForm) {
     updatePasswordForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       
-      const newPassword = document.getElementById("new-password").value; // Проверьте ID поля
-      const confirmPassword = document.getElementById("confirm-password").value; // Проверьте ID поля
+      const newPassword = document.getElementById("new-password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
       
-      // Получаем переводы для текущего языка
       const lang = localStorage.getItem("clomilu-language") || "fr";
       const dict = translations[lang]?.updatePassword || translations["fr"].updatePassword;
 
@@ -510,14 +475,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
       }
 
-      // Вызываем Supabase
       const { error } = await sb.auth.updateUser({ password: newPassword });
 
       if (error) {
         alert(dict.error || error.message);
       } else {
-        alert(dict.success); // "Пароль обновлен"
-        window.location.href = "settings.html"; // Или в app.html
+        alert(dict.success);
+        window.location.href = "settings.html";
       }
     });
   } 
