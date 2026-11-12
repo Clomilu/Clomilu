@@ -168,6 +168,20 @@ ${notice.foot}
     return article;
   }
 
+    // ==== Рендер уведомления (из статического HTML) ====
+  function renderNotice() {
+    const staticNotice = document.getElementById("static-notice");
+    if (staticNotice) {
+      // Клонируем статический элемент из HTML
+      return staticNotice.cloneNode(true);
+    }
+    // Если вдруг статического нет (на всякий случай)
+    const article = document.createElement("article");
+    article.className = "msg msg-clomilu msg-notice";
+    article.innerHTML = "<p>Avant de commencer...</p>";
+    return article;
+  }
+
   // ==== Открыть чат ====
   async function openChat(chatId) {
     const conversation = document.getElementById("app-conversation");
