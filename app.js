@@ -170,22 +170,22 @@ ${notice.foot}
 
   // ==== Рендер уведомления ====
   //function renderNotice() {
-    const article = document.createElement("article");
-    article.className = "msg msg-clomilu msg-notice";
+  //  const article = document.createElement("article");
+  //  article.className = "msg msg-clomilu msg-notice";
 
-    const body = document.createElement("div");
-    body.className = "msg-body";
+  //  const body = document.createElement("div");
+  //  body.className = "msg-body";
 
-    let html = getNoticeText()
-      .replace(/&/g, "&amp;")
-      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-      .replace(/\n\n/g, "</p><p>")
-      .replace(/\n/g, "<br>");
+  // let html = getNoticeText()
+  //   .replace(/&/g, "&amp;")
+  //   .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  //    .replace(/\n\n/g, "</p><p>")
+  //    .replace(/\n/g, "<br>");
 
-    body.innerHTML = "<p>" + html + "</p>";
-    article.appendChild(body);
-    return article;
-  }
+  //  body.innerHTML = "<p>" + html + "</p>";
+  //  article.appendChild(body);
+  //  return article;
+  // }
 
   // ==== Открыть чат ====
   async function openChat(chatId) {
