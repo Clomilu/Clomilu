@@ -169,7 +169,7 @@ ${notice.foot}
   }
 
   // ==== Рендер уведомления ====
-  function renderNotice() {
+  //function renderNotice() {
     const article = document.createElement("article");
     article.className = "msg msg-clomilu msg-notice";
 
