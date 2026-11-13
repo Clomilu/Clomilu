@@ -103,8 +103,7 @@ const translations = {
       placeholder: "Décrivez votre situation…",
       send: "Envoyer",
       storageNotice: "L'historique des échanges est conservé pendant 12 mois à compter de la dernière activité.",
-      chatcompleted: "Ce dialogue est terminé. Pour une nouvelle situation, commencez un nouveau dialogue.",
-      notice: {
+      сhatcompletedplaceholder: "Dialogue terminé. Commencez-en un nouveau.",
         title: "Avant de commencer",
         p1: "Pour protéger votre vie privée, veuillez ne pas mentionner de noms, coordonnées, numéros d'enregistrement ou autres identifiants — ils ne sont pas nécessaires à votre demande.",
         p2: "Clomilu vous aide à réfléchir à la <strong>situation</strong>, pas aux personnes qui y figurent. Les détails identifiants sont rarement nécessaires.",
@@ -239,7 +238,7 @@ const translations = {
       placeholder: "Describe your situation…",
       send: "Send",
       storageNotice: "Chat history is retained for 12 months from the last activity.",
-      chatcompleted: "This dialog is complete. For a new situation, start a new dialog.",
+      chatcompletedplaceholder: "Dialog complete. Start a new one.",
       notice: {
         title: "Before you start",
         p1: "To protect your privacy, please don't include names, contact details, registration numbers, or other identifiers — they aren't necessary for your request.",
@@ -375,7 +374,7 @@ const translations = {
       placeholder: "Describe tu situación…",
       send: "Enviar",
       storageNotice: "El historial de chats se conserva durante 12 meses desde la última actividad.",
-      chatcompleted: "Este diálogo ha finalizado. Para una nueva situación, comience un nuevo diálogo.",
+      chatcompletedplaceholder: "Diálogo finalizado. Inicie uno nuevo.",
       notice: {
         title: "Antes de empezar",
         p1: "Para proteger tu privacidad, no incluyas nombres, datos de contacto, números de registro u otros identificadores — no son necesarios para tu consulta.",
@@ -503,7 +502,7 @@ const translations = {
       placeholder: "Beschreiben Sie Ihre Situation…",
       send: "Senden",
       storageNotice: "Der Chat-Verlauf wird 12 Monate ab der letzten Aktivität aufbewahrt.",
-      chatcompleted: "Dieser Dialog ist abgeschlossen. Für eine neue Situation beginnen Sie einen neuen Dialog.",
+      chatcompletedplaceholder: "Dialog beendet. Starten Sie einen neuen.",
       notice: {
         title: "Bevor Sie beginnen",
         p1: "Um Ihre Privatsphäre zu schützen, geben Sie bitte keine Namen, Kontaktdaten, Registrierungsnummern oder andere Identifikatoren an — sie sind für Ihre Anfrage nicht erforderlich.",
@@ -615,7 +614,7 @@ const translations = {
       placeholder: "Descrivi la tua situazione…",
       send: "Invia",
       storageNotice: "La cronologia delle chat viene conservata per 12 mesi dall'ultima attività.",
-      chatcompleted: "Questo dialogo è concluso. Per una nuova situazione, iniziane uno nuovo.",
+      chatcompletedplaceholder: "Dialogo concluso. Iniziane uno nuovo.",
       notice: {
         title: "Prima di iniziare",
         p1: "Per proteggere la tua privacy, ti preghiamo di non menzionare nomi, recapiti, numeri di registrazione o altri identificatori — non sono necessari per la tua richiesta.",
@@ -728,7 +727,7 @@ const translations = {
       placeholder: "Beskriv din situation…",
       send: "Skicka",
       storageNotice: "Chatthistoriken sparas i 12 månader från den senaste aktiviteten.",
-      chatcompleted: "Den här dialogen är avslutad. För en ny situation, starta en ny dialog.",
+      chatcompletedplaceholder: "Dialogen är avslutad. Starta en ny.",
       notice: {
         title: "Innan du börjar",
         p1: "För att skydda din integritet, vänligen nämn inte namn, kontaktuppgifter, registreringsnummer eller andra identifierare — de är inte nödvändiga för din förfrågan.",
@@ -849,7 +848,7 @@ const translations = {
       placeholder: "Опишите вашу ситуацию…",
       send: "Отправить",
       storageNotice: "История диалогов хранится 12 месяцев с момента последней активности.",
-      chatcompleted: "Этот диалог завершён. Для новой ситуации начните новый.",
+      chatcompletedplaceholder: "Диалог завершен. Начните новый.",
       notice: {
         title: "Прежде чем начать",
         p1: "Чтобы защитить вашу приватность, пожалуйста, не указывайте имена, контактные данные, регистрационные номера и другие идентификаторы — они не являются необходимыми для вашего запроса.",
