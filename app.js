@@ -134,6 +134,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     return article;
   }
 
+  // ==== Индикатор ожидания ответа ====
+  function showTypingIndicator(container) {
+    const el = document.createElement("div");
+    el.className = "typing-indicator";
+    el.innerHTML = `
+      <span class="typing-label">Clomilu печатает</span>
+      <span class="typing-dots">
+        <span></span><span></span><span></span>
+      </span>
+    `;
+    container.appendChild(el);
+    container.scrollTop = container.scrollHeight;
+    return el;
+  }
+
   // ==== Открыть чат ====
   async function openChat(chatId) {
     const conversation = document.getElementById("app-conversation");
@@ -305,19 +320,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   const typingEl = showTypingIndicator(conversation);
 
   try {
-    const response = await fetch("https://elenazernova-jaunty-lake-8315.fly.dev/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: activeChatId,
-        user_message: text,
-        user_id: session.user.id
-      })
-    });
+  const response = await fetch("https://elenazernova-jaunty-lake-8315.fly.dev/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: activeChatId,
+      user_message: text,
+      user_id: session.user.id
+    })
+  });
 
     if (!response.ok) {
       console.error("Ошибка сервера:", await response.text());
-    }
+  }
 
     // 2. После ответа сервера читаем последнее сообщение из базы
     const { data: newMessages, error: fetchErr } = await sb
@@ -337,13 +352,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         conversation.scrollTop = conversation.scrollHeight;
       }
     }
-    } catch (error) {
-    // 4. При ошибке индикатор тоже убираем — иначе зависнет навсегда
+  } catch (error) {
     typingEl.remove();
     console.error("Не удалось связаться с сервером:", error);
-    }
+  }
 
-    return true;
+  return true;
   }
 
   // ==== Поле ввода ====
