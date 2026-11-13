@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       textarea.disabled = true;
       const lang = localStorage.getItem("clomilu-language") || "fr";
       textarea.placeholder = (typeof translations !== "undefined" && translations[lang] && translations[lang].chatcompletedplaceholder)
-        || "Диалог завершен. Начните новый.";
+        || "Dialogue terminé. Commencez-en un nouveau.";
       inputForm.querySelector(".app-send").disabled = true;
 
     } else {
