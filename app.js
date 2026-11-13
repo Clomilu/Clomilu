@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (isCompleted) {
       textarea.disabled = true;
       const lang = localStorage.getItem("clomilu-language") || "fr";
-      textarea.placeholder = (typeof translations !== "undefined" && translations[lang] && translations[lang].chatcompletedplaceholder)
+      textarea.placeholder = (typeof translations !== "undefined" && translations[lang] && translations[lang].app && translations[lang].app.chatcompletedplaceholder)
         || "Dialogue terminé. Commencez-en un nouveau.";
       inputForm.querySelector(".app-send").disabled = true;
 
