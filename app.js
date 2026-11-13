@@ -150,13 +150,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ==== Индикатор завершения диалога ====
   function showChatCompletedNotice(container) {
-  // не дублируем плашку, если она уже есть
     if (container.querySelector(".chat-completed-notice")) return;
+
+    const lang = localStorage.getItem("clomilu-language") || "fr";
+    const text = (typeof translations !== "undefined" && translations[lang] && translations[lang].chatcompleted)
+    || "Этот диалог завершён. Для новой ситуации начните новый.";
 
     const el = document.createElement("div");
     el.className = "chat-completed-notice";
-    el.setAttribute("data-i18n", "chatcompleted");
-    el.textContent = "Этот диалог завершён. Для новой ситуации начните новый.";
+    el.textContent = text;
     container.appendChild(el);
     container.scrollTop = container.scrollHeight;
   }
