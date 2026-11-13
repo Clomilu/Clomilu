@@ -102,7 +102,6 @@ const translations = {
       signOut: "Se déconnecter",
       placeholder: "Décrivez votre situation…",
       send: "Envoyer",
-      chattyping: "Clomilu écrit",
       storageNotice: "L'historique des échanges est conservé pendant 12 mois à compter de la dernière activité.",
       notice: {
         title: "Avant de commencer",
@@ -238,7 +237,6 @@ const translations = {
       signOut: "Sign out",
       placeholder: "Describe your situation…",
       send: "Send",
-      chattyping: "Clomilu is typing",
       storageNotice: "Chat history is retained for 12 months from the last activity.",
       notice: {
         title: "Before you start",
@@ -374,7 +372,6 @@ const translations = {
       signOut: "Cerrar sesión",
       placeholder: "Describe tu situación…",
       send: "Enviar",
-      chattyping: "Clomilu está escribiendo",
       storageNotice: "El historial de chats se conserva durante 12 meses desde la última actividad.",
       notice: {
         title: "Antes de empezar",
@@ -502,7 +499,6 @@ const translations = {
       signOut: "Abmelden",
       placeholder: "Beschreiben Sie Ihre Situation…",
       send: "Senden",
-      chattyping: "Clomilu schreibt",
       storageNotice: "Der Chat-Verlauf wird 12 Monate ab der letzten Aktivität aufbewahrt.",
       notice: {
         title: "Bevor Sie beginnen",
@@ -614,7 +610,6 @@ const translations = {
       settings: "Impostazioni", signOut: "Esci",
       placeholder: "Descrivi la tua situazione…",
       send: "Invia",
-      chattyping: "Clomilu sta scrivendo",
       storageNotice: "La cronologia delle chat viene conservata per 12 mesi dall'ultima attività.",
       notice: {
         title: "Prima di iniziare",
@@ -727,7 +722,6 @@ const translations = {
       signOut: "Logga ut",
       placeholder: "Beskriv din situation…",
       send: "Skicka",
-      chattyping: "Clomilu skriver",
       storageNotice: "Chatthistoriken sparas i 12 månader från den senaste aktiviteten.",
       notice: {
         title: "Innan du börjar",
@@ -848,7 +842,6 @@ const translations = {
       signOut: "Выйти",
       placeholder: "Опишите вашу ситуацию…",
       send: "Отправить",
-      chattyping: "Clomilu печатает",
       storageNotice: "История диалогов хранится 12 месяцев с момента последней активности.",
       notice: {
         title: "Прежде чем начать",
