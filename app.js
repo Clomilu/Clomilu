@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const el = document.createElement("div");
     el.className = "typing-indicator";
     el.innerHTML = `
-      <span class="typing-label">Clomilu печатает</span>
+      <span class="typing-label" data-i18n="chat.typing">Clomilu печатает</span>
       <span class="typing-dots">
         <span></span><span></span><span></span>
       </span>
