@@ -169,7 +169,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       || "Диалог завершен. Начните новый.";
       inputForm.querySelector(".app-send").disabled = true;
 
-      showChatCompletedNotice(conversation);
     } else {
       textarea.disabled = false;
       textarea.placeholder = "Décrivez votre situation…";
