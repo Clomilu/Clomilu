@@ -103,7 +103,7 @@ const translations = {
       placeholder: "Décrivez votre situation…",
       send: "Envoyer",
       storageNotice: "L'historique des échanges est conservé pendant 12 mois à compter de la dernière activité.",
-      сhatcompletedplaceholder: "Dialogue terminé. Commencez-en un nouveau.",
+      chatcompletedplaceholder: "Dialogue terminé. Commencez-en un nouveau.",
         title: "Avant de commencer",
         p1: "Pour protéger votre vie privée, veuillez ne pas mentionner de noms, coordonnées, numéros d'enregistrement ou autres identifiants — ils ne sont pas nécessaires à votre demande.",
         p2: "Clomilu vous aide à réfléchir à la <strong>situation</strong>, pas aux personnes qui y figurent. Les détails identifiants sont rarement nécessaires.",
