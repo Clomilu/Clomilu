@@ -148,6 +148,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     return el;
   }
 
+  // ==== Индикатор завершения диалога ====
+  function showChatCompletedNotice(container) {
+  // не дублируем плашку, если она уже есть
+    if (container.querySelector(".chat-completed-notice")) return;
+
+    const el = document.createElement("div");
+    el.className = "chat-completed-notice";
+    el.setAttribute("data-i18n", "chatcompleted");
+    el.textContent = "Этот диалог завершён. Для новой ситуации начните новый.";
+    container.appendChild(el);
+    container.scrollTop = container.scrollHeight;
+  }
+
   // ==== Открыть чат ====
   async function openChat(chatId) {
     const conversation = document.getElementById("app-conversation");
@@ -166,6 +179,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       textarea.disabled = true;
       textarea.placeholder = "Диалог завершен. Начните новый.";
       inputForm.querySelector(".app-send").disabled = true;
+
+      showChatCompletedNotice(conversation);
     } else {
       textarea.disabled = false;
       textarea.placeholder = "Décrivez votre situation…";
