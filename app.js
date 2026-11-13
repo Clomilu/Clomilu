@@ -148,21 +148,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     return el;
   }
 
-  // ==== Индикатор завершения диалога ====
-  function showChatCompletedNotice(container) {
-    if (container.querySelector(".chat-completed-notice")) return;
-
-    const lang = localStorage.getItem("clomilu-language") || "fr";
-    const text = (typeof translations !== "undefined" && translations[lang] && translations[lang].chatcompleted)
-    || "Этот диалог завершён. Для новой ситуации начните новый.";
-
-    const el = document.createElement("div");
-    el.className = "chat-completed-notice";
-    el.textContent = text;
-    container.appendChild(el);
-    container.scrollTop = container.scrollHeight;
-  }
-
   // ==== Открыть чат ====
   async function openChat(chatId) {
     const conversation = document.getElementById("app-conversation");
@@ -179,7 +164,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const textarea = inputForm.querySelector("textarea");
     if (isCompleted) {
       textarea.disabled = true;
-      textarea.placeholder = "Диалог завершен. Начните новый.";
+      const lang = localStorage.getItem("clomilu-language") || "fr";
+      textarea.placeholder = (typeof translations !== "undefined" && translations[lang] && translations[lang].chatcompletedplaceholder)
+      || "Диалог завершен. Начните новый.";
       inputForm.querySelector(".app-send").disabled = true;
 
       showChatCompletedNotice(conversation);
@@ -219,15 +206,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       chatsContainer.querySelectorAll(".sidebar-chat-item").forEach((el) => {
         el.classList.toggle("is-active", el.dataset.chatId === chatId);
       });
-    }
-    
-    if (isCompleted) {
-      const endNotice = document.createElement("div");
-      endNotice.style.textAlign = "center";
-      endNotice.style.color = "#888";
-      endNotice.style.marginTop = "20px";
-      endNotice.innerText = "— Диалог завершен —";
-      conversation.appendChild(endNotice);
     }
   }
 
@@ -306,12 +284,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // ==== Отправка сообщения ====
   async function sendMessage(text) {
-    const textareaCheck = document.querySelector("#app-input textarea");
-    if (textareaCheck && textareaCheck.disabled) {
-      alert("Этот диалог завершен. Пожалуйста, начните новый.");
-      return;
-    }
-
     const conversation = document.getElementById("app-conversation");
     if (conversation) {
       conversation.appendChild(renderMessage("user", text));
