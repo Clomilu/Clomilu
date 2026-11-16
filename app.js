@@ -101,21 +101,26 @@ document.addEventListener("DOMContentLoaded", async () => {
       const d = new Date(chat.updated_at || chat.created_at);
       let groupKey, groupLabel;
 
+      const lang = localStorage.getItem("clomilu-language") || "fr";
+      const t = (key) => (translations[lang] && translations[lang].app && translations[lang].app[key]) || key;
+
       if (d >= startOfWeek) {
         groupKey = "week";
-        groupLabel = "Эта неделя"; // Позже вынесем в переводы
+        groupLabel = t("historyThisWeek");
       } else if (d >= startOfMonth) {
         groupKey = "month";
-        groupLabel = "Этот месяц";
+        groupLabel = t("historyThisMonth");
       } else {
         const year = d.getFullYear();
         const month = d.getMonth();
         groupKey = `${year}-${month}`;
         
-        // Форматируем месяц и год. Пока на русском для теста.
-        // В идеале использовать Intl.DateTimeFormat с текущим языком.
-        const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-        groupLabel = `${monthNames[month]} ${year !== now.getFullYear() ? year : ''}`.trim();
+        // Название месяца через Intl (работает для всех языков)
+        const monthName = new Intl.DateTimeFormat(lang, { month: 'long' }).format(d);
+        // Делаем первую букву заглавной (в некоторых языках Intl возвращает строчными)
+        const capitalizedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+        
+        groupLabel = `${capitalizedMonth} ${year !== now.getFullYear() ? year : ''}`.trim();
       }
 
       if (!groupMap[groupKey]) {
