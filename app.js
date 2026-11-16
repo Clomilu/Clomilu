@@ -41,6 +41,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     updateActiveLanguage(event.detail.lang);
   });
 
+  // Перерисовываем историю при смене языка (заголовки групп и названия месяцев)
+  document.addEventListener("clomilu-language-changed", () => {
+  reloadChats();
+  });
+
   // ==== SignOut ====
   const signoutBtn =
     document.getElementById("app-signout") ||
