@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         btnExport.style.opacity = "0.5";
         btnExport.style.pointerEvents = "none";
 
-        const url = `https://elenazernova-jaunty-lake-8315.fly.dev/api/chat/${activeChatId}/export?user_id=${session.user.id}`;
+              const lang = localStorage.getItem("clomilu-language") || "fr";
+      const url = `https://elenazernova-jaunty-lake-8315.fly.dev/api/chat/${activeChatId}/export?user_id=${session.user.id}&lang=${lang}`;
         const response = await fetch(url);
 
         if (!response.ok) throw new Error("Ошибка сервера");
