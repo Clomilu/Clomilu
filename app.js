@@ -84,30 +84,85 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    const list = document.createElement("div");
-    list.className = "sidebar-chat-list";
+        // --- НАЧАЛО ГРУППИРОВКИ ---
+    const now = new Date();
+    const startOfWeek = new Date(now);
+    // Отнимаем дни, чтобы дойти до понедельника. getDay() возвращает 0 для воскресенья.
+    const dayOfWeek = now.getDay() === 0 ? 7 : now.getDay();
+    startOfWeek.setDate(now.getDate() - dayOfWeek + 1);
+    startOfWeek.setHours(0, 0, 0, 0);
 
-    chats.forEach((chat) => {
-      const item = document.createElement("a");
-      item.href = "app.html?chat=" + chat.id;
-      item.className = "sidebar-chat-item";
-      item.dataset.chatId = chat.id;
-      if (chat.status === "completed") item.classList.add("is-completed");
-      if (chat.id === activeChatId) item.classList.add("is-active");
-      item.textContent = chat.title || "Sans titre";
+    const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
 
-      item.addEventListener("click", (e) => {
-        const conversationEl = document.getElementById("app-conversation");
-        if (conversationEl) {
-          e.preventDefault();
-          openChat(chat.id);
-        }
-      });
-      
-      list.appendChild(item);
+    const groups = [];
+    const groupMap = {};
+
+    chats.forEach(chat => {
+      const d = new Date(chat.updated_at || chat.created_at);
+      let groupKey, groupLabel;
+
+      if (d >= startOfWeek) {
+        groupKey = "week";
+        groupLabel = "Эта неделя"; // Позже вынесем в переводы
+      } else if (d >= startOfMonth) {
+        groupKey = "month";
+        groupLabel = "Этот месяц";
+      } else {
+        const year = d.getFullYear();
+        const month = d.getMonth();
+        groupKey = `${year}-${month}`;
+        
+        // Форматируем месяц и год. Пока на русском для теста.
+        // В идеале использовать Intl.DateTimeFormat с текущим языком.
+        const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+        groupLabel = `${monthNames[month]} ${year !== now.getFullYear() ? year : ''}`.trim();
+      }
+
+      if (!groupMap[groupKey]) {
+        groupMap[groupKey] = { label: groupLabel, chats: [] };
+        groups.push(groupMap[groupKey]);
+      }
+      groupMap[groupKey].chats.push(chat);
     });
 
-    chatsContainer.appendChild(list);
+    // Рисуем только если групп больше 1, либо если группа одна, но в ней > 1 чата
+    const shouldShowLabels = groups.length > 1 || (groups.length === 1 && groups[0].chats.length > 1);
+
+    groups.forEach(group => {
+      if (shouldShowLabels) {
+        const groupTitle = document.createElement("p");
+        groupTitle.className = "sidebar-section-title";
+        groupTitle.style.marginTop = "16px"; // Чуть отступаем от предыдущей группы
+        groupTitle.textContent = group.label;
+        chatsContainer.appendChild(groupTitle);
+      }
+
+      const list = document.createElement("div");
+      list.className = "sidebar-chat-list";
+
+      group.chats.forEach((chat) => {
+        const item = document.createElement("a");
+        item.href = "app.html?chat=" + chat.id;
+        item.className = "sidebar-chat-item";
+        item.dataset.chatId = chat.id;
+        if (chat.status === "completed") item.classList.add("is-completed");
+        if (chat.id === activeChatId) item.classList.add("is-active");
+        item.textContent = chat.title || "Sans titre";
+
+        item.addEventListener("click", (e) => {
+          const conversationEl = document.getElementById("app-conversation");
+          if (conversationEl) {
+            e.preventDefault();
+            openChat(chat.id);
+          }
+        });
+        
+        list.appendChild(item);
+      });
+
+      chatsContainer.appendChild(list);
+    });
+    // --- КОНЕЦ ГРУППИРОВКИ ---
   }
 
   // ==== Рендер одного сообщения ====
