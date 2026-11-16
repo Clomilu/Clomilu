@@ -1583,3 +1583,38 @@ footer{
 .app-storage-notice a:hover {
   color: var(--forest); /* При наведении становится основным цветом */
 }
+
+/* Контейнер сообщений должен быть точкой отсчета для кнопок */
+#app-conversation {
+  position: relative;
+}
+
+/* Блок с кнопками */
+.chat-actions {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+/* Стили самой кнопки */
+.chat-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chat-action-btn:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
