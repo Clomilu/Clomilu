@@ -175,6 +175,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     // --- КОНЕЦ ГРУППИРОВКИ ---
   }
 
+    function updateChatActionsVisibility(hasMessages) {
+    const actions = document.getElementById("chat-actions");
+    if (!actions) return;
+
+    if (activeChatId && hasMessages) {
+      actions.removeAttribute("hidden");
+    } else {
+      actions.setAttribute("hidden", "true");
+    }
+  }
+
   // ==== Рендер одного сообщения ====
   function renderMessage(role, content) {
     const article = document.createElement("article");
@@ -260,6 +271,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     (messages || []).forEach((msg) => {
       conversation.appendChild(renderMessage(msg.role, msg.content));
     });
+
+        // Показываем кнопки, если в чате есть сообщения
+    updateChatActionsVisibility((messages || []).length > 0);
     
     setTimeout(() => {
       conversation.scrollTop = conversation.scrollHeight;
@@ -284,6 +298,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         el.remove();
       });
     }
+        // При создании нового чата кнопки скрыты
+    updateChatActionsVisibility(false);
 
     if (chatsContainer) {
       chatsContainer.querySelectorAll(".sidebar-chat-item").forEach((el) => {
