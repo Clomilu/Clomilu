@@ -118,7 +118,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const { data: chats, error } = await sb
       .from("chats")
-      .select("id, title, status, created_at, updated_at, completed_at")
+      .select("id, title, status, created_at, updated_at, completed_at, hidden_at")
+      .is("hidden_at", null)
       .order("updated_at", { ascending: false });
 
     if (error) {
