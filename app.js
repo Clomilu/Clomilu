@@ -68,7 +68,9 @@ if (btnHide) {
     if (!activeChatId || !session || !session.user) return;
 
     // Простое подтверждение (без нагнетания, как договаривались)
-    const confirmMsg = "Скрыть этот диалог из истории? Он больше не будет отображаться, но данные сохранятся в соответствии с политикой хранения.";
+    const lang = localStorage.getItem("clomilu-language") || "fr";
+    const confirmMsg = (typeof translations !== "undefined" && translations[lang] && translations[lang].app && translations[lang].app.hideConfirm)
+    || "Скрыть этот диалог из истории? Он больше не будет отображаться...";
     if (!confirm(confirmMsg)) return;
 
     try {
