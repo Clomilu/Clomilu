@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!chatsContainer) return;
 
     chatsContainer
-      .querySelectorAll(".sidebar-chat-list, .sidebar-empty")
+      .querySelectorAll(".sidebar-chat-list, .sidebar-empty, .sidebar-section-title")
       .forEach((el) => el.remove());
 
     const { data: chats, error } = await sb
