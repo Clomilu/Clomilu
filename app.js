@@ -61,6 +61,51 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  // ==== Скрытие диалога из истории ====
+const btnHide = document.getElementById("btn-hide");
+if (btnHide) {
+  btnHide.addEventListener("click", async () => {
+    if (!activeChatId || !session || !session.user) return;
+
+    // Простое подтверждение (без нагнетания, как договаривались)
+    const confirmMsg = "Скрыть этот диалог из истории? Он больше не будет отображаться, но данные сохранятся в соответствии с политикой хранения.";
+    if (!confirm(confirmMsg)) return;
+
+    try {
+      // Блокируем кнопку на время запроса
+      btnHide.style.opacity = "0.5";
+      btnHide.style.pointerEvents = "none";
+
+      const url = `https://elenazernova-jaunty-lake-8315.fly.dev/api/chat/${activeChatId}/hide?user_id=${session.user.id}`;
+      const response = await fetch(url, { method: "POST" });
+      
+      if (!response.ok) throw new Error("Ошибка сервера");
+      const data = await response.json();
+      
+      if (data.status === "ok") {
+        // Убираем чат из сайдбара без перезагрузки страницы
+        const chatItem = document.querySelector(`.sidebar-chat-item[data-chat-id="${activeChatId}"]`);
+        if (chatItem) chatItem.remove();
+
+        // Сбрасываем состояние на "новый чат"
+        startNewChat(); 
+        
+        // Перезагружаем историю, чтобы обновить группы (если группа стала пустой — она исчезнет)
+        await reloadChats();
+      } else {
+        alert("Не удалось скрыть диалог.");
+      }
+    } catch (error) {
+      console.error("Ошибка скрытия:", error);
+      alert("Не удалось скрыть диалог. Попробуйте ещё раз.");
+    } finally {
+      // Возвращаем кнопку в строй
+      btnHide.style.opacity = "1";
+      btnHide.style.pointerEvents = "auto";
+    }
+  });
+}
+
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
   if (emailEl && session.user && session.user.email) {
