@@ -42,6 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
       if (value !== undefined) element.setAttribute("placeholder", value);
     });
 
+    // Всплывающие подсказки (title) для кнопок
+    document.querySelectorAll("[data-i18n-title]").forEach((element) => {
+      const value = getValue(translations[lang], element.dataset.i18nTitle);
+      if (value !== undefined) element.setAttribute("title", value);
+    });
+
     // Переключатель языка — только если он есть на странице
     if (currentButton) {
       currentButton.textContent = lang.toUpperCase();
