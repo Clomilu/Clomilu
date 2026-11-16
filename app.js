@@ -15,6 +15,52 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ==== Текущий активный чат ====
   let activeChatId = null;
 
+  // ==== Скачивание диалога ====
+  const btnExport = document.getElementById("btn-export");
+  if (btnExport) {
+    btnExport.addEventListener("click", async () => {
+      if (!activeChatId || !session || !session.user) return;
+
+      try {
+      // Меняем иконку на "загрузка" (опционально, можно просто текст)
+        btnExport.style.opacity = "0.5";
+        btnExport.style.pointerEvents = "none";
+
+        const url = `https://elenazernova-jaunty-lake-8315.fly.dev/api/chat/${activeChatId}/export?user_id=${session.user.id}`;
+        const response = await fetch(url);
+
+        if (!response.ok) throw new Error("Ошибка сервера");
+
+        const htmlText = await response.text();
+
+      // Создаём файл
+        const blob = new Blob([htmlText], { type: "text/html;charset=utf-8" });
+        const downloadUrl = URL.createObjectURL(blob);
+      
+      // Формируем имя файла: дата + ID чата (чтобы не было дублей)
+        const date = new Date().toISOString().slice(0, 10);
+        const filename = `clomilu-dialog-${date}-${activeChatId.slice(0, 4)}.html`;
+
+      // Инициируем скачивание
+        const a = document.createElement("a");
+        a.href = downloadUrl;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(downloadUrl);
+
+      } catch (error) {
+        console.error("Ошибка скачивания:", error);
+        alert("Не удалось скачать диалог. Попробуйте ещё раз.");
+      } finally {
+      // Возвращаем иконку
+        btnExport.style.opacity = "1";
+        btnExport.style.pointerEvents = "auto";
+      }
+    });
+  }
+
   // ==== Показ email на /settings ====
   const emailEl = document.getElementById("settings-email");
   if (emailEl && session.user && session.user.email) {
