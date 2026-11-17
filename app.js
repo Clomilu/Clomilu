@@ -487,6 +487,10 @@ if (btnHide) {
       const { error } = await sb
         .from("messages")
         .insert({ chat_id: activeChatId, role: "user", content: text });
+        // Сразу обновляем историю, чтобы новый чат появился в сайдбаре
+    if (typeof reloadChats === "function") {
+      await reloadChats();
+    }
 
       if (error) {
         console.error("Ошибка записи сообщения:", error);
