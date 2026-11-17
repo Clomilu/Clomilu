@@ -454,20 +454,6 @@ if (btnHide) {
       .update({ title })
       .eq("id", newChat.id);
 
-        // Запускаем генерацию названия в фоне (не ждём результат)
-    const lang = localStorage.getItem("clomilu-language") || "fr";
-    fetch(`https://elenazernova-jaunty-lake-8315.fly.dev/api/chat/${newChat.id}/generate-title?user_id=${session.user.id}&lang=${lang}`, {
-      method: "POST"
-    })
-    .then(res => res.json())
-    .then(data => {
-      if (data.status === "ok" && data.title) {
-        // Обновляем сайдбар, чтобы новое название появилось
-        if (typeof reloadChats === "function") reloadChats();
-      }
-    })
-    .catch(err => console.error("Ошибка генерации названия:", err));
-
     activeChatId = newChat.id;
     return newChat.id;
   }
@@ -537,6 +523,21 @@ if (btnHide) {
   } catch (error) {
     typingEl.remove();
     console.error("Не удалось связаться с сервером:", error);
+  }
+
+  // ==== Генерация названия (в фоне, после того как ответ получен) ====
+  if (activeChatId) {
+    const lang = localStorage.getItem("clomilu-language") || "fr";
+    fetch(`https://elenazernova-jaunty-lake-8315.fly.dev/api/chat/${activeChatId}/generate-title?user_id=${session.user.id}&lang=${lang}`, {
+      method: "POST"
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "ok" && data.title) {
+        if (typeof reloadChats === "function") reloadChats();
+      }
+    })
+    .catch(err => console.error("Ошибка генерации названия:", err));
   }
 
   return true;
