@@ -441,10 +441,11 @@ if (btnHide) {
       return null;
     }
 
-    let title = text.slice(0, 40);
-    if (text.length > 40) {
+        // Фолбэк: 30 символов, обрезаем по последнему пробелу
+    let title = text.slice(0, 30);
+    if (text.length > 30) {
       const lastSpace = title.lastIndexOf(" ");
-      if (lastSpace > 20) title = title.slice(0, lastSpace);
+      if (lastSpace > 15) title = title.slice(0, lastSpace);
       title += "…";
     }
 
@@ -452,6 +453,20 @@ if (btnHide) {
       .from("chats")
       .update({ title })
       .eq("id", newChat.id);
+
+        // Запускаем генерацию названия в фоне (не ждём результат)
+    const lang = localStorage.getItem("clomilu-language") || "fr";
+    fetch(`https://elenazernova-jaunty-lake-8315.fly.dev/api/chat/${newChat.id}/generate-title?user_id=${session.user.id}&lang=${lang}`, {
+      method: "POST"
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "ok" && data.title) {
+        // Обновляем сайдбар, чтобы новое название появилось
+        if (typeof reloadChats === "function") reloadChats();
+      }
+    })
+    .catch(err => console.error("Ошибка генерации названия:", err));
 
     activeChatId = newChat.id;
     return newChat.id;
